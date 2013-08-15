@@ -14,6 +14,7 @@
 #import "EnrollmentViewController.h"
 
  
+ 
 // Find the apple docs documentation here: http://gentlebytes.com/appledoc-docs-comments/
 
 /**
@@ -98,7 +99,7 @@
 /** 
  The MokiManage SDK is designed to help developers leverage the MokiManage Platform within their own applications
  
- ### Regstration ###
+ ### Registration ###
  
  Registration methods are used to manage the connection of devices to the MokiManage platform.
  
@@ -163,7 +164,7 @@
  
  @return Returns The MokiManage shared instance
  */
-- (id)initializeWithApiKey:(NSString *)key launchingOptions:(NSDictionary *)options enableASM:(BOOL)enableASM enableAEM:(BOOL)enableAEM asmSettingsFileName:(NSString *)fileName error:(NSError **)error;
+- (void)initializeWithApiKey:(NSString *)key launchingOptions:(NSDictionary *)options enableASM:(BOOL)enableASM enableAEM:(BOOL)enableAEM asmSettingsFileName:(NSString *)fileName error:(NSError **)error;
 
 /** Returns your Moki Manage API Key
  
@@ -302,6 +303,15 @@
  @return The dictionary of asm settings schema
  */
 - (NSDictionary *)schema;
+
+/** Sets and saves an asm setting
+ 
+ Calling setObject:forKey: will set the value and then push the changes to the server.
+ 
+ @param object The object to be saved for the key
+ @param key The key that will be used to reference the setting, must exist in the asm settings schema
+ */
+- (void)setObject:(id)object forKey:(NSString *)key;
 
 /** Saves a dictionary of asm settings
  
@@ -553,6 +563,7 @@
  */
 - (NSArray *)connectedPeripherals;
 
+ 
  
 
 @end
