@@ -1,1 +1,1 @@
-mvn install:install-file -DcreateChecksum=true -Dfile=MokiManageSDK-Android.jar -DgroupId=com.moki.manage -DartifactId=MokiManageSDK -Dversion=1.0.0 -Dpackaging=jar -DlocalRepositoryPath=.
+mvn install:install-file -DlocalRepositoryPath=. -DupdateReleaseInfo=true -DgeneratePom=false -DcreateChecksum=true -Dfile=com/moki/manage/MokiManageSDK/1.0.0-beta.2/MokiManageSDK-1.0.0-beta.2.jar -DpomFile=com/moki/manage/MokiManageSDK/1.0.0-beta.2/pom.xml
