@@ -15,7 +15,7 @@ In your `pom.xml` file be sure to add our repository as well as our SDK as a dep
   <dependency>
     <groupId>com.moki.manage</groupId>
     <artifactId>MokiManageSDK</artifactId>
-    <version>1.0.0-rc1</version>
+    <version>1.0.0</version>
   </dependency>
 ...
 ```
@@ -33,7 +33,7 @@ repositories {
 }
 ...
 dependencies {
-    compile "com.moki.manage:MokiManageSDK:1.0.0-rc1"
+    compile "com.moki.manage:MokiManageSDK:1.0.0"
 }
 ...
 ```
@@ -56,13 +56,13 @@ And then in your `ivy.xml` file add our SDK as a dependency
 ```
 ...
     <dependencies>
-        <dependency org="com.moki.manage" name="MokiManageSDK" rev="1.0.0-rc1"/>
+        <dependency org="com.moki.manage" name="MokiManageSDK" rev="1.0.0"/>
     </dependencies>
 ...
 ```
 
 Manual Usage
 ------------
-If you need to manually manage your build process and dependencies you can download our SDK jar directly: [MokiManageSDK-1.0.0-rc1](https://raw.github.com/MokiMobility/MokiManageSDK/android/com/moki/manage/MokiManageSDK/1.0.0-rc1/MokiManageSDK-1.0.0-rc1.jar)
+If you need to manually manage your build process and dependencies you can download our SDK jar directly: [MokiManageSDK-1.0.0](https://raw.github.com/MokiMobility/MokiManageSDK/android/com/moki/manage/MokiManageSDK/1.0.0/MokiManageSDK-1.0.0.jar)
 You will also need to include a dependency:
 * [gson-2.2.2](http://repo1.maven.org/maven2/com/google/code/gson/gson/2.2.2/gson-2.2.2.jar)
