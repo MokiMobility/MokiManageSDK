@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>{{ page.title }}</title>
+        <meta name="viewport" content="width=device-width">
+
+        <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="{{ site.baseurl}}/css/main.css">
+
+    </head>
+    <body>
+
+            <div class="header affix">
+                <div class="container">
+                    <a href="http://staging.mokimobility.com"><img src="http://staging.mokimobility.com/wp-content/themes/moki-MM-v3/images/documentation_logo.png" alt="MokiMobility Logo" width="120" height="48" border="0" class="display-block"></a>
+                    </div>
+                </div><!-- /header -->
+            <div class="sub header affix">
+                <div class="container">
+                    <h1>{{page.site_section_title}}</h1>
+                </div>
+            </div> <!-- /sub header -->
+        
+        
+        <div class="container under-two-heads padding-top-three">
+            {{ content }}
+        </div> 
+        
+ 
+
+            <div class="footer">
+              <!-- Foot Clan -->
+            </div>
+
+
+         <script src="//code.jquery.com/jquery.min.js"></script>
+        <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+
+        <script type="text/javascript" src="//use.typekit.net/qgy4ulh.js"></script>
+        <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+        <script type="text/javascript">
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-28330141-6']);
+            _gaq.push(['_trackPageview']);
+
+            (function() {
+                var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+                ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+            })();
+        </script>
+        <script type="text/javascript">
+            $.ajax({
+                url: document.location.protocol + '//munchkin.marketo.net/munchkin.js',
+                dataType: 'script',
+                cache: true,
+                success: function() {
+                    Munchkin.init('921-OYU-441');
+                }
+            });
+        </script>
+	</body>
+</html>
+
