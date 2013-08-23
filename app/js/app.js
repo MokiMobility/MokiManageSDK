@@ -1,6 +1,7 @@
 var app = angular.module('app', [], ['$routeProvider', function($routeProvider){
     $routeProvider.when('/', {
-        templateUrl: '/app/partials/home.html'
+        templateUrl: '/app/partials/home.html',
+        controller: 'HomeController'
     });
 
 }]);
