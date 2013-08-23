@@ -33,8 +33,7 @@ h1 {
 }
 
 body {
-    background-repeat: repeat-x;
-    background-image: url(../img/background.png);
+    background: url(../img/background.png) repeat-x fixed bottom;
 }
 
 
