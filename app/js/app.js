@@ -12,12 +12,12 @@ var app = angular.module('app', ['ngCookies'])
         controller: 'HomeController'
     })
     
-    .when('/quickstart/android', {
-        templateUrl: 'app/partials/quickstart/android.html'
-    })
     
-    .when('/quickstart/ios', {
-        templateUrl: 'app/partials/quickstart/ios.html'
+    .when('/quickstart/apple', {
+        templateUrl: 'app/partials/quickstart.html'
+    })
+    .when('/quickstart/android', {
+        templateUrl: 'app/partials/quickstart.html'
     })
     
     .when('/aem', {
