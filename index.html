@@ -68,10 +68,10 @@
             </div>
         </div>
 		<div class="row">
-			<div class="col-md-2">
+			<div class="col-md-offset-3 col-md-9">
 				<ul class="pagination">
-				  <li><a href="#">&laquo;</a></li>
-				  <li><a href="#">&raquo;</a></li>
+				  <li ng-show="$route.current.link.prev"><a href="#{{ $route.current.link.prev }}">&laquo; {{ $route.current.link.prevText }}</a></li>
+				  <li ng-show="$route.current.link.next"><a href="#{{ $route.current.link.next }}">&raquo; {{ $route.current.link.nextText }}</a></li>
 				</ul>
 			</div>
 		</div>

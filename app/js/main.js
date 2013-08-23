@@ -1,7 +1,7 @@
-app.controller('MainController', function($scope, $routeParams) {
+app.controller('MainController', function($scope, $route) {
 
 
-    $scope.$routeParams = $routeParams;
+    $scope.$route = $route;
     $scope.$on('$routeChangeSuccess', function (scope, next, current) {
 
         if (!next)
