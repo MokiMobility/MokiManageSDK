@@ -4,4 +4,8 @@ var app = angular.module('app', [], ['$routeProvider', function($routeProvider){
         controller: 'HomeController'
     });
 
+    $routeProvider.when('/aem', {
+        templateUrl: '/app/partials/aem/aem-setup.html'
+    });
+
 }]);
