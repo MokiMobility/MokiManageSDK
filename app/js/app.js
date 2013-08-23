@@ -44,7 +44,9 @@ var app = angular.module('app', ['ngCookies'])
 
 .run(function($rootScope, $location) {
     $rootScope.$on('$routeChangeSuccess', function () {
+        // $('ul.nav.bs-sidenav > li ul').hide(); // this `hide` and the `show` below is start to a simple, contextual sub menu feature
         $('.nav-selected').removeClass('nav-selected');
         $('.nav.bs-sidenav a[href="#'+$location.path()+'"]').addClass('nav-selected')
+        // $('.nav-selected + ul').show();
     })
 });
