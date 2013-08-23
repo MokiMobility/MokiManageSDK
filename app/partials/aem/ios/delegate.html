@@ -1,0 +1,4 @@
+<p>You need to update your app delegate to work with MokiManage and APNs. First, add the <code>MokiManage.h</code> header to your app delegate header file:</p>
+    <p>Also, add the MokiManage protocol to your delegate:</p>
+       <p>In your <code>AppDelegate.m</code> file, add a declaration for your API key and tenant ID:</p>
+        <p>Initiate the session with the MokiManage SDK from your app delegate’s <code>didFinishLaunchingWithOptions:</code> method, calling the <code>initializeWithApiKey:</code> method. You’re not currently using ASM, so set that to NO. If you are planning on using ASM this will change to YES and <code>asmSettingsFileName</code> will also change. Also set your app delegate to the MokiManage shared instance:</p>
