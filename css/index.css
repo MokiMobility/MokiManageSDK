@@ -32,6 +32,10 @@ h1 {
     margin: 10px 0;
 }
 
+.nav-selected {
+    background-color:#EEE;
+}
+
 body {
     background: url(../img/background.png) repeat-x fixed bottom;
 }
