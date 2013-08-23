@@ -15,13 +15,15 @@
 
         <script src="app/js/app.js"></script>
         <script src="app/js/home.js"></script>
+        <script src="app/js/main.js"></script>
+
 
 
 
 
 
     </head>
-	<body>
+	<body ng-controller="MainController">
         <nav class="navbar" role="navigation">
             <div class="container">
                 <!-- Brand and toggle get grouped for better mobile display -->
@@ -34,14 +36,17 @@
 
         <div class="container margin-eighty">
             <div class="row">
-                <div class="col-md-3">
+                <div ng-show="" class="col-md-3">
                     <ul class="nav bs-sidenav">
-                        <li></li>
+                        <li>test</li>
+                        <li>test</li>
+                        <li>test</li>
 
                     </ul>
                 </div>
+                <div ng-view></div>
             </div>
-            <div ng-view></div>
+
         </div>
 
 
