@@ -1,4 +1,4 @@
-var app = angular.module('app', [], ['$routeProvider', function($routeProvider){
+var app = angular.module('app', ['ngCookies'], ['$routeProvider', function($routeProvider){
     $routeProvider.when('/', {
         templateUrl: 'app/partials/home.html',
         controller: 'HomeController'

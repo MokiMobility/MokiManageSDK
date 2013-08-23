@@ -12,11 +12,13 @@
 
     <script src="//code.jquery.com/jquery.min.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular-cookies.min.js"></script>
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
 
     <script src="app/js/app.js"></script>
     <script src="app/js/home.js"></script>
     <script src="app/js/main.js"></script>
+    <script src="app/js/directives.js"></script>
 
 
 </head>
@@ -96,7 +98,9 @@
                 </ul>
             </div>
             <div class="col-md-9">
+
                 <div ng-view></div>
+                                
             </div>
         </div>
 		<div class="row">
