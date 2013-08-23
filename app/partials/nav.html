@@ -1,19 +1,17 @@
+<div class="context-switcher"></div>
 <ul class="nav bs-sidenav">
                     <li>
-                        <a href="#/quickstart/android"><i class="icon-android"></i> Android Quickstart</a>
+                        <a href="#/quickstart/android" ng-click="$root.context='android'"><i class="icon-android"></i> Android Quickstart</a>
                     </li>
     
                     <li>
-                        <a href="#/quickstart/ios"><i class="icon-apple"></i> iOS Quickstart</a>
+                        <a href="#/quickstart/apple" ng-click="$root.context='apple'"><i class="icon-apple"></i> iOS Quickstart</a>
                     </li>
                     <li>
                         <a href="#/aem">AEM</a>
                     
-                        <ul>
-                            <li>
-                                <a>iOS</a>
-                           
-                            <ul>
+                        <ul  context-show="apple">
+                                
                                 <li>
                                     <a>Setup APNS</a>
                                 </li>
@@ -26,12 +24,10 @@
                                 <li>
                                     <a>Verify AEM</a>
                                 </li>
-                            </ul>
-                                 </li>
-                            <li>
-                                <a>Android</a>
+                            </ul> <!-- end apple context -->
+                        
+                            <ul context-show="android">
                             
-                            <ul>
                                 <li>
                                     <a>MokiManage SDK in Eclipse</a>
                                 </li>
@@ -50,11 +46,10 @@
                                 <li>
                                     <a>Verify AEM</a>
                                 </li>
-                            </ul>
-                                </li>
+                            </ul> <!-- end Android context -->
                         
-                    </ul>
-                        </li>
+                        </li> <!-- end AEM -->
+            
                     <li>
                         <a>ASM</a>
                     </li>
