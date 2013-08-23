@@ -5,7 +5,11 @@ var app = angular.module('app', [], ['$routeProvider', function($routeProvider){
     });
 
     $routeProvider.when('/aem', {
-        templateUrl: '/app/partials/aem/aem-intro.html'
+        templateUrl: '/app/partials/aem/aem-intro.html',
+        link: {
+            prev: false,
+            next: ''
+        }
     });
 
 }]);
