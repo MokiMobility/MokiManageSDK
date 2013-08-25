@@ -1,0 +1,78 @@
+<h1>Working with iOS Settings</h1>
+			</div>
+		</div>
+	</div>					<div id="content-MM-support">
+<div class="content bkgd-white">
+<div class="row padding-top-three">
+<div class="column1 support-menu-fixed">
+<h2 class="quickstart">MokiManage<br />Integration</h2>
+<div class="row bkgd-gray rounded margin-top-two margin-bottom-two">&nbsp;</div>
+</div>
+<div class="column3 span1">
+<a id="introduction"></a>
+<h2 class="quickstart typeBlue">Working with iOS Settings</h2>
+
+<p>When your settings schema works, and your app delegate is working with MokiManage.com, you’re ready to start working with settings. Any view controllers that need to access the MokiManage object can do so by accessing the object in the app delegate.</p>
+
+<p>The following MokiManage object methods allow your app to initiate getting and changing settings:</p>
+<pre style="background-color: #f0f0f0;"><code>— settings
+— pullSettings
+— saveSettings:
+</code></pre>
+
+<p>The following MokiManageDelegate methods notifies you when the action has completed:</p>
+<pre style="background-color: #f0f0f0;"><code>— finishedPullingSettings:
+— finishedPushingSettings:
+</code></pre>
+
+<p>There’s also a call to notify the app delegate when the user has finished editing settings:</p>
+<pre style="background-color: #f0f0f0;"><code>- finishedEditingSettings:
+</code></pre>
+
+<p>By combing the object and delegate methods, you can get and change settings for your app. You can retrieve all of your settings from the MokiManage object with the method:</p>
+
+<pre style="background-color: #f0f0f0;"><code>- (NSDictionary *)settings;
+</code></pre>
+
+<p>This method simply returns the entire settings dictionary from the MokiManage object. To get settings from the server, you need to initiate a pull with the <code>pullSettings</code> method, and then monitor the delegate methods.</p>
+
+<p>Assuming the MokiManage object has already pulled settings, settings returns a dictionary representing your settings. You could assign a pointer to these settings, as follows:</p>
+
+<pre style="background-color: #f0f0f0;"><code>    self.settingsD = [[MokiManage sharedManager] settings];
+</code></pre>
+
+<p>This dictionary has two keys. The Version key returns the version of your schema. You can use this to see if MokiManage is using the latest changes in your <code>SettingsSchema.json</code> file. The Values key returns the set of values, so getting to your settings would look like this:</p>
+
+<pre style="background-color: #f0f0f0;"><code>    NSDictionary *valsD = [self.settingsD valueForKey:@"Values"];
+</code></pre>
+
+<p>The key-value pairs in this dictionary will match the keys in your schema. For example, the dictionary tied to our Control Examples <code>SettingsSchema.json</code> file would have the keys: <code>adminPassword</code>, <code>ProgressIndicator</code>, <code>duration</code>, <code>cache_key</code>, <code>mmasm_playlist_screensaver</code>, and <code>content</code>. Use the key you defined in your SettingsSchema file to access individual settings. Arrays in the JSON settings file are represented as arrays in Objective C as well, so getting the list of announcements would be done with the following line of code:</p>
+
+<pre style="background-color: #f0f0f0;"><code>    NSArray *announcmentsA = [valsD valueForKey:@"announcements"];
+</code></pre>
+
+<p>This is an array of dictionaries, with each dictionary representing the settings declared in the list’s ItemTemplate array. The key for each entry is the same as the key for each setting declared.</p>
+
+<p>What you do with these settings depends on your app’s functionality.</p>
+
+<p>You can skip the previous steps and retrieve individual values with these <code>_type_ForKey</code> methods:</p>
+<pre style="background-color: #f0f0f0;"><code>- arrayForKey:
+- boolForKey:
+- dataForKey:
+- doubleForKey:
+- dictionaryForKey:
+- floatForKey:
+- integerForKey:
+- objectForKey:
+- stringForKey:
+- URLForKey:
+</code></pre>
+
+<h4 class="quickstart typeBlue">Handling Settings Updates</h4>
+<p>The following delegate method will notify you that settings have been updated.</p>
+<pre style="background-color: #f0f0f0;">
+<code>- (void)finishedPullingSettings:(NSDictionary *)settings WithError:(NSError *)error;
+</code></pre>
+
+<p>To notify any view controllers of the settings update, you can post a notification when this method is called. Your view controllers can call add themselves as observers, and have the related methods call the settings method to retrieve the new settings.</p>
+<p>Click to see a full list of <a href="http://mokicloud.com/docs/sdk-ios-dev/Protocols/MokiManageDelegate.html" target="_blank">Object Methods.</a></p>

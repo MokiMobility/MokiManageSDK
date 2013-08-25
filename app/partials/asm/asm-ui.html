@@ -1,0 +1,23 @@
+<h2 class="quickstart typeBlue">Presenting the iOS Settings UI</h2>
+
+<p> Your app can present a view to allow the operator to change the app’s settings on the device or remotely via MokiManage.com. The library automatically generates this interface at your app’s request.</p>
+
+<p>It’s up to you how you present the option of displaying the app’s settings. You may have a secret gesture, like tapping seven fingers on the screen concurrently, or present a settings control somewhere in your app.</p>
+
+<p>To bring up the settings controller and view hierarchy, from your view controller, use the method <code>displaySettingsView</code>, providing your app delegate as a parameter.</p>
+<pre style="background-color: #f0f0f0;"><code>    [[MokiManage sharedManager] displaySettingsView:[[UIApplication sharedApplication] delegate]];
+</code></pre>
+
+<p>For this to work, your app delegate needs to add the call</p>
+<pre style="background-color: #f0f0f0;"><code>- (void)setupViewControllers{
+    [EnrollmentViewController class];
+    [MasterViewController class];
+    [DetailViewController class];
+}
+</code></pre>
+<p>This call doesn&#8217;t do anything, but needs to be present so the compiler can detect the use of the system.</p>
+<p>When the operator is done using the settings, control will return to the location where you invoked the method. There&#8217;s a delegate method that informs your app delegate when control returns back to your app:</p>
+<pre style="background-color: #f0f0f0;"><code>-(void)finishedEditingSettings{
+
+}
+</code></pre>

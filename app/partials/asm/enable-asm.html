@@ -1,0 +1,27 @@
+<h1>Enabling ASM in the App Delegate</h1>
+			</div>
+		</div>
+	</div>					<div id="content-MM-support">
+<div class="content bkgd-white">
+<div class="row padding-top-three">
+<div class="column1 support-menu-fixed">
+<h2 class="quickstart">MokiManage<br />Integration</h2>
+<div class="row bkgd-gray rounded margin-top-two margin-bottom-two">&nbsp;</div>
+</div>
+<div class="column3 span1">
+<a id="introduction"></a>
+<h2 class="quickstart typeBlue">Enabling ASM in the App Delegate</h2>
+<p>In the guide, &#8220;<a href="http://staging.mokimobility.com/sdk-guides/setting-up-your-app-delegate/" target="_blank">Setting up Your App Delegate</a>&#8221; we told you to initiate the session with the MokiManage SDK from your app delegate’s <code>didFinishLaunchingWithOptions:</code> method, calling the <code>initializeWithApiKey:</code> method. Because you are now ready to implement ASM, change the <code>enableASM:</code> to YES. Also change <code>asmSettingsFileName</code> to </p>
+
+
+<pre><code>    NSError *error;
+
+    [[MokiManage sharedManager] initializeWithApiKey:API_KEY
+                                    launchingOptions:launchOptions
+                                           enableASM:YES
+                                           enableAEM:YES
+                                 asmSettingsFileName:nil
+                                               error:&amp;error];
+
+    [[MokiManage sharedManager] setDelegate:self];
+</code></pre>

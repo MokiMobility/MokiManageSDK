@@ -37,7 +37,39 @@ var app = angular.module('app', ['ngCookies'])
             next: ''
         }
     })
-    
+
+    .when('/asm', {
+        templateUrl: 'app/partials/asm/asm-intro.html'
+    })
+
+    .when('/asm/schema-examples', {
+        templateUrl: 'app/partials/asm/asm-schema-examples.html'
+    })
+
+    .when('/asm/settings', {
+        templateUrl: 'app/partials/asm/asm-settings.html'
+    })
+
+    .when('/asm/ui', {
+        templateUrl: 'app/partials/asm/asm-ui.html'
+    })
+
+    .when('asm/update-schema', {
+        templateUrl: 'app/partials/asm/asm-update-schema.html'
+    })
+
+    .when('asm/enable', {
+        templateUrl: 'app/partials/asm/enable-asm.html'
+    })
+
+    .when('faq', {
+        templateUrl: 'app/partials/faq.html'
+    })
+
+    .when('apns-setup', {
+        templateUrl: 'app/partials/apns-setup.html'
+    })
+
     .when('/test', {
         templateUrl: 'app/partials/test.html'
     })
