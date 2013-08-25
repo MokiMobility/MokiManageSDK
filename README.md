@@ -10,7 +10,7 @@ Dependencies
 CocoaPods
 ---------
 
-This SDK is [cocoapods](http://cocoapods.org/) compatible. if you are currently using cocoapods then add this dependency line to your `Podfile`
+This SDK is [CocoaPods](http://cocoapods.org/) compatible. if you are currently using cocoapods then add this dependency line to your `Podfile`
 
 ```
 pod 'MokiManageSDK', :git => 'https://github.com/MokiMobility/MokiManageSDK.git', :branch => 'ios'
