@@ -1,0 +1,366 @@
+<div class="column3 span1">
+<p class="alert alert-info">This guide describes the fast path to integrating the MokiManage SDK into your <span context-show="apple">iOS</span><span context-show="android">Android</span> app. You should already have an account on MokiManage.com, and have an <a href="http:staging.mokimobility.com/help/sdk-guide#gettingstarted">app key</a> and <a href="http:staging.mokimobility.com/help/sdk-guide#gettingstarted">tenant ID</a>.</p>
+
+    
+    <div context-show="apple">
+    
+<h1 class="quickstart typeBlue">iOS Integration</h1>
+To set up your iOS app to use the MokiManage SDK, you need to take the following steps:
+
+<a id="apns"></a>
+<ol>
+	<li>Setup Apple Push Notification service (APNs) for your app.</li>
+	<li>Add the MokiManage SDK to your project.</li>
+	<li>Add some code to your app delegate.</li>
+	<li>Check the MokiManage console for the device running your app.</li>
+</ol>
+<h4 class="quickstart typeBlue">Setting up APNs</h4>
+<br/>
+
+Your team agent needs to set up your app for APNs from the development provisioning portal. This involves building a <code>.pem</code> file, which MokiManage will use to validate itself with APNs.
+
+You can find more detail on setting up your app for APNs in the <a href=" http://staging.mokimobility.com/help/sdk-guide/#settingupapns">Programming Guide</a>.
+<h4 class="quickstart typeBlue">Adding MokiManage SDK to your Xcode project</h4>
+Setting up your Xcode project consists of the following steps:
+<ul>
+	<li>Add the library to your project or workspace.</li>
+	<li>Update your <code>Info.plist</code> file.</li>
+	<li>Add the required frameworks.</li>
+</ul>
+The MokiManage SDK uses the <code>AFNetworking</code> library. Since many projects use this library already, to avoid conflicts, we do not include it in our SDK. You’ll need to add both <code>AFNetworking</code> and the MokiManage SDK to your project. One popular way to manage multiple public libraries is with <a href="http://cocoapods.org">Cocoapods</a>, which allows you to include a set of libraries with your app and keep them all up to date automatically.
+
+If you choose to add the SDK to your project manually, you’ll need to download <code>AFNetworking</code> from <a href="https://github.com/AFNetworking/AFNetworking">Github</a>.
+
+Whether you automate your workspace with Cocoapods, or add <code>AFNetworking</code> to your project manually, you need to download the MokiManage SDK from your console on MokiMobility.com. Expand this <code>zip</code> file and drag its expanded folder to your project. The first time you drop it in, Xcode will ask you if you want to create the MokiManageSDK group. Create the group.
+
+You need to add some entries to your target’s <code>Info.plist</code> file, stating where you want your app to run. The dictionary entry to add is <code>certType</code>, with three boolean pairs, <code>store</code>, <code>enterprise</code>, and <code>sandbox</code>. During development, mark YES for sandbox, and no for the other entries.
+
+    <br/>
+<img alt="" src="img/PlistCertType.png" width="75%">
+    <br/>
+
+Make sure your workspace or project has the required frameworks:
+
+<br/>
+<ul style="list-style: none;">
+<ul style="list-style: none;">
+	<li>ExternalAccessory</li>
+	<li>CoreTelephony</li>
+	<li>CoreLocation</li>
+	<li>SystemConfiguration</li>
+	<li>Foundation</li>
+</ul>
+</ul>
+<br/>
+<ul style="list-style: none;">
+	<li>CoreGraphics</li>
+</ul>
+<br/>
+<h4 class="quickstart typeBlue">Setting up Your App Delegate</h4>
+You need to update your app delegate to work with MokiManage and APNs. First, add the <code>MokiManage.h</code> header to your app delegate header file:
+<pre><code>#import "MokiManage.h"</code></pre>
+Also, add the MokiManage protocol to your delegate:
+<pre><code>@interface AppDelegate : UIResponder &lt;UIApplicationDelegate, MokiManageDelegate&gt;</code></pre>
+In your <code>AppDelegate.m</code> file, add a declaration for your API key and tenant ID:
+<pre><code>#define API_KEY @"whatever-your-apik-eyis-useitherenow"
+#define Tenant_ID @"whatever-your-tena-anti-disuseitnow1"
+</code></pre>
+Initiate the session with the MokiManage SDK from your app delegate’s <code>didFinishLaunchingWithOptions:</code> method, calling the <code>initializeWithApiKey:</code> method. You’re not using ASM, so set that to NO. Also set your app delegate to the MokiManage shared instance:
+<pre><code>
+    NSError *error;
+
+    [[MokiManage sharedManager] initializeWithApiKey:API_KEY
+                                    launchingOptions:launchOptions
+                                           enableASM:NO
+                                           enableAEM:YES
+                                 asmSettingsFileName:nil
+                                               error:&amp;error];
+
+    [[MokiManage sharedManager] setDelegate:self];
+</code></pre>
+You need to add the delegate methods for APNs. From the <code>didRegisterForRemoteNotificationsWithDeviceToken:</code> method, call MokiManage to pass on the device token, and also silently register with your tenant ID. Now MokiManage has your APNs token, and your app has been registered with the service. Add the appropriate error handling actions from the <code>didFailToRegisterForRemoteNotificationsWithError:</code> method.
+<pre><code>
+- (void)application:(UIApplication*)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData*)deviceToken {
+    [[MokiManage sharedManager] setApnsToken:deviceToken];
+    [[MokiManage sharedManager] silentlyRegisterDevice:Tenant_ID ];
+}
+
+- (void)application:(UIApplication*)application didFailToRegisterForRemoteNotificationsWithError:(NSError*)error {
+    if(error) {
+        // Add error processing here.
+        NSLog(@"error registering for push notifications %@",error);
+    }
+}
+
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo { 
+    [[MokiManage sharedManager] didReceiveRemoteNotification:userInfo];
+}
+</code></pre>
+From the <code>didReceiveRemoteNotification:</code> method, pass the information on to the MokiManage SDK.
+
+In addition to adding the APNs methods, add the <code>MokiManageDelegate</code> methods to your delegate. To get up and running, you don’t need to have any logic in these delegate methods.
+<pre>
+<code>#pragma mark -
+#pragma mark MokiManageDelegate Methods
+
+-(void)finishedRegistrationWithError:(NSError *)error{
+    if(error){
+        // Proces the error
+    }
+    // Let other objects in your app know that registration is complete. 
+}
+
+-(void)finishedUnRegistrationWithError:(NSError *)error{
+    NSLog(@"MokiManage finishedUnRegistrationWithError %@", error.localizedDescription);
+
+}
+
+-(void)finishedRegisteringToANewTenantWithError:(NSError *)error{
+    NSLog(@"MokiManage finishedRegisteringToANewTenantWithError");
+
+}
+
+-(void)finishedPullingSettings:(NSDictionary *)settings WithError:(NSError *)error {
+    NSLog(@"MokiManage finishedPullingSettings");
+
+}
+
+-(void)finishedPushingSettings:(NSDictionary *)settings WithError:(NSError *)error {
+    NSLog(@"MokiManage finishedPushingSettings with error: %@", error);
+
+}
+
+-(void)finishedEditingSettings{
+
+}</code></pre>
+        
+Once you’ve initialized the shared instance, set your delegate, and added the APNs and MokiManage delegate methods, your app will be enabled to run with MokiManage.
+
+
+        </div> <!-- end context-show='apple' -->
+    
+    
+    
+        
+    <div context-show="android">
+        <h1 class="quickstart typeBlue">Android Integration</h1>
+To enable your Android app for MokiManage, you need to take the following steps:
+
+<a id="eclipse"></a>
+<ol>
+	<li>Add the MokiManage SDK to your Eclipse project.</li>
+	<li>Subclass <code>Application</code> and set the application name in your manifest.</li>
+	<li>Check the MokiManage console for the device running your app.</li>
+</ol>
+<h4 class="quickstart typeBlue">Adding MokiManage SDK to your Eclipse project</h4>
+            The MokiManageAPI library uses Google’s Gson library to parse JSON. Because many developers already use Gson in their apps, we have not included it in our library. You need to download the Gson 2.x file and include it in your Eclipse project. You can find the file here:
+<ul style="list-style: none; padding-left: 0; margin-left: 0;">
+	<li>Gson: <a href="https://code.google.com/p/google-gson/downloads/list">https://code.google.com/p/google-gson/downloads/list</a></li>
+</ul>
+Download the MokiManage SDK <code>zip</code> file from your developer tab on the MokiManage console. Expand this zip file, and drag the <code>MokiManageAPI.jar</code> to your projects libs folder. <a id="application-class"></a>If you are going to use the ASM Settings Views drag the layout files into your <code>res/layout</code> folder and the drawables into your <code>res/drawables</code> folder.
+
+<h4 class="quickstart typeBlue">Setting Up the AndroidManifest.xml</h4>
+The following permissions, receivers, and services need to be added to your manifest.  Please replace “your.package.name.here” with you applications package name.
+<pre>
+<code>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;!-- PERMISSIONS --&gt;
+
+&lt;uses-permission android:name="android.permission.READ_PHONE_STATE" /&gt;
+&lt;uses-permission android:name="android.permission.INTERNET" /&gt;
+&lt;uses-permission android:name="android.permission.READ_CONTACTS" /&gt;
+&lt;uses-permission android:name="android.permission.ACCESS_COURSE_LOCATION" /&gt;
+&lt;uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" /&gt;
+&lt;uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /&gt;
+&lt;uses-permission android:name="android.permission.ACCESS_SUPERUSER" /&gt;
+&lt;uses-permission android:name="android.permission.WAKE_LOCK" /&gt;
+&lt;uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /&gt;
+&lt;uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" /&gt;
+&lt;uses-permission android:name="android.permission.ACCESS_WIFI_STATE" /&gt;
+&lt;uses-permission android:name="android.permission.BLUETOOTH" /&gt;
+&lt;permission android:name="your.package.name.here.permission.C2D_MESSAGE"
+    android:protectionLevel="signature" /&gt;
+&lt;uses-permission android:name="your.package.name.here.permission.C2D_MESSAGE" /&gt;
+&lt;uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" /&gt;
+&lt;!-- RECEIVERS --&gt;
+
+&lt;receiver android:name="com.moki.aem.receivers.BootReceiver" &gt;
+
+    &lt;intent-filter&gt;
+
+        &lt;action android:name="android.intent.action.BOOT_COMPLETED" /&gt;
+    &lt;/intent-filter&gt;
+
+&lt;/receiver&gt;
+&lt;receiver
+    android:name="com.moki.aem.receivers.LogAlarmReceiver"
+    android:exported="false" /&gt;
+&lt;receiver
+    android:name="com.moki.aem.receivers.StatusAlarmReceiver"
+    android:exported="false" /&gt;
+&lt;receiver
+    android:name="com.moki.aem.receivers.StoreLogsAlarmReceiver"
+    android:exported="false" /&gt;
+&lt;receiver
+    android:name="com.moki.aem.receivers.HeartBeatAlarmReceiver"
+    android:exported="false" /&gt;
+&lt;receiver
+    android:name="com.moki.appregistration.receiver.NotificationReceiver"
+    android:exported="false" &gt;
+
+    &lt;intent-filter&gt;
+
+        &lt;action android:name="com.moki.manage.MokiManangeAction" /&gt;
+    &lt;/intent-filter&gt;
+
+&lt;/receiver&gt;
+&lt;receiver
+    android:name="com.google.android.c2dm.C2DMBroadcastReceiver"
+    android:permission="com.google.android.c2dm.permission.SEND" &gt;
+
+    &lt;intent-filter&gt;
+
+        &lt;action android:name="com.google.android.c2dm.intent.RECEIVE" /&gt;
+
+        &lt;category android:name="your.package.name.here" /&gt;
+    &lt;/intent-filter&gt;
+
+    &lt;intent-filter&gt;
+
+        &lt;action android:name="com.google.android.c2dm.intent.REGISTRATION" /&gt;
+
+        &lt;category android:name="your.package.name.here" /&gt;
+    &lt;/intent-filter&gt;
+
+&lt;/receiver&gt;
+&lt;receiver
+    android:name="com.moki.aem.receivers.AEMCommandReceiver"
+    android:exported="false" &gt;
+
+    &lt;intent-filter&gt;
+
+        &lt;action android:name="com.moki.aem.aemCommandIntent" /&gt;
+    &lt;/intent-filter&gt;
+
+&lt;/receiver&gt;
+&lt;service android:name="com.moki.appregistration.C2DMReceiver" /&gt;
+&lt;service
+    android:name="com.moki.aem.utils.LoggingService"
+    android:process=":LoggingProcess" &gt;
+
+&lt;/service&gt;
+&lt;service
+    android:name="com.moki.aem.utils.ScreenShotUtil"
+    android:exported="false" &gt;
+
+    &lt;intent-filter&gt;
+
+        &lt;action android:name="com.moki.screenshot" /&gt;
+
+        &lt;category android:name="com.moki.android.kiosk" /&gt;
+    &lt;/intent-filter&gt;
+
+&lt;/service&gt;</code></pre>
+<h4 class="quickstart typeBlue">Extending the Application Class</h4>
+While you can do the following in an activity we recommend that you create a custom <code>Application</code> class. This class will help you maintain a global application state.
+<h4 class="quickstart typeBlue">Setting up MokiManage in Your Custom Application</h4>
+Start in your <code>CustomApplication.java</code> file:
+<pre><code>
+import com.moki.manage.api.MokiManage;
+</code></pre>
+From your <code>CustomApplication.java</code> file, you should first create a constant for your api key:
+<pre>
+<code>private static final String API_KEY = "whatever-your-apik-eyis-useitherenow";</code></pre>
+Initiate the session with the MokiManage SDK from the onCreate function of your <code>CustomApplication.java</code> file:
+<pre><code>
+import android.app.Application;
+
+import com.moki.manage.api.MokiManage;
+
+public class CustomApplication extends Application {
+	private MokiManage mokiManage;
+	private static final String API_KEY = "whatever-your-apik-eyis-useitherenow";
+	private static final boolean ENABLE_AppSettingsManagement = true;
+	private static final boolean ENABLE_AppEnvirionmentManagement = true;
+	@Override
+	public void onCreate() {
+		super.onCreate();
+
+		mokiManage = MokiManage.sharedInstance(API_KEY, this, ENABLE_AppSettingsManagement, ENABLE_AppEnvirionmentManagement);
+	}
+}
+</code></pre>
+To finish with your <code>CustomApplication</code> you’ll need to include the new class name in your <code>AndroidManifest.xml</code> file.
+<pre><code>
+&lt;application
+        android:name=".ApplicationContext"
+        android:icon="@drawable/icon"
+        android:label="@string/app_name"
+        android:theme="@android:style/Theme.NoTitleBar.Fullscreen"&gt;
+</code></pre>
+<h4 class="quickstart typeBlue">MokiManage Broadcasts</h4>
+The MokiManage SDK will broadcast notifications in 5 different scenarios:
+<pre><code>
+public static final String SETTINGS_PUSH_COMPLETED_NOTIFICATION
+public static final String SETTINGS_PULL_COMPLETED_NOTIFICATION
+public static final String REGISTRATION_COMPLETED_NOTIFICATION
+public static final String UNREGISTRATION_COMPLETED_NOTIFICATION
+public static final String REGISTER_TO_A_NEW_TENANT_COMPLETED_NOTIFICATION
+</code></pre>
+You can handle these notifications in the following way:
+<pre><code>BroadcastReceiver mokiManageReciever = new BroadcastReceiver() {
+
+	@Override
+	public void onReceive(Context context, Intent intent) {
+		if (intent.getAction().equals(MokiManage.REGISTRATION_COMPLETED_NOTIFICATION)) {
+			//TODO: handle this as needed
+		} else if (intent.getAction().equals(MokiManage.UNREGISTRATION_COMPLETED_NOTIFICATION)) {
+			//TODO: handle this as needed
+		} else if (intent.getAction().equals(MokiManage.REGISTER_TO_A_NEW_TENANT_COMPLETED_NOTIFICATION)) {
+			//TODO: handle this as needed
+		} else if (intent.getAction().equals(MokiManage.SETTINGS_PULL_COMPLETED_NOTIFICATION)) {
+			//TODO: handle this as needed
+		} else if (intent.getAction().equals(MokiManage.SETTINGS_PUSH_COMPLETED_NOTIFICATION)) {
+			//TODO: handle this as needed
+		}
+	}
+};
+@Override
+public void onCreate() {
+	super.onCreate();
+
+	mokiManage = MokiManage.sharedInstance(API_KEY, this, ENABLE_AppSettingsManagement, ENABLE_AppEnvirionmentManagement);
+	registerReceiver(mokiManageReciever, new IntentFilter(MokiManage.REGISTRATION_COMPLETED_NOTIFICATION));
+	registerReceiver(mokiManageReciever, new IntentFilter(MokiManage.UNREGISTRATION_COMPLETED_NOTIFICATION));
+	registerReceiver(mokiManageReciever, new IntentFilter(MokiManage.REGISTER_TO_A_NEW_TENANT_COMPLETED_NOTIFICATION));
+	registerReceiver(mokiManageReciever, new IntentFilter(MokiManage.SETTINGS_PULL_COMPLETED_NOTIFICATION));
+	registerReceiver(mokiManageReciever, new IntentFilter(MokiManage.SETTINGS_PUSH_COMPLETED_NOTIFICATION));
+}</code></pre>
+
+<h4 class="quickstart typeBlue">Silent Enrollment</h4>
+        <p>
+To silently enroll your the device from your app you’ll need to get your Tenant ID from the MokiManage web page and then add the following code to the onCreate function of your <code>CustomApplication.java</code> file.
+            </p>
+<pre><code>@Override
+public void onCreate() {
+	super.onCreate();
+
+	mokiManage = MokiManage.sharedInstance(API_KEY, this, ENABLE_AppSettingsManagement, ENABLE_AppEnvirionmentManagement);
+        if(!mokiManage.isRegistered()){
+		mokiManage.silentlyRegisterDevice(TENANT_ID);
+	}
+}</code></pre>
+        
+
+</div> <!-- end context-show='android' -->
+    
+    
+    <h4 class="quickstart typeBlue">Checking the MokiManage Console</h4>
+    <p>
+To make sure your app enablement is working, load the app on your tablet, then go to the MokiManage console to see if you can find the app there. After logging on to MokiManage.com, click the down arrow under the MokiManage logo on the upper left. You should see your application in the drop-down list. Select your app, and see if your device shows up in the list.
+    </p>
+    <p>
+If you see your tablet in the list, select it. On the right you should see a tabbed panel showing information about the device you selected. If you select the Details tab, you’ll see information about your device, such as battery status, network information, and so on. From the Actions drop-down above the device list you can request a screen shot or a log. If you’re able to do these things, your device is enabled.
+    </p>
+    
+    
+</div>

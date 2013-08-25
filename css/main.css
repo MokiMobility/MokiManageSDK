@@ -1,0 +1,119 @@
+/**************************************************************/
+/*
+/* Common
+/*
+/**************************************************************/
+
+/* Global Reset */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html, body { height: 100%; }
+
+body {
+  background-color: #FFF;
+  font: 100 11px/14px "proxima-nova", "helvetica neue", sans-serif;
+    color:#333333;
+}
+
+emph, .emph {
+    font-weight:600;
+    font-size:11px;
+    line-height:14px;
+    color:#333333;
+}
+
+.code {
+    font: 400 9px/12px "Menlo", "Courier New", monospace; 
+    color:#333333;
+}
+
+h1,h2,h3,h4,h5,h6 {
+   font-family:"proxima-nova", "helvetica neue", sans-serif; 
+}
+
+h1 {
+   font-weight: 700;
+    font-size:24px;
+    line-height:30px; 
+    color: #0089c9;
+}
+
+h2 {
+   font-weight: 700;
+    font-size:16px;
+    line-height:18px; 
+    color: #0089c9;
+}
+
+h3 {
+   font-weight: 200;
+    font-size:14px;
+    line-height:18px; 
+    color: #0089c9;
+}
+
+/* same as above */
+.nav-list {
+   font-weight: 200;
+    font-size:14px;
+    line-height:18px; 
+    color: #0089c9;
+}
+
+h4 {
+   font-size: 700;
+    font-size:11px;
+    line-height:14px; 
+    color: #0089c9;
+}
+
+h5 {
+   font-size: 700;
+    font-size:11px;
+    line-height:14px; 
+    color: #999999;
+}
+
+h6 {
+    font-style:italic;
+   font-weight: 700;
+    font-size:11px;
+    line-height:14px; 
+    color: #333333;
+}
+
+.header {
+ height:48px;
+    left:0;
+    right:0;
+    top:0;
+    background-color:#FFF;
+}
+
+.sub.header {
+    top:48px;
+    background-color:#094C67;
+}
+.sub.header h1 {
+ color:#FFF;    
+}
+
+.under-two-heads {
+  margin-top:96px;   
+}
+
+.padding-top-three {
+ padding-top:33px;   
+}
+
+.bold {
+ font-weight:600;   
+}
+
+ul.nostyle, ol.nostyle{
+    list-style:none;
+}
+
