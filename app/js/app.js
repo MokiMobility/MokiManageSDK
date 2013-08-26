@@ -115,9 +115,7 @@ var app = angular.module('app', ['ngCookies'])
 
 }])
 
-.run(function($rootScope, $location, $locationProvider) {
-    
-    $locationProvider.html5Mode(true);
+.run(function($rootScope, $location) {
     
     $rootScope.$on('$routeChangeSuccess', function () {
         // $('ul.nav.bs-sidenav > li ul').hide(); // this `hide` and the `show` below is start to a simple, contextual sub menu feature
