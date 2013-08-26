@@ -22,11 +22,11 @@ var app = angular.module('app', ['ngCookies'])
     
     .when('/aem', {
         templateUrl: 'app/partials/aem/aem-intro.html',
-        link: {
-            prev: false,
-            next: '/aem/ios/apns',
-            nextText: 'APNS'
-        }
+//        link: {
+//            prev: false,
+//            next: '/quickstart/apple',
+//            nextText: 'Quickstart'
+//        }
     })
     
     .when('/aem/ios/apns', {
@@ -101,6 +101,10 @@ var app = angular.module('app', ['ngCookies'])
 
     .when('/apns-setup', {
         templateUrl: 'app/partials/apns-setup.html'
+    })
+
+    .when('/contact', {
+        templateUrl: 'app/partials/contact.html'
     })
 
     .when('/test', {

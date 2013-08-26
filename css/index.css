@@ -102,3 +102,14 @@ body {
 .nav>li>a:not(.nav-selected):hover {
     background-color: #ddd7d7;
 }
+
+.contact {
+    margin-top: 75px;
+    margin-left: 25px;
+    font-size: 17px;
+    line-height: 40px;
+}
+
+.affix {
+    margin-top: 25px;
+}

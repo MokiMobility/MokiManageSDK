@@ -17,4 +17,27 @@ app.controller('MainController', function($scope, $route) {
 
     });
 
+    $scope.displayed = false;
+    $scope.aemDisplayed = false;
+
+
+//    console.log($scope.displayed)
+
+    $scope.noDisplay = function() {
+        $scope.displayed = false;
+        $scope.aemDisplayed = false;
+
+    };
+
+    $scope.display = function() {
+        $scope.displayed = true;
+
+    };
+
+    $scope.aemDisplay = function() {
+        $scope.aemDisplayed = true;
+    };
+
+    $('body').scrollspy({ target: '#navbar' });
+
 });
