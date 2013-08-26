@@ -36,9 +36,6 @@ h1 {
     background-color:#EEE;
 }
 
-.nav-selected:hover {
-    background-color:#EEE;
-}
 
 body {
     background: url(../img/background.png) repeat-x fixed bottom;
