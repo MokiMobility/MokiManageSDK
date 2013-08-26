@@ -1,11 +1,11 @@
-<h2 class="quickstart typeBlue">Control Organization</h2>
+<h1 class="quickstart typeBlue">SettingsSchema Controls</h1>
 
 <p>Your <code>SettingsSchema.json</code> file begins by asserting its version and groups. To focus on each setting we will show the JSON for the item being covered. As you work on your <code>SettingsSchema.json</code> file, use <a href="http://pro.jsonlint.com" target="_blank">pro.jsonlint.com</a> to check and correct the syntax of your file. The API does not check for valid JSON, but does log errors so that you can know where something went wrong.</p>
+<p>We will use example values to illustrate how each control should be defined. Replace these values with your application's values.</p>
 <h3 class="quickstart typeBlue">Groups</h3>
-<p>We will create three groups to start our settingsschema: General, Home Screen and Screensaver.</p>
-<pre style="background-color: #f0f0f0;">
-<code><font color="#d80000">
-{
+<p>We will create three groups to start our SettingsSchema: General, Home Screen and Screensaver.</p>
+<pre>
+<code><span style="color:#d80000;">{
     "Version": 1,
     "Groups": [
         {
@@ -21,7 +21,7 @@
             "Settings": [ ]
         }
     ]
-}</font>
+}</span>
 </code>
 </pre>
 <br />
@@ -33,9 +33,8 @@
 <h3 class="quickstart typeBlue">Header</h3>
 
 <p>We will add a header to the &#8220;Home Screen&#8221; group.</p>
-<pre style="background-color: #f0f0f0;">
-<code>
-{
+<pre>
+<code>{
     "Version": 1,
     "Groups": [
         {
@@ -44,12 +43,12 @@
         },
         {
             "Title": "Home Screen",
-            "Settings": [<font color="#d80000">
+            "Settings": [<span style="color:#d80000;">
                 {
                       "Type": "Header",
                       "Title": "Select Content to Display"
                 }
-            ]</font>
+            ]</span>
         },
         {
             "Title": "Screensaver",
@@ -65,13 +64,13 @@
 <br />
 <a id="pane"></a>
 <h3 class="quickstart typeBlue">Pane</h3>
-<p>A pane provides a way of nesting additional settings, or having additional options for a specific setting. Because a pane is a secondary level of organization we will show the pane control organizer underneath the <a href="#combobox">ComboBox Controls section.</a></p>
+<p>A pane provides a way of nesting additional settings, or having additional options for a specific setting. Because a pane is a secondary level of organization we will show the pane control organizer underneath the ComboBox Controls section.</p>
 <br />
 <br />
 <a id="list"></a>
 <h3 class="quickstart typeBlue">List</h3>
 <a id="controls"></a>
-<p>A list is basically just a control, but since a list contains additional controls it can theoretically also be classified as a Control Organizer. We will demonstrate a list in the <a href="#list1">List Controls section</a></p>
+<p>A list is basically just a control, but since a list contains additional controls it can theoretically also be classified as a Control Organizer. We will demonstrate a list in the List Controls section</p>
 <br />
 <br />
 <a id="textfield"></a>
@@ -81,9 +80,8 @@
 <p>Controls are where we will start to define what is displayed in the app.</p>
 <h3 class="quickstart typeBlue">TextField</h3>
 <p>We are going to add a TextField to the &#8220;Home Screen&#8221; group. With the optional class value added, dots will display instead of text.</p>
-<pre style="background-color: #f0f0f0;">
-<code>
-{
+<pre>
+<code>{
     "Version": 1,
     "Groups": [
         {
@@ -96,14 +94,14 @@
                 {
                       "Type": "Header",
                       "Title": "Select Content to Display"
-                },<font color="#d80000">
+                },<span style="color:#d80000;">
                 {
                       "Type": "TextField",
                       "Title": "Admin Password",
                       "Value": "",
                       "Class" : ["Password"],
                       "Key": "adminPassword"
-                }</font>
+                }</span>
             ]
         },
         {
@@ -121,7 +119,7 @@
 <br />
 <h3 class="quickstart typeBlue">ToggleSwitch</h3>
 <p>We will now add a ToggleSwitch to the &#8220;Home Screen&#8221; group that will allow them to show/hide the progress indicator.</p>
-<pre style="background-color: #f0f0f0;">
+<pre>
 <code>
 {
     "Version": 1,
@@ -143,13 +141,13 @@
                       "Value": "",
                       "Class" : ["Password"],
                       "Key": "adminPassword"
-                },<font color="#d80000">
+                },<span style="color:#d80000;">
                 {
                       "Type": "ToggleSwitch",
                       "Title": "Progress Indicator",
                       "Value": true,
                       "Key": "ProgressIndicator"
-                }</font>
+                }</span>
             ]
         },
         {
@@ -167,7 +165,7 @@
 <br />
 <h3 class="quickstart typeBlue">ComboBox</h3>
 <p>We will add a ComboBox to the &#8220;Home Screen&#8221; group to have the device reset itself if idle for one or two minutes. We will set the default value at 2 minutes.</p>
-<pre style="background-color: #f0f0f0;">
+<pre>
 <code>
 {
     "Version": 1,
@@ -195,7 +193,7 @@
                       "Title": "Progress Indicator",
                       "Value": true,
                       "Key": "ProgressIndicator"
-                },<font color="#d80000">
+                },<span style="color:#d80000">
                 {
                       "Type": "ComboBox",
                       "Title": "Idle Reset Time",
@@ -212,7 +210,7 @@
                           }
                       ],
                       "Key": "duration"
-                 }</font>
+                 }</span>
             ]
         },
         {
@@ -231,7 +229,7 @@
 <br />
 <h4 class="quickstart typeBlue">Pane</h4>
 <p>We will add a pane to the &#8220;Home Screen&#8221; group and underneath the &#8220;ComboBox&#8221; section. The pane will have additional settings such as a &#8220;TextField&#8221; for the URL and a &#8220;ToggleSwitch&#8221; to have the option of caching the video on the tablet.</p>
-<pre style="background-color: #f0f0f0;">
+<pre>
 <code>
 {
     "Version": 1,
@@ -276,7 +274,7 @@
                           }
                       ],
                       "Key": "duration"
-                 },<font color="#d80000">
+                 },<span style="color:#d80000;">
                  {
                       "Type": "Pane",
                       "Title": "Media Settings",
@@ -293,7 +291,7 @@
                                "Key": "cache_key"
                           }
                       ]
-                 }</font>
+                 }</span>
             ]
         },
         {
@@ -313,7 +311,7 @@
 <br />
 <h3 class="quickstart typeBlue">List</h3>
 <p>We will add a list to the &#8220;Screensaver&#8221; group and create the settings for the screensaver.</p>
-<pre style="background-color: #f0f0f0;">
+<pre>
 <code>
 {
     "Version": 1,
@@ -380,7 +378,7 @@
         },
         {
             "Title": "Screensaver",
-            "Settings": [ <font color="#d80000">
+            "Settings": [ <span style="color:#d80000;">
                 {
                      "Type": "List",
                      "Title": "Settings",
@@ -409,7 +407,7 @@
                                   "Key": "duration"
                              }
                      ]
-                }</font>
+                }</span>
             ]
         }
     ]

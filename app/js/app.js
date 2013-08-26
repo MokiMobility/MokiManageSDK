@@ -39,34 +39,67 @@ var app = angular.module('app', ['ngCookies'])
     })
 
     .when('/asm', {
-        templateUrl: 'app/partials/asm/asm-intro.html'
+        templateUrl: 'app/partials/asm/asm-intro.html',
+            link: {
+                prev: false,
+                next: '/asm/schema-examples',
+                nextText: 'SettingsSchema Examples'
+            }
     })
 
     .when('/asm/schema-examples', {
-        templateUrl: 'app/partials/asm/asm-schema-examples.html'
+        templateUrl: 'app/partials/asm/asm-schema-examples.html',
+        link: {
+            prev: '/asm',
+            prevText: 'ASM',
+            next: '/asm/update-schema',
+            nextText: 'Updating the schema'
+        }
     })
 
-    .when('/asm/settings', {
-        templateUrl: 'app/partials/asm/asm-settings.html'
+    .when('/asm/update-schema', {
+        templateUrl: 'app/partials/asm/asm-update-schema.html',
+        link: {
+            prev: '/asm/schema-examples',
+            prevText: 'SettingsSchema Examples',
+            next: '/asm/enable',
+            nextText: 'Enabling the ASM module'
+        }
+    })
+
+    .when('/asm/enable', {
+        templateUrl: 'app/partials/asm/enable-asm.html',
+        link: {
+            prev: '/asm/update-schema',
+            prevText: 'Updating the schema',
+            next: '/asm/ui',
+            nextText: 'Using default ASM views'
+        }
     })
 
     .when('/asm/ui', {
-        templateUrl: 'app/partials/asm/asm-ui.html'
+        templateUrl: 'app/partials/asm/asm-ui.html',
+        link: {
+            prev: '/asm/enable',
+            prevText: 'Enabling the ASM module',
+            next: '/asm/settings',
+            nextText: 'Additional ASM examples'
+        }
     })
 
-    .when('asm/update-schema', {
-        templateUrl: 'app/partials/asm/asm-update-schema.html'
+    .when('/asm/settings', {
+        templateUrl: 'app/partials/asm/asm-settings.html',
+        link: {
+            prev: '/asm/ui',
+            prevText: 'Using default ASM views'
+        }
     })
 
-    .when('asm/enable', {
-        templateUrl: 'app/partials/asm/enable-asm.html'
-    })
-
-    .when('faq', {
+    .when('/faq', {
         templateUrl: 'app/partials/faq.html'
     })
 
-    .when('apns-setup', {
+    .when('/apns-setup', {
         templateUrl: 'app/partials/apns-setup.html'
     })
 
