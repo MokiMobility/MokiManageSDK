@@ -10,6 +10,12 @@ p {
     margin-top: 90px;
 }
 
+
+pre code em {
+    color:green;  
+    font-weight:bold;
+}
+
 /* Font override TODO: !!!! add domain to typekit list !!!!
 -------------------------------------------------- */
 h1, p {

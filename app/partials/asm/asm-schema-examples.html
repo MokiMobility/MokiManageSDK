@@ -5,7 +5,7 @@
 <h3 class="quickstart typeBlue">Groups</h3>
 <p>We will create three groups to start our SettingsSchema: General, Home Screen and Screensaver.</p>
 <pre>
-<code><span style="color:#d80000;">{
+<code>{
     "Version": 1,
     "Groups": [
         {
@@ -21,7 +21,7 @@
             "Settings": [ ]
         }
     ]
-}</span>
+}
 </code>
 </pre>
 <br />
@@ -43,12 +43,12 @@
         },
         {
             "Title": "Home Screen",
-            "Settings": [<span style="color:#d80000;">
-                {
+            "Settings": [
+                <em>{
                       "Type": "Header",
                       "Title": "Select Content to Display"
-                }
-            ]</span>
+                }</em>
+            ]
         },
         {
             "Title": "Screensaver",
@@ -94,14 +94,14 @@
                 {
                       "Type": "Header",
                       "Title": "Select Content to Display"
-                },<span style="color:#d80000;">
+                }<em>,
                 {
                       "Type": "TextField",
                       "Title": "Admin Password",
                       "Value": "",
                       "Class" : ["Password"],
                       "Key": "adminPassword"
-                }</span>
+                }</em>
             ]
         },
         {
@@ -141,13 +141,13 @@
                       "Value": "",
                       "Class" : ["Password"],
                       "Key": "adminPassword"
-                },<span style="color:#d80000;">
+                }<em>,
                 {
                       "Type": "ToggleSwitch",
                       "Title": "Progress Indicator",
                       "Value": true,
                       "Key": "ProgressIndicator"
-                }</span>
+                }</em>
             ]
         },
         {
@@ -193,7 +193,7 @@
                       "Title": "Progress Indicator",
                       "Value": true,
                       "Key": "ProgressIndicator"
-                },<span style="color:#d80000">
+                }<em>,
                 {
                       "Type": "ComboBox",
                       "Title": "Idle Reset Time",
@@ -210,7 +210,7 @@
                           }
                       ],
                       "Key": "duration"
-                 }</span>
+                 }</em>
             ]
         },
         {
@@ -274,7 +274,7 @@
                           }
                       ],
                       "Key": "duration"
-                 },<span style="color:#d80000;">
+                 }<em>,
                  {
                       "Type": "Pane",
                       "Title": "Media Settings",
@@ -291,7 +291,7 @@
                                "Key": "cache_key"
                           }
                       ]
-                 }</span>
+                 }</em>
             ]
         },
         {
@@ -378,7 +378,7 @@
         },
         {
             "Title": "Screensaver",
-            "Settings": [ <span style="color:#d80000;">
+            "Settings": [ <em>
                 {
                      "Type": "List",
                      "Title": "Settings",
@@ -407,7 +407,7 @@
                                   "Key": "duration"
                              }
                      ]
-                }</span>
+                }</em>
             ]
         }
     ]
