@@ -36,6 +36,7 @@ h1 {
     background-color:#EEE;
 }
 
+
 body {
     background: url(../img/background.png) repeat-x fixed bottom;
 }
@@ -96,4 +97,19 @@ body {
     text-shadow: 0 1px 0 #fff;
     background-color: #ffffff;
     border-radius: 5px;
+}
+
+.nav>li>a:not(.nav-selected):hover {
+    background-color: #ddd7d7;
+}
+
+.contact {
+    margin-top: 75px;
+    margin-left: 25px;
+    font-size: 17px;
+    line-height: 40px;
+}
+
+.affix {
+    margin-top: 25px;
 }

@@ -1,0 +1,23 @@
+<h1 class="quickstart typeBlue">Application Settings Management (ASM)</h1>
+
+<p>App settings provide options for how an application should function. For example, by default, the iOS Safari app uses Google to perform Web searches. With ASM, Safari could be remotely configured to use Bing or Yahoo! instead.</p>
+
+<p>The iOS Settings app approach is great for providing a consistent way of managing settings for a single user, but doesn't meet the needs of a mission critical app. Often there needs to be a way to apply settings to fleets of devices at once, rather than making changes on-site, one at a time. ASM makes the following three things possible for mission critical apps:</p>
+
+<ol>
+<li>A consistent way of handling settings and values.</li>
+<li>Centralized settings management. A way to go to a Web page, define a number of settings, and then have those become active for your app across many devices.</li>
+<li>An option for changing the app settings from the app itself. Ideal for immediate changes directly on that one device</li>
+</ol>
+
+<p>The ASM module of the MokiManage SDK provides a consistent way for an administrator to control settings for apps across multiple devices from a single, centralized location.</p>
+<a id="defineash"></a>
+<img src="http://mokimobility.com/wp-content/uploads/2013/03/SettingsToApps-300x158.png" alt="SettingsToApps" height="158" class="alignnone size-medium wp-image-1132" />
+
+<h4 class="quickstart typeBlue">Creating the Settings Schema</h4>
+
+<p>The first thing you need to do in implementing the ASM module, is define a settings schema for your app. The settings schema defines what settings values you need to expose, and what the relationships are between them. The settings schema is expressed in a JSON file, which you will include with your app:</p>
+
+<pre style="background-color: #f0f0f0;"><code>SettingsSchema.json</code></pre>
+
+<p>Your <code>SettingsSchema.json </code>file can be used for both Android and iOS. However, the updating of settings and presenting the settings in the UI will have to be done differently according to the platform.</p>

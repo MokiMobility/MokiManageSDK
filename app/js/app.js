@@ -22,11 +22,11 @@ var app = angular.module('app', ['ngCookies'])
     
     .when('/aem', {
         templateUrl: 'app/partials/aem/aem-intro.html',
-        link: {
-            prev: false,
-            next: '/aem/ios/apns',
-            nextText: 'APNS'
-        }
+//        link: {
+//            prev: false,
+//            next: '/quickstart/apple',
+//            nextText: 'Quickstart'
+//        }
     })
     
     .when('/aem/ios/apns', {
@@ -37,7 +37,76 @@ var app = angular.module('app', ['ngCookies'])
             next: ''
         }
     })
-    
+
+    .when('/asm', {
+        templateUrl: 'app/partials/asm/asm-intro.html',
+            link: {
+                prev: false,
+                next: '/asm/schema-examples',
+                nextText: 'SettingsSchema Examples'
+            }
+    })
+
+    .when('/asm/schema-examples', {
+        templateUrl: 'app/partials/asm/asm-schema-examples.html',
+        link: {
+            prev: '/asm',
+            prevText: 'ASM',
+            next: '/asm/update-schema',
+            nextText: 'Updating the schema'
+        }
+    })
+
+    .when('/asm/update-schema', {
+        templateUrl: 'app/partials/asm/asm-update-schema.html',
+        link: {
+            prev: '/asm/schema-examples',
+            prevText: 'SettingsSchema Examples',
+            next: '/asm/enable',
+            nextText: 'Enabling the ASM module'
+        }
+    })
+
+    .when('/asm/enable', {
+        templateUrl: 'app/partials/asm/enable-asm.html',
+        link: {
+            prev: '/asm/update-schema',
+            prevText: 'Updating the schema',
+            next: '/asm/ui',
+            nextText: 'Using default ASM views'
+        }
+    })
+
+    .when('/asm/ui', {
+        templateUrl: 'app/partials/asm/asm-ui.html',
+        link: {
+            prev: '/asm/enable',
+            prevText: 'Enabling the ASM module',
+            next: '/asm/settings',
+            nextText: 'Additional ASM examples'
+        }
+    })
+
+    .when('/asm/settings', {
+        templateUrl: 'app/partials/asm/asm-settings.html',
+        link: {
+            prev: '/asm/ui',
+            prevText: 'Using default ASM views'
+        }
+    })
+
+    .when('/faq', {
+        templateUrl: 'app/partials/faq.html'
+    })
+
+    .when('/apns-setup', {
+        templateUrl: 'app/partials/apns-setup.html'
+    })
+
+    .when('/contact', {
+        templateUrl: 'app/partials/contact.html'
+    })
+
     .when('/test', {
         templateUrl: 'app/partials/test.html'
     })

@@ -1,0 +1,31 @@
+<h1>Enabling ASM</h1>
+<div context-show="apple">
+<p>In the <a href="/quickstart/apple">AEM Quickstart</a>, the example code instructs you to set <code>enableASM:</code> to NO when you call <code>initializeWithApiKey:</code> inside of the app delegate's <code>didFinishLaunchingWithOptions:</code> method. In order to enable ASM, you need to ensure your <code>SettingsSchema.json</code> is included in your Xcode project and change the value of <code>enableASM:</code> to YES.</p>
+
+<pre><code>    NSError *error;
+
+    [[MokiManage sharedManager] initializeWithApiKey:API_KEY
+                                    launchingOptions:launchOptions
+                                           enableASM:YES
+                                           enableAEM:YES
+                                 asmSettingsFileName:nil
+                                               error:&amp;error];
+
+    [[MokiManage sharedManager] setDelegate:self];
+</code></pre>
+</div>
+<div context-show="android">
+    <p>In the <a href="/quickstart/android">AEM Quickstart</a>, the example code instructs you to set <code>ENABLE_AppSettingsManagement</code> to FALSE when you initialize the <code>MokiManage.sharedInstace</code> inside of the <code>onCreate()</code> method in your <code>CustomApplication.java</code> file. In order to enable ASM, you need to ensure your <code>SettingsSchema.json</code> is included in your Android project and change the value of <code>ENABLE_AppSettingsManagement</code> to TRUE.</p>
+    <pre><code>public class CustomApplication extends Application {
+        private MokiManage mokiManage;
+        private static final String API_KEY = "whatever-your-apik-eyis-useitherenow";
+        private static final boolean ENABLE_AppSettingsManagement = true;
+        private static final boolean ENABLE_AppEnvirionmentManagement = true;
+        @Override
+        public void onCreate() {
+            super.onCreate();
+            mokiManage = MokiManage.sharedInstance(API_KEY, this, ENABLE_AppSettingsManagement, ENABLE_AppEnvirionmentManagement);
+        }
+}
+    </code></pre>
+</div>

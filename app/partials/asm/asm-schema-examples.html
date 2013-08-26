@@ -1,0 +1,424 @@
+<h1 class="quickstart typeBlue">SettingsSchema Controls</h1>
+
+<p>Your <code>SettingsSchema.json</code> file begins by asserting its version and groups. To focus on each setting we will show the JSON for the item being covered. As you work on your <code>SettingsSchema.json</code> file, use <a href="http://pro.jsonlint.com" target="_blank">pro.jsonlint.com</a> to check and correct the syntax of your file. The API does not check for valid JSON, but does log errors so that you can know where something went wrong.</p>
+<p>We will use example values to illustrate how each control should be defined. Replace these values with your application's values.</p>
+<h3 class="quickstart typeBlue">Groups</h3>
+<p>We will create three groups to start our SettingsSchema: General, Home Screen and Screensaver.</p>
+<pre>
+<code><span style="color:#d80000;">{
+    "Version": 1,
+    "Groups": [
+        {
+            "Title": "General",
+            "Settings": [ ]
+        },
+        {
+            "Title": "Home Screen",
+            "Settings": [ ]
+        },
+        {
+            "Title": "Screensaver",
+            "Settings": [ ]
+        }
+    ]
+}</span>
+</code>
+</pre>
+<br />
+<p>This is what that code will look like in the app settings view. Additional coding is required for the menu bar at the top.</p>
+<a href="http://staging.mokimobility.com/wp-content/uploads/2013/08/Groups.png"><img src="http://staging.mokimobility.com/wp-content/uploads/2013/08/Groups-300x164.png" alt="Groups" width="300" height="164" class="alignnone size-medium wp-image-3149" /></a>
+<br />
+<br />
+<a id="header"></a>
+<h3 class="quickstart typeBlue">Header</h3>
+
+<p>We will add a header to the &#8220;Home Screen&#8221; group.</p>
+<pre>
+<code>{
+    "Version": 1,
+    "Groups": [
+        {
+            "Title": "General",
+            "Settings": [ ]
+        },
+        {
+            "Title": "Home Screen",
+            "Settings": [<span style="color:#d80000;">
+                {
+                      "Type": "Header",
+                      "Title": "Select Content to Display"
+                }
+            ]</span>
+        },
+        {
+            "Title": "Screensaver",
+            "Settings": [ ]
+        }
+    ]
+}
+</code>
+</pre>
+<p>This is what that code will look like in the app settings view. Please note that additional coding is required for the menu to be highlighted when selected.</p>
+<a href="http://staging.mokimobility.com/wp-content/uploads/2013/08/header1.png"><img src="http://staging.mokimobility.com/wp-content/uploads/2013/08/header1-1024x301.png" alt="header1" width="640" height="188" class="alignnone size-large wp-image-3150" /></a>
+<br />
+<br />
+<a id="pane"></a>
+<h3 class="quickstart typeBlue">Pane</h3>
+<p>A pane provides a way of nesting additional settings, or having additional options for a specific setting. Because a pane is a secondary level of organization we will show the pane control organizer underneath the ComboBox Controls section.</p>
+<br />
+<br />
+<a id="list"></a>
+<h3 class="quickstart typeBlue">List</h3>
+<a id="controls"></a>
+<p>A list is basically just a control, but since a list contains additional controls it can theoretically also be classified as a Control Organizer. We will demonstrate a list in the List Controls section</p>
+<br />
+<br />
+<a id="textfield"></a>
+<Br />
+<br />
+<h2 class="quickstart typeBlue">Controls</h2>
+<p>Controls are where we will start to define what is displayed in the app.</p>
+<h3 class="quickstart typeBlue">TextField</h3>
+<p>We are going to add a TextField to the &#8220;Home Screen&#8221; group. With the optional class value added, dots will display instead of text.</p>
+<pre>
+<code>{
+    "Version": 1,
+    "Groups": [
+        {
+            "Title": "General",
+            "Settings": [ ]
+        },
+        {
+            "Title": "Home Screen",
+            "Settings": [
+                {
+                      "Type": "Header",
+                      "Title": "Select Content to Display"
+                },<span style="color:#d80000;">
+                {
+                      "Type": "TextField",
+                      "Title": "Admin Password",
+                      "Value": "",
+                      "Class" : ["Password"],
+                      "Key": "adminPassword"
+                }</span>
+            ]
+        },
+        {
+            "Title": "Screensaver",
+            "Settings": [ ]
+        }
+    ]
+}
+</code>
+</pre>
+<p>This is what that code will look like in the app settings view. The dots will only be displayed when someone has input text, otherwise it defaults to a blank text field.</p>
+<a href="http://staging.mokimobility.com/wp-content/uploads/2013/08/TextField.png"><img src="http://staging.mokimobility.com/wp-content/uploads/2013/08/TextField-1024x175.png" alt="TextField" width="640" height="109" class="alignnone size-large wp-image-3156" /></a>
+<a id="toggleswitch"></a>
+<br />
+<br />
+<h3 class="quickstart typeBlue">ToggleSwitch</h3>
+<p>We will now add a ToggleSwitch to the &#8220;Home Screen&#8221; group that will allow them to show/hide the progress indicator.</p>
+<pre>
+<code>
+{
+    "Version": 1,
+    "Groups": [
+        {
+            "Title": "General",
+            "Settings": [ ]
+        },
+        {
+            "Title": "Home Screen",
+            "Settings": [
+                {
+                      "Type": "Header",
+                      "Title": "Select Content to Display"
+                },
+                {
+                      "Type": "TextField",
+                      "Title": "Admin Password",
+                      "Value": "",
+                      "Class" : ["Password"],
+                      "Key": "adminPassword"
+                },<span style="color:#d80000;">
+                {
+                      "Type": "ToggleSwitch",
+                      "Title": "Progress Indicator",
+                      "Value": true,
+                      "Key": "ProgressIndicator"
+                }</span>
+            ]
+        },
+        {
+            "Title": "Screensaver",
+            "Settings": [ ]
+        }
+    ]
+}
+</code>
+</pre>
+<p>This is what that code will look like in the app settings view.</p>
+<a href="http://staging.mokimobility.com/wp-content/uploads/2013/08/ToggleSwitch.png"><img src="http://staging.mokimobility.com/wp-content/uploads/2013/08/ToggleSwitch-1024x176.png" alt="ToggleSwitch" width="640" height="110" class="alignnone size-large wp-image-3157" /></a>
+<a id="combobox"></a>
+<br />
+<br />
+<h3 class="quickstart typeBlue">ComboBox</h3>
+<p>We will add a ComboBox to the &#8220;Home Screen&#8221; group to have the device reset itself if idle for one or two minutes. We will set the default value at 2 minutes.</p>
+<pre>
+<code>
+{
+    "Version": 1,
+    "Groups": [
+        {
+            "Title": "General",
+            "Settings": [ ]
+        },
+        {
+            "Title": "Home Screen",
+            "Settings": [
+                {
+                      "Type": "Header",
+                      "Title": "Select Content to Display"
+                },
+                {
+                      "Type": "TextField",
+                      "Title": "Admin Password",
+                      "Value": "",
+                      "Class" : ["Password"],
+                      "Key": "adminPassword"
+                },
+                {
+                      "Type": "ToggleSwitch",
+                      "Title": "Progress Indicator",
+                      "Value": true,
+                      "Key": "ProgressIndicator"
+                },<span style="color:#d80000">
+                {
+                      "Type": "ComboBox",
+                      "Title": "Idle Reset Time",
+                      "Class" : ["Single"],
+                      "Value": "2",
+                      "Options": [
+                          {
+                              "Title": "1 Minute",
+                              "Value": "1"
+                          },
+                          {
+                              "Title": "2 Minutes",
+                              "Value": "2"
+                          }
+                      ],
+                      "Key": "duration"
+                 }</span>
+            ]
+        },
+        {
+            "Title": "Screensaver",
+            "Settings": [ ]
+        }
+    ]
+}
+</code>
+</pre>
+<p>This is what that code will look like in the app settings view.</p>
+<a href="http://staging.mokimobility.com/wp-content/uploads/2013/08/ComboBox.png"><img src="http://staging.mokimobility.com/wp-content/uploads/2013/08/ComboBox-1024x218.png" alt="ComboBox" width="640" height="136" class="alignnone size-large wp-image-3158" /></a>
+<p>Touching the Idle Reset Time will open the options menu as seen below</p>
+<a href="http://staging.mokimobility.com/wp-content/uploads/2013/08/ComboBox2.png"><img src="http://staging.mokimobility.com/wp-content/uploads/2013/08/ComboBox2-1024x132.png" alt="ComboBox2" width="640" height="82" class="alignnone size-large wp-image-3159" /></a>
+<br />
+<br />
+<h4 class="quickstart typeBlue">Pane</h4>
+<p>We will add a pane to the &#8220;Home Screen&#8221; group and underneath the &#8220;ComboBox&#8221; section. The pane will have additional settings such as a &#8220;TextField&#8221; for the URL and a &#8220;ToggleSwitch&#8221; to have the option of caching the video on the tablet.</p>
+<pre>
+<code>
+{
+    "Version": 1,
+    "Groups": [
+        {
+            "Title": "General",
+            "Settings": [ ]
+        },
+        {
+            "Title": "Home Screen",
+            "Settings": [
+                {
+                      "Type": "Header",
+                      "Title": "Select Content to Display"
+                },
+                {
+                      "Type": "TextField",
+                      "Title": "Admin Password",
+                      "Value": "",
+                      "Class" : ["Password"],
+                      "Key": "adminPassword"
+                },
+                {
+                      "Type": "ToggleSwitch",
+                      "Title": "Progress Indicator",
+                      "Value": true,
+                      "Key": "ProgressIndicator"
+                },
+                {
+                      "Type": "ComboBox",
+                      "Title": "Idle Reset Time",
+                      "Class" : ["Single"],
+                      "Value": "2",
+                      "Options": [
+                          {
+                              "Title": "1 Minute",
+                              "Value": "1"
+                          },
+                          {
+                              "Title": "2 Minutes",
+                              "Value": "2"
+                          }
+                      ],
+                      "Key": "duration"
+                 },<span style="color:#d80000;">
+                 {
+                      "Type": "Pane",
+                      "Title": "Media Settings",
+                      "Settings": [
+                          {
+                               "Type": "TextField",
+                               "Title": "Media URL:",
+                               "Value": ""
+                          },
+                          {
+                               "Type": "ToggleSwitch",
+                               "Title": "Cache media on the tablet",
+                               "Value": "false",
+                               "Key": "cache_key"
+                          }
+                      ]
+                 }</span>
+            ]
+        },
+        {
+            "Title": "Screensaver",
+            "Settings": [ ]
+        }
+    ]
+}
+</code>
+</pre>
+<p>This is what that code will look like in the app settings view.</p>
+<a href="http://staging.mokimobility.com/wp-content/uploads/2013/08/Pane.png"><img src="http://staging.mokimobility.com/wp-content/uploads/2013/08/Pane-1024x261.png" alt="Pane" width="640" height="163" class="alignnone size-large wp-image-3179" /></a>
+<p>When the Media Settings is selected, this is what that code will look like in the app settings view.</p>
+<a href="http://staging.mokimobility.com/wp-content/uploads/2013/08/Pane2.png"><img src="http://staging.mokimobility.com/wp-content/uploads/2013/08/Pane2-1024x175.png" alt="Pane2" width="640" height="109" class="alignnone size-large wp-image-3180" /></a>
+<a id="list1"></a>
+<br />
+<br />
+<h3 class="quickstart typeBlue">List</h3>
+<p>We will add a list to the &#8220;Screensaver&#8221; group and create the settings for the screensaver.</p>
+<pre>
+<code>
+{
+    "Version": 1,
+    "Groups": [
+        {
+            "Title": "General",
+            "Settings": [ ]
+        },
+        {
+            "Title": "Home Screen",
+            "Settings": [
+                {
+                      "Type": "Header",
+                      "Title": "Select Content to Display"
+                },
+                {
+                      "Type": "TextField",
+                      "Title": "Admin Password",
+                      "Value": "",
+                      "Class" : ["Password"],
+                      "Key": "adminPassword"
+                },
+                {
+                      "Type": "ToggleSwitch",
+                      "Title": "Progress Indicator",
+                      "Value": "True",
+                      "Key": "ProgressIndicator"
+                },
+                {
+                      "Type": "ComboBox",
+                      "Title": "Idle Reset Time",
+                      "Class" : ["Single"],
+                      "Value": "2",
+                      "Options": [
+                          {
+                              "Title": "1 Minute",
+                              "Value": "1"
+                          },
+                          {
+                              "Title": "2 Minutes",
+                              "Value": "2"
+                          }
+                      ],
+                      "Key": "duration"
+                 },
+                 {
+                      "Type": "Pane",
+                      "Title": "Media Settings",
+                      "Settings": [
+                          {
+                               "Type": "TextField",
+                               "Title": "Media URL:",
+                               "Value": ""
+                          },
+                          {
+                               "Type": "ToggleSwitch",
+                               "Title": "Cache media on the tablet",
+                               "Value": "false",
+                               "Key": "cache_key"
+                          }
+                      ]
+                 }
+            ]
+        },
+        {
+            "Title": "Screensaver",
+            "Settings": [ <span style="color:#d80000;">
+                {
+                     "Type": "List",
+                     "Title": "Settings",
+                     "Key": "mmasm_playlist_screensaver",
+                     "ItemTemplate": [
+                             {
+                                  "Type": "TextField",
+                                  "Title": "Content",
+                                  "Class": [
+                                         "DisableAutoCorrection"
+                                  ],
+                                        "Value": "",
+                                        "Placeholder": "http://",
+                                        "Key": "content"
+                             },
+                             {
+                                  "Type": "ToggleSwitch",
+                                  "Title": "Cache",
+                                  "Value": "false",
+                                  "Key": "cache_key"
+                             },
+                             {
+                                  "Type": "TextField",
+                                  "Title": "Duration (seconds for image to be displayed)",
+                                  "Value": "",
+                                  "Key": "duration"
+                             }
+                     ]
+                }</span>
+            ]
+        }
+    ]
+}
+</code>
+</pre>
+<p>This is what that code will look like in the app settings view.</p>
+<a href="http://staging.mokimobility.com/wp-content/uploads/2013/08/image1.png"><img src="http://staging.mokimobility.com/wp-content/uploads/2013/08/image1-1024x174.png" alt="image" width="640" height="108" class="alignnone size-large wp-image-3153" /></a>
+<br />
+<br />
+<p>This is the list control/control organizer. You will notice that the Cache ToggleSwitch just says &#8220;no.&#8221; This is because we decided to make these items only editable from the MokiManage.com console.</p>
+<a href="http://staging.mokimobility.com/wp-content/uploads/2013/08/ListControl1.jpg"><img src="http://staging.mokimobility.com/wp-content/uploads/2013/08/ListControl1-1024x211.jpg" alt="ListControl" width="640" height="131" class="alignnone size-large wp-image-3171" /></a>
+<br />
+<br />
