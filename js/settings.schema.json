@@ -21,7 +21,6 @@
       
       "AnySetting" : { "oneOf" : [
           { "$ref" : "#/definitions/Header" },
-          { "$ref" : "#/definitions/Group" },
           { "$ref" : "#/definitions/TextField" },
           { "$ref" : "#/definitions/ToggleSwitch" },
           { "$ref" : "#/definitions/List" },
@@ -47,16 +46,7 @@
       },
       
       
-      
-      
-      "Group" : {
-          "required" :
-             [ "Type", "Title" ],
-          "properties" : {
-             "Type" : { "pattern" : "^Group$" },
-             "Title" : { "type" : "string" } }
-      },
-      
+
       
       
       "List" : {
@@ -91,7 +81,7 @@
       
       "TabPane" : {
           "required" :
-             [ "Type", "Key", "Tabs" ],
+             [ "Type", "Key", "Tabs", "SelectedTab" ],
           "properties" : {
               "Type" : { "pattern" : "^TabPane$" },
               "Key" : { "type" : "string" },
