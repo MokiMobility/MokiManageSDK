@@ -1,0 +1,176 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema",
+    "type": "object",
+    "required": [
+        "Version",
+        "Groups"
+    ],
+    "properties": {
+        "Version": {
+            "type": "integer",
+            "minimum": 1
+        },
+        "Groups": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+                "type": "object",
+                "required": [
+                    "Title",
+                    "Settings"
+                ],
+                "properties": {
+                    "Title": {
+                        "type": "string"
+                    },
+                    "Settings": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/definitions/AnySetting"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "AnySetting": {
+            "oneOf": [
+                {
+                    "$ref": "#/definitions/Header"
+                },
+                {
+                    "$ref": "#/definitions/Group"
+                },
+                {
+                    "$ref": "#/definitions/TextField"
+                },
+                {
+                    "$ref": "#/definitions/ToggleSwitch"
+                },
+                {
+                    "$ref": "#/definitions/List"
+                },
+                {
+                    "$ref": "#/definitions/ComboBox"
+                },
+                {
+                    "$ref": "#/definitions/Pane"
+                },
+                {
+                    "$ref": "#/definitions/TabPane"
+                }
+            ]
+        },
+        "Header": {
+            "required": [
+                "Type",
+                "Title"
+            ],
+            "properties": {
+                "Type": {
+                    "pattern": "^Header$"
+                },
+                "Title": {
+                    "type": "string"
+                },
+                "SubTitle": {
+                    "type": "string"
+                }
+            }
+        },
+        "Group": {
+            "required": [
+                "Type",
+                "Title"
+            ],
+            "properties": {
+                "Type": {
+                    "pattern": "^Group$"
+                },
+                "Title": {
+                    "type": "string"
+                }
+            }
+        },
+        "TextField": {
+            "required": [
+                "Type",
+                "Key",
+                "Value"
+            ],
+            "properties": {
+                "Type": {
+                    "pattern": "^TextField$"
+                },
+                "Key": {
+                    "type": "string"
+                },
+                "Value": {
+                    "type": "string"
+                },
+                "Title": {
+                    "type": "string"
+                },
+                "SubTitle": {
+                    "type": "string"
+                },
+                "Tooltip": {
+                    "type": "string"
+                },
+                "Placeholder": {
+                    "type": "string"
+                },
+                "ValidationRegex": {
+                    "type": "string"
+                },
+                "ValidationErrorMsg": {
+                    "type": "string"
+                },
+                "Class": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "ToggleSwitch": {
+            "properties": {
+                "Type": {
+                    "pattern": "^ToggleSwitch$"
+                }
+            }
+        },
+        "List": {
+            "properties": {
+                "Type": {
+                    "pattern": "^List$"
+                }
+            }
+        },
+        "ComboBox": {
+            "properties": {
+                "Type": {
+                    "enum": [
+                        "^ComboBox$"
+                    ]
+                }
+            }
+        },
+        "Pane": {
+            "properties": {
+                "Type": {
+                    "pattern": "^Pane$"
+                }
+            }
+        },
+        "TabPane": {
+            "properties": {
+                "Type": {
+                    "pattern": "^TabPane$"
+                }
+            }
+        }
+    }
+}

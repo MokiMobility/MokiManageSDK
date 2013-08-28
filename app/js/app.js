@@ -56,6 +56,16 @@ var app = angular.module('app', ['ngCookies'])
             nextText: 'Updating the schema'
         }
     })
+    
+    .when('/asm/schema-validator', {
+        templateUrl: 'app/partials/asm/asm-schema-validator.html',
+        link: {
+            prev: '/asm/schema-examples',
+            prevText: 'SettingsSchema Examples',
+            next: '/asm/update-schema',
+            nextText: 'Updating the schema'
+        }
+    })
 
     .when('/asm/update-schema', {
         templateUrl: 'app/partials/asm/asm-update-schema.html',
