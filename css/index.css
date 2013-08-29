@@ -81,7 +81,7 @@ body {
 .btn-grey,
 .btn-grey:hover,
 .btn-grey:active {
-    color: white !important;
+    /*color: white !important;*/
     text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
     background-color: #CCCCCC;
 }
@@ -109,13 +109,18 @@ body {
     border-radius: 5px;
 }
 
-.bs-sidenav li.active a{
-    color: #000000;
+li.active a{
+    color: lightgrey;
 }
 
-/*.nav>li>a:not(.nav-selected):hover {*/
-    /*background-color: #ddd7d7;*/
-/*}*/
+.nav>li>a:not(.nav-selected):hover {
+    background-color: #ddd7d7;
+}
+
+.selector:hover {
+    background-color: #ddd7d7;
+}
+
 
 .contact {
     margin-top: 75px;
@@ -126,6 +131,7 @@ body {
 
 .affix {
     margin-top: 25px;
+    width: 235px;
 }
 
 .example {
@@ -144,3 +150,22 @@ body {
     width: 150px;
     background-color: #ffffff;
  }
+
+.col-md-9.margin-top {
+    margin-top: 60px;
+}
+
+.selector {
+    padding: 10px 30px 10px 15px;
+}
+
+
+
+.context-switcher {
+    margin-left: 15px;
+    margin-bottom: 20px;
+}
+
+
+
+
