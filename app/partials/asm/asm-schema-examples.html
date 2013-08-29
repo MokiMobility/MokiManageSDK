@@ -146,7 +146,7 @@
                       "Type": "ToggleSwitch",
                       "Title": "Progress Indicator",
                       "Value": true,
-                      "Key": "ProgressIndicator"
+                      "Key": "progressIndicator"
                 }</em>
             ]
         },
@@ -192,7 +192,7 @@
                       "Type": "ToggleSwitch",
                       "Title": "Progress Indicator",
                       "Value": true,
-                      "Key": "ProgressIndicator"
+                      "Key": "progressIndicator"
                 }<em>,
                 {
                       "Type": "ComboBox",
@@ -256,7 +256,7 @@
                       "Type": "ToggleSwitch",
                       "Title": "Progress Indicator",
                       "Value": true,
-                      "Key": "ProgressIndicator"
+                      "Key": "progressIndicator"
                 },
                 {
                       "Type": "ComboBox",
@@ -282,13 +282,14 @@
                           {
                                "Type": "TextField",
                                "Title": "Media URL:",
-                               "Value": ""
+                               "Value": "",
+                               "Key": "mediaUrl"
                           },
                           {
                                "Type": "ToggleSwitch",
                                "Title": "Cache media on the tablet",
-                               "Value": "false",
-                               "Key": "cache_key"
+                               "Value": false,
+                               "Key": "cacheKey"
                           }
                       ]
                  }</em>
@@ -337,8 +338,8 @@
                 {
                       "Type": "ToggleSwitch",
                       "Title": "Progress Indicator",
-                      "Value": "True",
-                      "Key": "ProgressIndicator"
+                      "Value": true,
+                      "Key": "progressIndicator"
                 },
                 {
                       "Type": "ComboBox",
@@ -364,13 +365,14 @@
                           {
                                "Type": "TextField",
                                "Title": "Media URL:",
-                               "Value": ""
+                               "Value": "",
+                               "Key": "mediaUrl"
                           },
                           {
                                "Type": "ToggleSwitch",
                                "Title": "Cache media on the tablet",
-                               "Value": "false",
-                               "Key": "cache_key"
+                               "Value": false,
+                               "Key": "cacheKey"
                           }
                       ]
                  }
@@ -387,18 +389,15 @@
                              {
                                   "Type": "TextField",
                                   "Title": "Content",
-                                  "Class": [
-                                         "DisableAutoCorrection"
-                                  ],
-                                        "Value": "",
-                                        "Placeholder": "http://",
-                                        "Key": "content"
+                                  "Value": "",
+                                  "Placeholder": "http://",
+                                  "Key": "content"
                              },
                              {
                                   "Type": "ToggleSwitch",
                                   "Title": "Cache",
-                                  "Value": "false",
-                                  "Key": "cache_key"
+                                  "Value": false,
+                                  "Key": "cacheKey"
                              },
                              {
                                   "Type": "TextField",

@@ -1,0 +1,88 @@
+<h1 class="quickstart typeBlue">SettingsSchema Validator</h1>
+
+<script src="js/tv4.min.js"></script>
+
+<script>
+    
+    
+function ValidatorCtrl($scope) {
+    
+     $scope.tv4Input = JSON.stringify( {
+        "Version": 1,
+        "Groups": [
+            {
+                "Title": "General",
+                "Settings": [ ]
+            },
+            {
+                "Title": "Home Screen",
+                "Settings": [ ]
+            },
+            {
+                "Title": "Screensaver",
+                "Settings": [ ]
+            }
+        ]
+    }
+ ) ;
+    
+    $scope.validate = function(){   
+        this.reset();
+        this.tv4 = tv4.validateMultiple(JSON.parse(this.tv4Input), tv4.getSchema("moki")); 
+        this.tmpltErr(tv4.errors)
+    }
+    
+    $scope.tmpltErr = function(err) {
+        
+        if(!err){return '';}
+        
+        var subErrs = '';
+        
+        if(err.subErrors) {
+            subErrs += '<div>Sub Errors: <div class="indent">';
+            for(var i in err.subErrors){
+                subErrs += this.tmpltErr(err.subErrors[i]);
+            }
+            subErrs += '</div></div>'
+            
+        }
+        
+        var html = '<div><br/><b>Err-'+err.code+'</b> <i>'+err.message+'</i></div><div>Data Path: '+err.dataPath+'</div><div>Schema Path: '+err.schemaPath+'</div>'+subErrs
+        
+        return html;
+     
+    }
+    
+    $scope.reset=function(){
+        this.tv4={};
+    }
+    
+    $.getJSON("js/settings.schema.json", function(data){
+            tv4.addSchema("moki", data);
+            $scope.validate();
+        });  
+}
+</script>
+
+The following validator can be used to see if your SettingsSchema.json file has the required fields and structure. Right now we do not guarantee a Schema that passes this validation will work flawlessly when implemented. We hope to improve this going forward.  Due to the design of our schema and the json-schema draft-04 spec any errors you get MAY be verbose and potentially misleading. However a truly valid schema should be recognized. Report any bugs you find to our <a href="https://github.com/MokiMobility/MokiManageSDK/issues">issue tracker</a>. 
+<br/><br/>
+
+<div ng-controller="ValidatorCtrl">
+    
+<textarea ng-model="tv4Input" ng-change="validate()" style="width:100%;height:300px"></textarea>
+    <br/>
+<button ng-click="validate()">Validate</button>
+    <br/>
+    
+Valid: <b><span ng-show="tv4.valid" style="color:green">{{tv4.valid}}</span>
+    <span ng-hide="tv4.valid" style="color:red">{{tv4.valid}}</span></b>
+    <br/>
+Errors: <div ng-repeat="e in tv4.errors"><div ng-bind-html-unsafe=" tmpltErr( e ) "></div></div>
+    <br/>
+    
+Missing: {{tv4.missing}}
+    <br/>
+    
+    
+</div>
+
