@@ -105,9 +105,13 @@ body {
     border-radius: 5px;
 }
 
-.nav>li>a:not(.nav-selected):hover {
-    background-color: #ddd7d7;
+.bs-sidenav li.active a{
+    color: #000000;
 }
+
+/*.nav>li>a:not(.nav-selected):hover {*/
+    /*background-color: #ddd7d7;*/
+/*}*/
 
 .contact {
     margin-top: 75px;
@@ -119,3 +123,20 @@ body {
 .affix {
     margin-top: 25px;
 }
+
+.example {
+    height: 560px;
+    overflow: auto;
+}
+
+.scrollspy-example {
+    position: relative;
+    height: 200px;
+    margin-top: 10px;
+    overflow: auto;
+}
+
+.affix.navbar-default.nav-stacked {
+    width: 150px;
+    background-color: #ffffff;
+ }

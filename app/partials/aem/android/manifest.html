@@ -1,0 +1,104 @@
+<h4 class="quickstart typeBlue" id="manifest">Setting Up the AndroidManifest.xml</h4>
+
+You will need to include a number of permissions, receivers, and services in your application's <code>AndroidManifest.xml</code>
+file. Please replace “<b>your.package.name.here</b>” with your application's package name.
+<pre>
+<code>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+    &lt;!-- PERMISSIONS --&gt;
+
+    &lt;uses-permission android:name="android.permission.READ_PHONE_STATE" /&gt;
+    &lt;uses-permission android:name="android.permission.INTERNET" /&gt;
+    &lt;uses-permission android:name="android.permission.READ_CONTACTS" /&gt;
+    &lt;uses-permission android:name="android.permission.ACCESS_COURSE_LOCATION" /&gt;
+    &lt;uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" /&gt;
+    &lt;uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /&gt;
+    &lt;uses-permission android:name="android.permission.ACCESS_SUPERUSER" /&gt;
+    &lt;uses-permission android:name="android.permission.WAKE_LOCK" /&gt;
+    &lt;uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /&gt;
+    &lt;uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" /&gt;
+    &lt;uses-permission android:name="android.permission.ACCESS_WIFI_STATE" /&gt;
+    &lt;uses-permission android:name="android.permission.BLUETOOTH" /&gt;
+    &lt;permission android:name="your.package.name.here.permission.C2D_MESSAGE"
+    android:protectionLevel="signature" /&gt;
+    &lt;uses-permission android:name="your.package.name.here.permission.C2D_MESSAGE" /&gt;
+    &lt;uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" /&gt;
+    &lt;!-- RECEIVERS --&gt;
+
+    &lt;receiver android:name="com.moki.aem.receivers.BootReceiver" &gt;
+
+    &lt;intent-filter&gt;
+
+    &lt;action android:name="android.intent.action.BOOT_COMPLETED" /&gt;
+    &lt;/intent-filter&gt;
+
+    &lt;/receiver&gt;
+    &lt;receiver
+    android:name="com.moki.aem.receivers.LogAlarmReceiver"
+    android:exported="false" /&gt;
+    &lt;receiver
+    android:name="com.moki.aem.receivers.StatusAlarmReceiver"
+    android:exported="false" /&gt;
+    &lt;receiver
+    android:name="com.moki.aem.receivers.StoreLogsAlarmReceiver"
+    android:exported="false" /&gt;
+    &lt;receiver
+    android:name="com.moki.aem.receivers.HeartBeatAlarmReceiver"
+    android:exported="false" /&gt;
+    &lt;receiver
+    android:name="com.moki.appregistration.receiver.NotificationReceiver"
+    android:exported="false" &gt;
+
+    &lt;intent-filter&gt;
+
+    &lt;action android:name="com.moki.manage.MokiManangeAction" /&gt;
+    &lt;/intent-filter&gt;
+
+    &lt;/receiver&gt;
+    &lt;receiver
+    android:name="com.google.android.c2dm.C2DMBroadcastReceiver"
+    android:permission="com.google.android.c2dm.permission.SEND" &gt;
+
+    &lt;intent-filter&gt;
+
+    &lt;action android:name="com.google.android.c2dm.intent.RECEIVE" /&gt;
+
+    &lt;category android:name="your.package.name.here" /&gt;
+    &lt;/intent-filter&gt;
+
+    &lt;intent-filter&gt;
+
+    &lt;action android:name="com.google.android.c2dm.intent.REGISTRATION" /&gt;
+
+    &lt;category android:name="your.package.name.here" /&gt;
+    &lt;/intent-filter&gt;
+
+    &lt;/receiver&gt;
+    &lt;receiver
+    android:name="com.moki.aem.receivers.AEMCommandReceiver"
+    android:exported="false" &gt;
+
+    &lt;intent-filter&gt;
+
+    &lt;action android:name="com.moki.aem.aemCommandIntent" /&gt;
+    &lt;/intent-filter&gt;
+
+    &lt;/receiver&gt;
+    &lt;service android:name="com.moki.appregistration.C2DMReceiver" /&gt;
+    &lt;service
+    android:name="com.moki.aem.utils.LoggingService"
+    android:process=":LoggingProcess" &gt;
+
+    &lt;/service&gt;
+    &lt;service
+    android:name="com.moki.aem.utils.ScreenShotUtil"
+    android:exported="false" &gt;
+
+    &lt;intent-filter&gt;
+
+    &lt;action android:name="com.moki.screenshot" /&gt;
+
+    &lt;category android:name="com.moki.android.kiosk" /&gt;
+    &lt;/intent-filter&gt;
+
+    &lt;/service&gt;</code></pre>
+<br/><br/>

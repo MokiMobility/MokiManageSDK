@@ -1,0 +1,20 @@
+<h4 class="quickstart typeBlue" id="silent">Silent Enrollment</h4>
+The final step of the integration process is to add the code that enrolls the device with MokiManage. This is done by
+adding a call to the <code>silentlyRegisterDevice</code> method.
+<pre><code>@Override
+    public void onCreate() {
+    super.onCreate();
+
+    mokiManage = MokiManage.sharedInstance(API_KEY, this, ENABLE_AppSettingsManagement,
+    ENABLE_AppEnvirionmentManagement);
+
+    registerReceiver(mokiManageReciever, new IntentFilter(MokiManage.REGISTRATION_COMPLETED_NOTIFICATION));
+    registerReceiver(mokiManageReciever, new IntentFilter(MokiManage.UNREGISTRATION_COMPLETED_NOTIFICATION));
+    registerReceiver(mokiManageReciever, new IntentFilter(MokiManage.REGISTER_TO_A_NEW_TENANT_COMPLETED_NOTIFICATION));
+    registerReceiver(mokiManageReciever, new IntentFilter(MokiManage.SETTINGS_PULL_COMPLETED_NOTIFICATION));
+    registerReceiver(mokiManageReciever, new IntentFilter(MokiManage.SETTINGS_PUSH_COMPLETED_NOTIFICATION));
+
+    if(!mokiManage.isRegistered()){
+    mokiManage.silentlyRegisterDevice(TENANT_ID);
+    }
+    }</code></pre>

@@ -1,4 +1,44 @@
-href="#apns"
-         href="iosSdk"
-         href="iosDelegate"
-         href="iosSilent"
+<h4 class="quickstart typeBlue" id="broadcasts">Configure your app to receive MokiManage broadcasts</h4>
+The MokiManage SDK will broadcast notifications in 5 different scenarios that your application will need to receive.
+Those scenarios are <code>SETTINGS_PUSH_COMPLETED_NOTIFICATION</code>, <code>SETTINGS_PULL_COMPLETED_NOTIFICATION</code>,
+<code>REGISTRATION_COMPLETED_NOTIFICATION</code>, <code>UNREGISTRATION_COMPLETED_NOTIFICATION</code>, <code>REGISTER_TO_A_NEW_TENANT_COMPLETED_NOTIFICATION</code>
+You can handle these notifications by creating a new <code>BroadcastReceiver</code>. Make sure you declare the following
+constants for the broadcasts:
+<pre><code>public static final String SETTINGS_PUSH_COMPLETED_NOTIFICATION
+    public static final String SETTINGS_PULL_COMPLETED_NOTIFICATION
+    public static final String REGISTRATION_COMPLETED_NOTIFICATION
+    public static final String UNREGISTRATION_COMPLETED_NOTIFICATION
+    public static final String REGISTER_TO_A_NEW_TENANT_COMPLETED_NOTIFICATION
+</code></pre>
+<br/>
+
+<pre><code>BroadcastReceiver mokiManageReciever = new BroadcastReceiver() {
+
+    @Override
+    public void onReceive(Context context, Intent intent) {
+    if (intent.getAction().equals(MokiManage.REGISTRATION_COMPLETED_NOTIFICATION)) {
+    //TODO: handle this as needed
+    } else if (intent.getAction().equals(MokiManage.UNREGISTRATION_COMPLETED_NOTIFICATION)) {
+    //TODO: handle this as needed
+    } else if (intent.getAction().equals(MokiManage.REGISTER_TO_A_NEW_TENANT_COMPLETED_NOTIFICATION)) {
+    //TODO: handle this as needed
+    } else if (intent.getAction().equals(MokiManage.SETTINGS_PULL_COMPLETED_NOTIFICATION)) {
+    //TODO: handle this as needed
+    } else if (intent.getAction().equals(MokiManage.SETTINGS_PUSH_COMPLETED_NOTIFICATION)) {
+    //TODO: handle this as needed
+    }
+    }
+    };
+    @Override
+    public void onCreate() {
+    super.onCreate();
+
+    mokiManage = MokiManage.sharedInstance(API_KEY, this, ENABLE_AppSettingsManagement,
+    ENABLE_AppEnvirionmentManagement);
+    registerReceiver(mokiManageReciever, new IntentFilter(MokiManage.REGISTRATION_COMPLETED_NOTIFICATION));
+    registerReceiver(mokiManageReciever, new IntentFilter(MokiManage.UNREGISTRATION_COMPLETED_NOTIFICATION));
+    registerReceiver(mokiManageReciever, new IntentFilter(MokiManage.REGISTER_TO_A_NEW_TENANT_COMPLETED_NOTIFICATION));
+    registerReceiver(mokiManageReciever, new IntentFilter(MokiManage.SETTINGS_PULL_COMPLETED_NOTIFICATION));
+    registerReceiver(mokiManageReciever, new IntentFilter(MokiManage.SETTINGS_PUSH_COMPLETED_NOTIFICATION));
+    }</code></pre>
+<br/>

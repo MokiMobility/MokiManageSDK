@@ -1,4 +1,4 @@
-app.controller('MainController', function($scope, $route) {
+app.controller('MainController', function($scope, $route, $anchorScroll) {
 
 
     $scope.$route = $route;
@@ -17,15 +17,17 @@ app.controller('MainController', function($scope, $route) {
 
     });
 
-    $scope.displayed = false;
+    $scope.iosDisplayed = false;
     $scope.aemDisplayed = false;
+    $scope.androidDisplayed = false;
 
 
 //    console.log($scope.displayed)
 
     $scope.noDisplay = function() {
-        $scope.displayed = false;
+        $scope.iosDisplayed = false;
         $scope.aemDisplayed = false;
+        $scope.androidDisplayed = false;
 
     };
 
@@ -34,8 +36,23 @@ app.controller('MainController', function($scope, $route) {
 
     };
 
-    $scope.aemDisplay = function() {
+    $scope.android = function() {
+        $scope.iosDisplayed = false;
+        $scope.aemDisplayed = false;
+        $scope.androidDisplayed = true;
+    };
+
+    $scope.ios = function() {
+        $scope.iosDisplayed = true;
+        $scope.aemDisplayed = false;
+        $scope.androidDisplayed = false;
+    };
+
+
+    $scope.aem = function() {
+        $scope.iosDisplayed = false;
         $scope.aemDisplayed = true;
+        $scope.androidDisplayed = false;
     };
 
     $('body').scrollspy({ target: '#navbar' });

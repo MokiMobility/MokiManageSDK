@@ -1,0 +1,12 @@
+ <h4 class="quickstart typeBlue" id="iosSilent">Silent Enrollment</h4>
+    The final step of the integration process is to add the code that enrolls the device with MokiManage. This is done
+    by adding a call to the <code>silentlyRegisterDevice</code> method. This can be placed at any point in your app's
+    workflow. For example purposes, add it inside of the delegate method <code>didRegisterForRemoteNotificationsWithDeviceToken:</code>
+<pre>
+<code>- (void)application:(UIApplication*)application
+    didRegisterForRemoteNotificationsWithDeviceToken:(NSData*)deviceToken {
+    [[MokiManage sharedManager] setApnsToken:deviceToken];
+    [[MokiManage sharedManager] silentlyRegisterDevice:Tenant_ID ];
+    }
+</code></pre>
+    <br/>
