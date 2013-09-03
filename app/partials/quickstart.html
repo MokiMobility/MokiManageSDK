@@ -319,10 +319,8 @@ file. Please replace “<b>your.package.name.here</b>” with your application's
     &lt;/receiver&gt;
     &lt;service android:name="com.moki.appregistration.C2DMReceiver" /&gt;
     &lt;service
-    android:name="com.moki.aem.utils.LoggingService"
-    android:process=":LoggingProcess" &gt;
+    android:name="com.moki.aem.utils.LoggingService" /&gt;
 
-    &lt;/service&gt;
     &lt;service
     android:name="com.moki.aem.utils.ScreenShotUtil"
     android:exported="false" &gt;
@@ -353,20 +351,69 @@ Second, create constants for your api key and tenant ID:
 
 Third, initiate the session with the MokiManage SDK from the onCreate function of your
 <code>CustomApplication.java</code> file:
-<pre><code>public class CustomApplication extends Application {
-    private MokiManage mokiManage;
-    private static final String API_KEY = "whatever-your-apik-eyis-useitherenow";
-    private static final boolean ENABLE_AppSettingsManagement = false;
-    private static final boolean ENABLE_AppEnvirionmentManagement = true;
-    private static final boolean ENABLE_Compliance = true;
+<pre><code>public class CustomApplication extends Application implements Application.ActivityLifecycleCallbacks {
+    private static MokiManageApplication instance;
+    private MokiManage mmanage;
+    private int activeActivityCount = 0;
+    private final boolean enableASM = false;
+    private final boolean enableAEM = true;
+    private final boolean enableCompliance = false;
+    private final String appKey = "&lt;YOUR APP KEY HERE&gt;";
+    private final String appID = "&lt;YOUR APP ID HERE&gt;";
+
     @Override
     public void onCreate() {
-    super.onCreate();
+        super.onCreate();
+        Context context = this;
+        mmanage = MokiManage.sharedInstance(appKey, appID, context, enableASM, enableAEM, enableCompliance);
+        registerActivityLifecycleCallbacks(this);
+        instance = this;
+    }
 
-    mokiManage = MokiManage.sharedInstance(API_KEY, this, ENABLE_AppSettingsManagement,
-    ENABLE_AppEnvirionmentManagement, ENABLE_Compliance);
+    public static MokiManageApplication instance(){
+        return instance;
     }
+
+    public  MokiManage mokiManage(){
+        return mmanage;
     }
+
+    @Override
+    public void onActivityStarted(Activity activity) {
+        activeActivityCount++;
+        if(activeActivityCount == 1){
+            mmanage.resume();
+        }
+    }
+
+    @Override
+    public void onActivityStopped(Activity activity) {
+        activeActivityCount--;
+        if(activeActivityCount == 0){
+            mmanage.pause();
+        }
+    }
+
+    @Override
+    public void onActivityCreated(Activity activity, Bundle savedInstanceState) {
+    }
+
+    @Override
+    public void onActivityDestroyed(Activity activity) {
+    }
+
+    @Override
+    public void onActivityPaused(Activity activity) {
+    }
+
+    @Override
+    public void onActivityResumed(Activity activity) {
+    }
+
+    @Override
+    public void onActivitySaveInstanceState(Activity activity, Bundle outState) {
+    }
+  }
 </code></pre>
 <br/>
 Finally, include the new class name in your <code>AndroidManifest.xml</code> file.
@@ -412,8 +459,9 @@ constants for the broadcasts:
     public void onCreate() {
     super.onCreate();
 
-    mokiManage = MokiManage.sharedInstance(API_KEY, this, ENABLE_AppSettingsManagement,
-    ENABLE_AppEnvirionmentManagement);
+    mmanage = MokiManage.sharedInstance(appKey, appID, context, enableASM, enableAEM, enableCompliance);
+    registerActivityLifecycleCallbacks(this);
+    instance = this;
     registerReceiver(mokiManageReciever, new IntentFilter(MokiManage.REGISTRATION_COMPLETED_NOTIFICATION));
     registerReceiver(mokiManageReciever, new IntentFilter(MokiManage.UNREGISTRATION_COMPLETED_NOTIFICATION));
     registerReceiver(mokiManageReciever, new IntentFilter(MokiManage.REGISTER_TO_A_NEW_TENANT_COMPLETED_NOTIFICATION));
@@ -429,19 +477,14 @@ adding a call to the <code>silentlyRegisterDevice</code> method.
     public void onCreate() {
     super.onCreate();
 
-    mokiManage = MokiManage.sharedInstance(API_KEY, this, ENABLE_AppSettingsManagement,
-    ENABLE_AppEnvirionmentManagement);
-
-    registerReceiver(mokiManageReciever, new IntentFilter(MokiManage.REGISTRATION_COMPLETED_NOTIFICATION));
-    registerReceiver(mokiManageReciever, new IntentFilter(MokiManage.UNREGISTRATION_COMPLETED_NOTIFICATION));
-    registerReceiver(mokiManageReciever, new IntentFilter(MokiManage.REGISTER_TO_A_NEW_TENANT_COMPLETED_NOTIFICATION));
-    registerReceiver(mokiManageReciever, new IntentFilter(MokiManage.SETTINGS_PULL_COMPLETED_NOTIFICATION));
-    registerReceiver(mokiManageReciever, new IntentFilter(MokiManage.SETTINGS_PUSH_COMPLETED_NOTIFICATION));
+    mmanage = MokiManage.sharedInstance(appKey, appID, context, enableASM, enableAEM, enableCompliance);
+    registerActivityLifecycleCallbacks(this);
+    instance = this;
 
     if(!mokiManage.isRegistered()){
-    mokiManage.silentlyRegisterDevice(TENANT_ID);
+        mokiManage.silentlyRegisterDevice(TENANT_ID);
     }
-    }</code></pre>
+  }</code></pre>
 
 
 </div>

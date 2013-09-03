@@ -59,5 +59,46 @@
 <p>Click to see a full list of <a href="http://mokicloud.com/docs/sdk-ios-dev/Protocols/MokiManageDelegate.html" target="_blank">Object Methods.</a></p>
 </div>
 <div context-show="android">
+    <p>When your settings schema works, and your app is working with MokiManage.com, you’re ready to start working with settings.</p>
 
+    <p>The following MokiManage object methods allow your app to initiate getting and changing settings:</p>
+<pre><code>public JSONObject getSettings()
+    public void saveSettings()
+    public void saveSettings(JSONObject settings)
+</code></pre>
+
+    <p>The following Broadcasts are sent to notify you when settings are successfully saved to and updated from the web:</p>
+<pre><code>MokiManage.SETTINGS_PUSH_COMPLETED_NOTIFICATION
+    MokiManage.SETTINGS_PULL_COMPLETED_NOTIFICATION
+</code></pre>
+
+    <p>You can get and change settings for your app. You can retrieve all of your settings from the MokiManage object with the method:</p>
+<pre><code>public JSONObject getSettings()
+</code></pre>
+
+    <p>This method simply returns the entire settings dictionary from the MokiManage object. You could assign a pointer to these settings, as follows:</p>
+    <pre><code>JSONObject settingsJson = MokiManage.sharedInstance().getSettings();</code></pre>
+
+    <p>Assuming the MokiManage object has already pulled settings, settings returns a dictionary representing your settings. You could assign a pointer to these settings, as follows:</p>
+<pre><code>self.settingsD = [[MokiManage sharedManager] settings];
+</code></pre>
+
+    <p>This dictionary has two keys. The Version key returns the version of your schema. You can use this to see if MokiManage is using the latest changes in your <code>SettingsSchema.json</code> file. The Values key returns the set of values, so getting to your settings would look like this:</p>
+<pre><code>NSDictionary *valsD = [self.settingsD valueForKey:@"Values"];
+</code></pre>
+
+    <p>The key-value pairs in this dictionary will match the keys in your schema. For example, the dictionary tied to our Control Examples <code>SettingsSchema.json</code> file would have the keys: <code>adminPassword</code>, <code>ProgressIndicator</code>, <code>duration</code>, <code>cache_key</code>, <code>screensaverPlaylist</code>, and <code>content</code>. Use the key you defined in your SettingsSchema file to access individual settings. Arrays in the JSON settings file are represented as arrays in Objective C as well, so getting the list of announcements would be done with the following line of code:</p>
+<pre><code>JSONArray announcmentsJsonArray = valuesJson.optJSONArray("announcements");
+</code></pre>
+
+    <p>This is a JSONArray of JSONObjects, with each object representing the settings declared in the list's ItemTemplate array. The key for each entry is the same as the key for each setting declared.</p>
+    <p>What you do with these settings depends on your app’s functionality.</p>
+    <p>You can skip the previous steps and retrieve individual values with these <code>typeForKey</code> methods:</p>
+<pre><code>public boolean boolForKey(String key)
+    public float numberForKey(String key)
+    public String stringForKey(String key)
+    public JSONArray arrayForKey(String key)
+</code></pre>
+    <br/>
+    <p>Click to see a full list of <a href="http://mokimobility.github.io/MokiManageSDK/javadoc/com/moki/manage/api/MokiManage.html" target="_blank">Object Methods.</a></p>
 </div>
