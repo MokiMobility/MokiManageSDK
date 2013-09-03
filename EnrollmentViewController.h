@@ -19,6 +19,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *enrollmentCodeInputField;
 @property (weak, nonatomic) IBOutlet UILabel *statusLabel;
 @property (weak, nonatomic) IBOutlet UILabel *partnerLabel;
+@property (weak, nonatomic) IBOutlet UILabel *supportLabel;
 @property (unsafe_unretained, nonatomic) IBOutlet UIButton *submitButton;
 @property (unsafe_unretained, nonatomic) IBOutlet UITableViewCell *submitCell;
 

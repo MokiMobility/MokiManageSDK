@@ -1,5 +1,7 @@
 MokiManageSDK-iOS
 =================
+version 1.1.0
+
 
 Dependencies
 ------------
