@@ -68,6 +68,8 @@
 	
 	<option value="//api/name/companyName">&nbsp;&nbsp;&nbsp;&nbsp;- companyName</option>
 	
+	<option value="//api/name/complianceReport">&nbsp;&nbsp;&nbsp;&nbsp;- complianceReport</option>
+	
 	<option value="//api/name/connectedPeripherals">&nbsp;&nbsp;&nbsp;&nbsp;- connectedPeripherals</option>
 	
 	<option value="//api/name/dataForKey:">&nbsp;&nbsp;&nbsp;&nbsp;- dataForKey:</option>
@@ -92,7 +94,7 @@
 	
 	<option value="//api/name/identifierForSupport">&nbsp;&nbsp;&nbsp;&nbsp;- identifierForSupport</option>
 	
-	<option value="//api/name/initializeWithApiKey:launchingOptions:enableASM:enableAEM:asmSettingsFileName:error:">&nbsp;&nbsp;&nbsp;&nbsp;- initializeWithApiKey:launchingOptions:enableASM:enableAEM:asmSettingsFileName:error:</option>
+	<option value="//api/name/initializeWithApiKey:launchingOptions:enableASM:enableAEM:enableComplianceChecking:asmSettingsFileName:error:">&nbsp;&nbsp;&nbsp;&nbsp;- initializeWithApiKey:launchingOptions:enableASM:enableAEM:enableComplianceChecking:asmSettingsFileName:error:</option>
 	
 	<option value="//api/name/installedApps:">&nbsp;&nbsp;&nbsp;&nbsp;- installedApps:</option>
 	
@@ -135,6 +137,8 @@
 	<option value="//api/name/setApnsToken:">&nbsp;&nbsp;&nbsp;&nbsp;- setApnsToken:</option>
 	
 	<option value="//api/name/setMetaData:">&nbsp;&nbsp;&nbsp;&nbsp;- setMetaData:</option>
+	
+	<option value="//api/name/setObject:forKey:">&nbsp;&nbsp;&nbsp;&nbsp;- setObject:forKey:</option>
 	
 	<option value="//api/name/settings">&nbsp;&nbsp;&nbsp;&nbsp;- settings</option>
 	
@@ -214,6 +218,8 @@
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/companyName">companyName</a></span></li>
 	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/complianceReport">complianceReport</a></span></li>
+	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/connectedPeripherals">connectedPeripherals</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/dataForKey:">dataForKey:</a></span></li>
@@ -238,7 +244,7 @@
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/identifierForSupport">identifierForSupport</a></span></li>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/initializeWithApiKey:launchingOptions:enableASM:enableAEM:asmSettingsFileName:error:">initializeWithApiKey:launchingOptions:enableASM:enableAEM:asmSettingsFileName:error:</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/initializeWithApiKey:launchingOptions:enableASM:enableAEM:enableComplianceChecking:asmSettingsFileName:error:">initializeWithApiKey:launchingOptions:enableASM:enableAEM:enableComplianceChecking:asmSettingsFileName:error:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/installedApps:">installedApps:</a></span></li>
 	
@@ -281,6 +287,8 @@
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/setApnsToken:">setApnsToken:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/setMetaData:">setMetaData:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/setObject:forKey:">setObject:forKey:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/settings">settings</a></span></li>
 	
@@ -331,23 +339,24 @@
 						<h2 class="subtitle subtitle-overview">Overview</h2>
 						<p>The MokiManage SDK is designed to help developers leverage the MokiManage Platform within their own applications</p>
 
-<h3>Regstration</h3>
+<h3>Registration</h3>
 
 <p>Registration methods are used to manage the connection of devices to the MokiManage platform.</p>
 
 <h3>ASM</h3>
 
-<p>Application Settings Management (ASM) enables a application to have <a href="#//api/name/settings">settings</a> that are managed remotely from MokiManage.
-Need a <a href="#//api/name/schema">schema</a>&hellip;. etc.</p>
+<p>Application Settings Management (ASM) enables an application to have <a href="#//api/name/settings">settings</a> that are managed remotely from MokiManage.
+For details on the ASM structure and <a href="#//api/name/settings">settings</a> <a href="#//api/name/schema">schema</a> see the <a href="http://mokimobility.github.io/MokiManageSDK/#/asm" title="ASM Programming Guide">ASM Programming Guide</a></p>
 
 <h3>Custom Alerts</h3>
 
-<p>Custom alerts allow a developer to trigger alerts at any point in their code that get surfaced in MokiManage web interface to the appropriate admins.  MokiManage already has alerts in place for things like low battery life.  An example of a place where implementing a custom alert would make sense is in the
+<p>Custom alerts allow a developer to trigger alerts at any point in their code that get surfaced in MokiManage web interface to the appropriate admins.
+MokiManage already has alerts in place for things like low battery life.  An example of a place where implementing a custom alert would make sense is in the
 application did receive memory warning <a href="#//api/name/delegate">delegate</a> method.</p>
 
 <h3>Security</h3>
 
-<p>These Security methods give the developer an easy way to check for specific security nulnerablities and respond according in the application.</p>
+<p>These Security methods give the developer an easy way to check for specific security vulnerablities and respond accordingly in the application.</p>
 					</div>
 					
 					
@@ -387,7 +396,7 @@ application did receive memory warning <a href="#//api/name/delegate">delegate</
 	
 </li><li>
 	<span class="tooltip">
-		<code><a href="#//api/name/initializeWithApiKey:launchingOptions:enableASM:enableAEM:asmSettingsFileName:error:">&ndash;&nbsp;initializeWithApiKey:launchingOptions:enableASM:enableAEM:asmSettingsFileName:error:</a></code>
+		<code><a href="#//api/name/initializeWithApiKey:launchingOptions:enableASM:enableAEM:enableComplianceChecking:asmSettingsFileName:error:">&ndash;&nbsp;initializeWithApiKey:launchingOptions:enableASM:enableAEM:enableComplianceChecking:asmSettingsFileName:error:</a></code>
 		<span class="tooltip"><p>Initializes the mokimanage instance</p></span>
 	</span>
 	
@@ -510,6 +519,13 @@ application did receive memory warning <a href="#//api/name/delegate">delegate</
 	<span class="tooltip">
 		<code><a href="#//api/name/schema">&ndash;&nbsp;schema</a></code>
 		<span class="tooltip"><p>Returns a dictionary of asm <a href="#//api/name/settings">settings</a> based on your MokiASM json file structure</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/setObject:forKey:">&ndash;&nbsp;setObject:forKey:</a></code>
+		<span class="tooltip"><p>Sets and saves an asm setting</p></span>
 	</span>
 	
 	
@@ -665,7 +681,7 @@ application did receive memory warning <a href="#//api/name/delegate">delegate</
 							<li>
 	<span class="tooltip">
 		<code><a href="#//api/name/addTags:">&ndash;&nbsp;addTags:</a></code>
-		<span class="tooltip"><p>Adds an array of tags to the device object in the Moki Dashboard</p></span>
+		<span class="tooltip"><p>Adds an array of strings to the device object in the Moki Dashboard that are treated as tags</p></span>
 	</span>
 	
 	
@@ -699,6 +715,13 @@ application did receive memory warning <a href="#//api/name/delegate">delegate</
 
 						<ul class="task-list">
 							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/complianceReport">&ndash;&nbsp;complianceReport</a></code>
+		<span class="tooltip"><p>Returns a compliance report singleton object</p></span>
+	</span>
+	
+	
+</li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/isJailBroken">&ndash;&nbsp;isJailBroken</a></code>
 		<span class="tooltip"><p>Returns a boolean indicating the current sate of the jail broken status for the device</p></span>
@@ -840,7 +863,10 @@ application did receive memory warning <a href="#//api/name/delegate">delegate</
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>The shared manage is a singleton that allows you to initialize the manager in the app <a href="#//api/name/delegate">delegate</a> and then use it throughout the applciation.</p><div class="warning"><p><strong>Warning:</strong> Calling methods on the shared manager before initializing it will result in unexpected errors.</p></div>
+		<p>The shared manage is a singleton that allows you to initialize the manager in the app <a href="#//api/name/delegate">delegate</a> and then use it throughout the applciation.</p>
+
+<p><strong>Usage</strong>
+    <a href="#//api/name/sharedManager">[MokiManage sharedManager]</a></p><div class="warning"><p><strong>Warning:</strong> Calling methods on the shared manager before initializing it will result in unexpected errors.</p></div>
 	</div>
 	
 	
@@ -900,6 +926,11 @@ application did receive memory warning <a href="#//api/name/delegate">delegate</
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
 		<p>Returns the URL value for the key param in the values hash.</p>
+
+<p><strong>Usage</strong></p>
+
+<pre><code>NSURL *value = [[MokiManage sharedManager] URLForKey:@"key"];
+</code></pre>
 	</div>
 	
 	
@@ -923,7 +954,7 @@ application did receive memory warning <a href="#//api/name/delegate">delegate</
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Adds an array of tags to the device object in the Moki Dashboard</p>
+		<p>Adds an array of strings to the device object in the Moki Dashboard that are treated as tags</p>
 	</div>		
 	
     
@@ -941,6 +972,11 @@ application did receive memory warning <a href="#//api/name/delegate">delegate</
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
 		<p>Send the array of tags to be added to the device so the device will be included in tag based searching and scheduled actions.</p>
+
+<p><strong>Usage</strong></p>
+
+<pre><code>[[MokiManage sharedManager] addTags:@[@"tag1", @"tag2", @"tag3"]];
+</code></pre>
 	</div>
 	
 	
@@ -986,7 +1022,12 @@ application did receive memory warning <a href="#//api/name/delegate">delegate</
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>The unique identifier of your app within the MokiManage platform.</p>
+		<p>The unique identifier of your app within the MokiManage platform.  This method will simply return the key you passed in on initialization.  This method serves as a convenience method should you need it elsewhere in your application.</p>
+
+<p><strong>Usage</strong></p>
+
+<pre><code>NSString *apiKey = [[MokiManage sharedManager] apiKey];
+</code></pre>
 	</div>
 	
 	
@@ -1038,6 +1079,11 @@ application did receive memory warning <a href="#//api/name/delegate">delegate</
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
 		<p>Returns the array value for the key param in the values hash.</p>
+
+<p><strong>Usage</strong></p>
+
+<pre><code>NSArray *values = [[MokiManage sharedManager] arrayForKey:@"key"];
+</code></pre>
 	</div>
 	
 	
@@ -1089,6 +1135,11 @@ application did receive memory warning <a href="#//api/name/delegate">delegate</
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
 		<p>Returns the boolean value for the key param in the values hash.</p>
+
+<p><strong>Usage</strong></p>
+
+<pre><code>BOOL value = [[MokiManage sharedManager] boolForKey:@"key"];
+</code></pre>
 	</div>
 	
 	
@@ -1140,6 +1191,11 @@ application did receive memory warning <a href="#//api/name/delegate">delegate</
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
 		<p>When a alertable state is no longer alertable call clear on the alert and it will be cleared so attention isn&rsquo;t drawn to resolved issues.</p>
+
+<p><strong>Usage</strong></p>
+
+<pre><code>[[MokiManage sharedManager] clearAlert];
+</code></pre>
 	</div>
 	
 	
@@ -1186,6 +1242,61 @@ application did receive memory warning <a href="#//api/name/delegate">delegate</
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
 		<p>If the device is registered, company name is the name of the tenant where the device is registered.</p>
+
+<p><strong>Usage</strong></p>
+
+<pre><code>NSString *companyName = [[MokiManage sharedManager] companyName];
+</code></pre>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MokiManage.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/complianceReport" title="complianceReport"></a>
+	<h3 class="subsubtitle method-title">complianceReport</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Returns a compliance report singleton object</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (ComplianceReport *)complianceReport</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Returns a compliance report singleton object containing the last run compliance report.</p>
+
+<p><strong>Usage</strong></p>
+
+<pre><code>ComplianceReport *lastReport = [[MokiManage sharedManager] complianceReport];
+
+NSDate *lastReportDateTime = [[lastReport] timestamp];
+
+BOOL deviceIsSecurityCompliant = [[lastReport compliant] boolValue];
+</code></pre>
 	</div>
 	
 	
@@ -1278,6 +1389,11 @@ application did receive memory warning <a href="#//api/name/delegate">delegate</
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
 		<p>Returns the data value for the key param in the values hash.</p>
+
+<p><strong>Usage</strong></p>
+
+<pre><code>NSData *value = [[MokiManage sharedManager] dataForKey:@"key"];
+</code></pre>
 	</div>
 	
 	
@@ -1329,6 +1445,11 @@ application did receive memory warning <a href="#//api/name/delegate">delegate</
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
 		<p>Returns the dictionary value for the key param in the values hash.</p>
+
+<p><strong>Usage</strong></p>
+
+<pre><code>NSDictionary *value = [[MokiManage sharedManager] dictionaryForKey:@"key"];
+</code></pre>
 	</div>
 	
 	
@@ -1380,7 +1501,14 @@ application did receive memory warning <a href="#//api/name/delegate">delegate</
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
 		<p>This method must be called from the application <a href="#//api/name/delegate">delegate</a> whenever a push notification is received from
-application:didReceiveRemoteNotification:.  MokiASM will process any notifications intended for it.</p>
+application:didReceiveRemoteNotification:.  The MokiManage SDK will process any notifications intended for it.</p>
+
+<p><strong>Usage</strong></p>
+
+<pre><code>- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *) userInfo{
+    [[MokiManage sharedManager] didReceiveRemoteNotification:userInfo];
+}
+</code></pre>
 	</div>
 	
 	
@@ -1434,6 +1562,11 @@ application:didReceiveRemoteNotification:.  MokiASM will process any notificatio
 		<p>Split View Controllers must exist as the window root so the delate root view is swapped out for the split view controller with
 the <a href="#//api/name/settings">settings</a> views.  When the done button is pressed the app <a href="#//api/name/delegate">delegate</a> is replaced as the window root and the finishedEditingSettings
 <a href="#//api/name/delegate">delegate</a> method is called.</p>
+
+<p><strong>Usage</strong></p>
+
+<pre><code>[[MokiManage sharedManager] displaySettingsView:[[UIApplication sharedApplication] delegate]];
+</code></pre>
 	</div>
 	
 	
@@ -1485,6 +1618,11 @@ the <a href="#//api/name/settings">settings</a> views.  When the done button is 
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
 		<p>Returns the double value for the key param in the values hash.</p>
+
+<p><strong>Usage</strong></p>
+
+<pre><code>double value = [[MokiManage sharedManager] doubleForKey:@"key"];
+</code></pre>
 	</div>
 	
 	
@@ -1638,6 +1776,11 @@ the <a href="#//api/name/settings">settings</a> views.  When the done button is 
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
 		<p>Returns the float value for the key param in the values hash.</p>
+
+<p><strong>Usage</strong></p>
+
+<pre><code>float value = [[MokiManage sharedManager] floatForKey:@"key"];
+</code></pre>
 	</div>
 	
 	
@@ -1768,6 +1911,11 @@ like to manage its display manually, you can get the this way.</p>
 		<h4 class="method-subtitle">Discussion</h4>
 		<p>Returns the identifier that support personell can use to look up the device in the Moki Manage Dashboard.  The developer should
 enroll a device into a tenant silently if not already enrolled and then should surface the identifier to the user for use in the support process.</p>
+
+<p><strong>Usage</strong></p>
+
+<pre><code>NSString *identifierToShowUser = [[MokiManage sharedManager] identifierForSupport];
+</code></pre>
 	</div>
 	
 	
@@ -1785,8 +1933,8 @@ enroll a device into a tenant silently if not already enrolled and then should s
 </div>
 						
 						<div class="section-method">
-	<a name="//api/name/initializeWithApiKey:launchingOptions:enableASM:enableAEM:asmSettingsFileName:error:" title="initializeWithApiKey:launchingOptions:enableASM:enableAEM:asmSettingsFileName:error:"></a>
-	<h3 class="subsubtitle method-title">initializeWithApiKey:launchingOptions:enableASM:enableAEM:asmSettingsFileName:error:</h3>
+	<a name="//api/name/initializeWithApiKey:launchingOptions:enableASM:enableAEM:enableComplianceChecking:asmSettingsFileName:error:" title="initializeWithApiKey:launchingOptions:enableASM:enableAEM:enableComplianceChecking:asmSettingsFileName:error:"></a>
+	<h3 class="subsubtitle method-title">initializeWithApiKey:launchingOptions:enableASM:enableAEM:enableComplianceChecking:asmSettingsFileName:error:</h3>
 	
 	
 	
@@ -1796,7 +1944,7 @@ enroll a device into a tenant silently if not already enrolled and then should s
 	
     
 
-	<div class="method-subsection method-declaration"><code>- (id)initializeWithApiKey:(NSString *)<em>key</em> launchingOptions:(NSDictionary *)<em>options</em> enableASM:(BOOL)<em>enableASM</em> enableAEM:(BOOL)<em>enableAEM</em> asmSettingsFileName:(NSString *)<em>fileName</em> error:(NSError **)<em>error</em></code></div>
+	<div class="method-subsection method-declaration"><code>- (void)initializeWithApiKey:(NSString *)<em>key</em> launchingOptions:(NSDictionary *)<em>options</em> enableASM:(BOOL)<em>enableASM</em> enableAEM:(BOOL)<em>enableAEM</em> enableComplianceChecking:(BOOL)<em>enableComplianceChecking</em> asmSettingsFileName:(NSString *)<em>fileName</em> error:(NSError **)<em>error</em></code></div>
 
     
 	
@@ -1849,6 +1997,11 @@ enroll a device into a tenant silently if not already enrolled and then should s
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
 		<p>Initializes the mokimanage instance.</p>
+
+<p><strong>Usage</strong></p>
+
+<pre><code>[[MokiManage sharedManager] initializeWithApiKey:appKey launchingOptions:launchOptions enableASM:YES enableAEM:YES asmSettingsFileName:nil error:&amp;error];
+</code></pre>
 	</div>
 	
 	
@@ -1951,6 +2104,11 @@ enroll a device into a tenant silently if not already enrolled and then should s
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
 		<p>Returns the integer value for the key param in the values hash.</p>
+
+<p><strong>Usage</strong></p>
+
+<pre><code>int value = [[MokiManage sharedManager] integerForKey:@"key"];
+</code></pre>
 	</div>
 	
 	
@@ -2043,6 +2201,17 @@ enroll a device into a tenant silently if not already enrolled and then should s
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
 		<p>This method takes a block as a param where the results of the method are passed for processing.</p>
+
+<p><strong>Usage</strong></p>
+
+<pre><code>[[MokiManage sharedManager] isManaged:^(BOOL result) {
+    if(result) {
+        NSLog(@"Device is under MDM management");
+    } else {
+        NSLog(@"Device is not managed");
+    }
+}
+</code></pre>
 	</div>
 	
 	
@@ -2084,6 +2253,13 @@ enroll a device into a tenant silently if not already enrolled and then should s
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
 		<p>Checks if a conection to MokiManage is available to the MokiManage server using Reachability.</p>
+
+<p><strong>Usage</strong></p>
+
+<pre><code>if([[MokiManage sharedManager] isReachable]) {
+    //Send Network Request
+}
+</code></pre>
 	</div>
 	
 	
@@ -2130,6 +2306,13 @@ enroll a device into a tenant silently if not already enrolled and then should s
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
 		<p>Enables the application to quickly identify whether or not the device has been registered with the MokiManage Dashboard.</p>
+
+<p><strong>Usage</strong></p>
+
+<pre><code>if([[MokiManage sharedManager] isRegistered]) {
+    NSLog(@"Company Name: %@ and ShortCode: %@", [[MokiManage sharedManager] companyName], [[MokiManage sharedManager] shortCode]);
+}
+</code></pre>
 	</div>
 	
 	
@@ -2223,6 +2406,11 @@ enroll a device into a tenant silently if not already enrolled and then should s
 		<h4 class="method-subtitle">Discussion</h4>
 		<p>Returns the meta data that can then be used by the developer to identify the device is additional ways specific to your organization.
 The information can be updated and resaving to the device by calling setMetaData.</p>
+
+<p><strong>Usage</strong></p>
+
+<pre><code>NSDictionary *metaData = [[MokiManage sharedManager] metaData];
+</code></pre>
 	</div>
 	
 	
@@ -2274,6 +2462,11 @@ The information can be updated and resaving to the device by calling setMetaData
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
 		<p>Returns the object for the key param in the values hash.</p>
+
+<p><strong>Usage</strong></p>
+
+<pre><code>id value = [[MokiManage sharedManager] objectForKey:@"key"];
+</code></pre>
 	</div>
 	
 	
@@ -2316,6 +2509,11 @@ The information can be updated and resaving to the device by calling setMetaData
 		<h4 class="method-subtitle">Discussion</h4>
 		<p>Pulls the current setting&rsquo;s values as they exist on the server to the device.  This happens autmatically throught the
 workflow of the library, but if you ever want to trigger it manually, you can do so.</p>
+
+<p><strong>Usage</strong></p>
+
+<pre><code>[[MokiManage sharedManager] pullSettings];
+</code></pre>
 	</div>
 	
 	
@@ -2358,6 +2556,11 @@ workflow of the library, but if you ever want to trigger it manually, you can do
 		<h4 class="method-subtitle">Discussion</h4>
 		<p>Pushes the current setting&rsquo;s values that are stored on the device to the server.  This happens autmatically throught the
 workflow of the library, but if you ever want to trigger it manually, you can do so.</p>
+
+<p><strong>Usage</strong></p>
+
+<pre><code>[[MokiManage sharedManager] pushSettings];
+</code></pre>
 	</div>
 	
 	
@@ -2409,6 +2612,12 @@ workflow of the library, but if you ever want to trigger it manually, you can do
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
 		<p>Registers this device with moki manage into the tenant associated with the given short code.</p>
+
+<p><strong>Usage</strong></p>
+
+<pre><code>NSString *shortCode = [[self shortCodeTextField] text];
+[[MokiManage sharedManager] registerDevice:shortCode];
+</code></pre>
 	</div>
 	
 	
@@ -2465,6 +2674,13 @@ workflow of the library, but if you ever want to trigger it manually, you can do
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
 		<p>Registers this device with moki manage taking the users short code as params.</p>
+
+<p><strong>Usage</strong></p>
+
+<pre><code>NSString *shortCode = [[self shortCodeTextField] text];
+NSString *nickname = [[self nicknameTextField] text];
+[[MokiManage sharedManager] registerDevice:shortCode withNickname:nickname];
+</code></pre>
 	</div>
 	
 	
@@ -2517,6 +2733,12 @@ workflow of the library, but if you ever want to trigger it manually, you can do
 		<h4 class="method-subtitle">Discussion</h4>
 		<p>Registers this device with moki manage under a new tenant by unregistering and re registering
 into the tenant associated with the given short code.</p>
+
+<p><strong>Usage</strong></p>
+
+<pre><code>NSString *shortCode = [[self shortCodeTextField] text];
+[[MokiManage sharedManager] registerDeviceToANewTenant:shortCode];
+</code></pre>
 	</div>
 	
 	
@@ -2664,7 +2886,15 @@ into the tenant associated with the given short code.</p>
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>Returns the <a href="#//api/name/schema">schema</a> of associated with the given key.</p>
+		<p>Returns the <a href="#//api/name/schema">schema</a> of associated with the given key.  This differs for the other calls
+in that it will allow you to identify other properties about the key/value pair like Class
+and ComboBox options.</p>
+
+<p><strong>Usage</strong></p>
+
+<pre><code>NSDictionary *schema = [[MokiManage sharedManager] schemaForKey:@"key"];
+NSArray *classes = [schema objectForKey:@"Class"];
+</code></pre>
 	</div>
 	
 	
@@ -2716,6 +2946,11 @@ into the tenant associated with the given short code.</p>
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
 		<p>Sends the alert with a specific alert id that maps to the alert created on the web interface.</p>
+
+<p><strong>Usage</strong></p>
+
+<pre><code>[[MokiManage sharedManager] sendAlert:@"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"];
+</code></pre>
 	</div>
 	
 	
@@ -2772,6 +3007,12 @@ into the tenant associated with the given short code.</p>
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
 		<p>Sends the alert with a specific alert id that maps to the alert created on the web interface with the given message.</p>
+
+<p><strong>Usage</strong></p>
+
+<pre><code>NSString *memoryLevel = [NSString stringWithFormat:@"Memory Level: %d", 45];
+[[MokiManage sharedManager] sendAlert:@"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" withMessage:memoryLevel];
+</code></pre>
 	</div>
 	
 	
@@ -2822,7 +3063,14 @@ into the tenant associated with the given short code.</p>
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>This lets the MokiManage server know how to push tothe device.</p>
+		<p>This lets the MokiManage server know how to push to the device.  This must be done in the application: didRegisterForRemoteNotificationsWithDeviceToken: <a href="#//api/name/delegate">delegate</a> method.</p>
+
+<p><strong>Usage</strong></p>
+
+<pre><code>- (void)application:(UIApplication*)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData*)deviceToken {
+    [[MokiManage sharedManager] setApnsToken:deviceToken];
+}
+</code></pre>
 	</div>
 	
 	
@@ -2864,6 +3112,72 @@ into the tenant associated with the given short code.</p>
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
 		<p>Sets meta data that can then be used by the developer to identify the device is additional ways specific to your organization.</p>
+
+<p><strong>Usage</strong></p>
+
+<pre><code>[[MokiManage sharedManager] setMetaData:@{@"userId":392}];
+</code></pre>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MokiManage.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/setObject:forKey:" title="setObject:forKey:"></a>
+	<h3 class="subsubtitle method-title">setObject:forKey:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Sets and saves an asm setting</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)setObject:(id)<em>object</em> forKey:(NSString *)<em>key</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>object</em></dt>
+			<dd><p>The object to be saved for the key</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>key</em></dt>
+			<dd><p>The key that will be used to reference the setting, must exist in the asm <a href="#//api/name/settings">settings</a> <a href="#//api/name/schema">schema</a></p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Calling setObject:forKey: will set the value and then push the changes to the server.</p>
+
+<p><strong>Usage</strong>
+    NSString <em>key = @&ldquo;password&rdquo;;
+    NSString </em>password = @&ldquo;mountain29&rdquo;
+    [[MokiManage sharedManager] setObject:password forKey:key];</p>
 	</div>
 	
 	
@@ -2957,6 +3271,11 @@ into the tenant associated with the given short code.</p>
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
 		<p>If a short code was used during registration, it is available to be accessed in the application.</p>
+
+<p><strong>Usage</strong></p>
+
+<pre><code>NSString *shortCode = [[MokiManage sharedManager] shortCode];
+</code></pre>
 	</div>
 	
 	
@@ -3008,6 +3327,19 @@ into the tenant associated with the given short code.</p>
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
 		<p>Registers this device with moki manage with the tenant associated with the given tenant id.</p>
+
+<p><strong>Usage</strong></p>
+
+<p>Silent registration in your application will usually be done as the application
+is initializing for the first time.  It cannot be done until the APNS token is set in the MokiManage SDK.
+For this reason it makes the most sense to call silent enroll after setting this value in the
+application didRegisterForRemoteNotifications in the App Delegate.</p>
+
+<pre><code> - (void)application:(UIApplication*)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData*)deviceToken {
+    [[MokiManage sharedManager] setApnsToken:deviceToken];
+    [[MokiManage sharedManager] silentlyRegisterDevice:@"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"];
+}
+</code></pre>
 	</div>
 	
 	
@@ -3059,6 +3391,11 @@ into the tenant associated with the given short code.</p>
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
 		<p>Returns the string value for the key param in the values hash.</p>
+
+<p><strong>Usage</strong></p>
+
+<pre><code>NSString *value = [[MokiManage sharedManager] stringForKey:@"key"];
+</code></pre>
 	</div>
 	
 	
@@ -3100,6 +3437,11 @@ into the tenant associated with the given short code.</p>
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
 		<p>Removes the device from MokiManage so that it is no longer tracked in the dashboard.</p>
+
+<p><strong>Usage</strong></p>
+
+<pre><code>[[MokiManage sharedManager] unregisterDevice];
+</code></pre>
 	</div>
 	
 	
@@ -3129,7 +3471,7 @@ into the tenant associated with the given short code.</p>
 				<div id="footer">
 					<hr />
 					<div class="footer-copyright">
-						<p><span class="copyright">&copy; 2013 MokiMobility. All rights reserved. (Last updated: 2013-08-12)</span><br />
+						<p><span class="copyright">&copy; 2013 MokiMobility. All rights reserved. (Last updated: 2013-09-03)</span><br />
 						
 						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.1 (build 858)</a>.</span></p>
 						
