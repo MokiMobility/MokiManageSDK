@@ -84,7 +84,7 @@ public void saveSettings(JSONObject settings)
 </code></pre>
 
     <p>This dictionary has two keys. The Version key returns the version of your schema. You can use this to see if MokiManage is using the latest changes in your <code>SettingsSchema.json</code> file. The Values key returns the set of values, so getting to your settings would look like this:</p>
-<pre><code>NSDictionary *valsD = [self.settingsD valueForKey:@"Values"];
+<pre><code>JSONObject valuesJson = settingsJson.optJSONObject(MokiManage.ASM_KEY_VALUES);
 </code></pre>
 
     <p>The key-value pairs in this dictionary will match the keys in your schema. For example, the dictionary tied to our Control Examples <code>SettingsSchema.json</code> file would have the keys: <code>adminPassword</code>, <code>ProgressIndicator</code>, <code>duration</code>, <code>cache_key</code>, <code>screensaverPlaylist</code>, and <code>content</code>. Use the key you defined in your SettingsSchema file to access individual settings. Arrays in the JSON settings file are represented as arrays in Objective C as well, so getting the list of announcements would be done with the following line of code:</p>
