@@ -6,65 +6,72 @@
         <li>
             <a href="#/aem">MokiManage SDK</a>
         </li>
+        <li>
+            <a href="#/quickstart/android" ng-click="$root.context='android'"><i class="icon-android"></i> Android Quickstart</a>
+        </li>
 
-        <div context-show="apple">
-            <li ng-click="ios()"  class="selector">
-                <a href="#/aem/apple/apple-quickstart">AEM iOS</a>
-            </li>
-            <li>
-                <div ng-hide="!iosDisplayed">
-                    <ul>
-                        <li>
-                            <a href="#/aem/apple/apns">Setups APNs</a>
-                        </li>
-                        <li>
-                            <a href="#/aem/apple/ios-sdk">Add MokiManage SDK</a>
-                        </li>
-                        <li>
-                            <a href="#/aem/apple/ios-delegate">Setup App Delegate</a>
-                        </li>
-                        <li>
-                            <a href="#/aem/apple/ios-silent">Silent Enrollment</a>
-                        </li>
-                        <li>
-                            <a href="#/aem/apple/ios-console">Check MokiManage Console</a>
-                        </li>
+        <li>
+            <a href="#/quickstart/apple" ng-click="$root.context='apple'"><i class="icon-apple"></i> iOS Quickstart</a>
+        </li>
 
-                    </ul>
-                </div>
-            </li>
-        </div>
+        <!--<div context-show="apple">-->
+            <!--<li ng-click="ios()"  class="selector">-->
+                <!--<a href="#/aem/apple/apple-quickstart">AEM iOS</a>-->
+            <!--</li>-->
+            <!--<li>-->
+                <!--<div ng-hide="!iosDisplayed">-->
+                    <!--<ul>-->
+                        <!--<li>-->
+                            <!--<a href="#/aem/apple/apns">Setups APNs</a>-->
+                        <!--</li>-->
+                        <!--<li>-->
+                            <!--<a href="#/aem/apple/ios-sdk">Add MokiManage SDK</a>-->
+                        <!--</li>-->
+                        <!--<li>-->
+                            <!--<a href="#/aem/apple/ios-delegate">Setup App Delegate</a>-->
+                        <!--</li>-->
+                        <!--<li>-->
+                            <!--<a href="#/aem/apple/ios-silent">Silent Enrollment</a>-->
+                        <!--</li>-->
+                        <!--<li>-->
+                            <!--<a href="#/aem/apple/ios-console">Check MokiManage Console</a>-->
+                        <!--</li>-->
 
-        <div context-show="android">
-            <li ng-click="android()" class="selector">
-                <a href="#/aem/android/android-quickstart">AEM Android</a>
-            </li>
-            <li>
-                <div ng-hide="!androidDisplayed">
-                    <ul>
-                        <li>
-                            <a href="#/aem/android/eclipse">Add MokiManage SDK</a>
-                        </li>
-                        <li>
-                            <a href="#/aem/android/manifest">Setup Android Manifest</a>
-                        </li>
-                        <li>
-                            <a href="#/aem/android/extend">Extend the Application Class</a>
-                        </li>
-                        <li>
-                            <a href="#/aem/android/broadcasts">Configure App to Receive Broadcasts</a>
-                        </li>
-                        <li>
-                            <a href="#/aem/android/silent">Silent Enrollment</a>
-                        </li>
-                        <li>
-                            <a href="#/aem/android/android-console">Check MokiManage Console</a>
-                        </li>
+                    <!--</ul>-->
+                <!--</div>-->
+            <!--</li>-->
+        <!--</div>-->
 
-                    </ul>
-                </div>
-            </li>
-        </div>
+        <!--<div context-show="android">-->
+            <!--<li ng-click="android()" class="selector">-->
+                <!--<a href="#/aem/android/android-quickstart">AEM Android</a>-->
+            <!--</li>-->
+            <!--<li>-->
+                <!--<div ng-hide="!androidDisplayed">-->
+                    <!--<ul>-->
+                        <!--<li>-->
+                            <!--<a href="#/aem/android/eclipse">Add MokiManage SDK</a>-->
+                        <!--</li>-->
+                        <!--<li>-->
+                            <!--<a href="#/aem/android/manifest">Setup Android Manifest</a>-->
+                        <!--</li>-->
+                        <!--<li>-->
+                            <!--<a href="#/aem/android/extend">Extend the Application Class</a>-->
+                        <!--</li>-->
+                        <!--<li>-->
+                            <!--<a href="#/aem/android/broadcasts">Configure App to Receive Broadcasts</a>-->
+                        <!--</li>-->
+                        <!--<li>-->
+                            <!--<a href="#/aem/android/silent">Silent Enrollment</a>-->
+                        <!--</li>-->
+                        <!--<li>-->
+                            <!--<a href="#/aem/android/android-console">Check MokiManage Console</a>-->
+                        <!--</li>-->
+
+                    <!--</ul>-->
+                <!--</div>-->
+            <!--</li>-->
+        <!--</div>-->
 
 
         <li ng-click="aem()">
