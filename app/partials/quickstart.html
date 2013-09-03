@@ -104,6 +104,7 @@
     launchingOptions:launchOptions
     enableASM:NO
     enableAEM:YES
+    enableComplianceChecking:NO
     asmSettingsFileName:nil
     error:&amp;error];
 
@@ -357,12 +358,13 @@ Third, initiate the session with the MokiManage SDK from the onCreate function o
     private static final String API_KEY = "whatever-your-apik-eyis-useitherenow";
     private static final boolean ENABLE_AppSettingsManagement = false;
     private static final boolean ENABLE_AppEnvirionmentManagement = true;
+    private static final boolean ENABLE_Compliance = true;
     @Override
     public void onCreate() {
     super.onCreate();
 
     mokiManage = MokiManage.sharedInstance(API_KEY, this, ENABLE_AppSettingsManagement,
-    ENABLE_AppEnvirionmentManagement);
+    ENABLE_AppEnvirionmentManagement, ENABLE_Compliance);
     }
     }
 </code></pre>
