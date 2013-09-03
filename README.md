@@ -1,8 +1,16 @@
-MokiManageSDK
-=============
+# MokiManageSDK
 
-1.0.0
------
+## 1.1.0
 
-* Android [Readme](https://github.com/MokiMobility/MokiManageSDK/tree/android) [Download](https://github.com/MokiMobility/MokiManageSDK/tree/android/com/moki/manage/MokiManageSDK/1.0.0)
-* iOS [Readme](https://github.com/MokiMobility/MokiManageSDK/tree/ios) [Download](https://github.com/MokiMobility/MokiManageSDK/tree/ios)
+### iOS
+[Download](https://github.com/MokiMobility/MokiManageSDK/tree/1.1.0), [Readme](https://github.com/MokiMobility/MokiManageSDK/tree/1.1.0)
+ * added access to Compliance information
+ * fixed bug that forced users to enable ASM
+
+## 1.0.0
+
+### Android
+[Download](https://github.com/MokiMobility/MokiManageSDK/tree/android/com/moki/manage/MokiManageSDK/1.0.0), [Readme](https://github.com/MokiMobility/MokiManageSDK/tree/android)
+
+### iOS
+[Download](https://github.com/MokiMobility/MokiManageSDK/tree/1.0.0), [Readme](https://github.com/MokiMobility/MokiManageSDK/tree/1.0.0)
