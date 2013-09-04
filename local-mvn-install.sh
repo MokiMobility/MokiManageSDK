@@ -1,1 +1,1 @@
-mvn install:install-file -DlocalRepositoryPath=. -DupdateReleaseInfo=true -DgeneratePom=false -DcreateChecksum=true -Dfile=com/moki/manage/MokiManageSDK/1.0.0-beta.2/MokiManageSDK-1.0.0-beta.2.jar -DpomFile=com/moki/manage/MokiManageSDK/1.0.0-beta.2/pom.xml
+mvn install:install-file -DlocalRepositoryPath=. -DupdateReleaseInfo=true -DgeneratePom=false -DcreateChecksum=true -Dfile=MokiManageAPI.jar -DpomFile=pom.xml
