@@ -2,6 +2,10 @@
 
 ## 1.1.0
 
+### Android
+[Download](https://github.com/MokiMobility/MokiManageSDK/tree/android/com/moki/manage/MokiManageSDK/1.1.0)
+ * added access to Compliance information
+
 ### iOS
 [Download](https://github.com/MokiMobility/MokiManageSDK/tree/1.1.0)
  * added access to Compliance information
