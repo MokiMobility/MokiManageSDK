@@ -356,9 +356,15 @@ var app = angular.module('app', ['ngCookies'])
             templateUrl: 'app/partials/contact.html'
         })
 
+        .when('/compliance', {
+            templateUrl: 'app/partials/compliance/compliance-intro.html'
+        })
+
         .when('/test', {
             templateUrl: 'app/partials/test.html'
         })
+
+
 
         .otherwise({redirectTo: '/'});
 
