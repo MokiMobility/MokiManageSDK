@@ -5,6 +5,9 @@
 ### Android
 [Download](https://github.com/MokiMobility/MokiManageSDK/tree/android/com/moki/manage/MokiManageSDK/1.1.0)
  * added access to Compliance information
+ * added opt in to run Compliance Checks on heartbeat
+ * added access to security information
+ * added option to pause and resume MokiManage
 
 ### iOS
 [Download](https://github.com/MokiMobility/MokiManageSDK/tree/1.1.0)
