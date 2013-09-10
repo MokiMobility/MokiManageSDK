@@ -16,6 +16,7 @@
  
  
 #import "ComplianceReport.h"
+
 // Find the apple docs documentation here: http://gentlebytes.com/appledoc-docs-comments/
 
 /**
@@ -169,6 +170,26 @@
  @param options The options passed to the app on launch
  @param enableASM A boolean specifying whether or not ASM should be used
  @param enableAEM A boolean specifying whether or not AEM should be used
+ @param fileName The name os the ASM settings schema file, defaults to SettingsSchema.json if not specified
+ @param error An NSError object where errors will be reported
+ 
+ @return Returns The MokiManage shared instance
+ */
+- (void)initializeWithApiKey:(NSString *)key launchingOptions:(NSDictionary *)options enableASM:(BOOL)enableASM enableAEM:(BOOL)enableAEM asmSettingsFileName:(NSString *)fileName error :(NSError **)error;
+
+/** Initializes the mokimanage instance
+ 
+ Initializes the mokimanage instance.
+ 
+ **Usage**
+ 
+    [[MokiManage sharedManager] initializeWithApiKey:appKey launchingOptions:launchOptions enableASM:YES enableAEM:YES enableComplianceChecking:YES asmSettingsFileName:nil error:&error];
+ 
+ @param key The unique identifier of your app within the MokiManage platform
+ @param options The options passed to the app on launch
+ @param enableASM A boolean specifying whether or not ASM should be used
+ @param enableAEM A boolean specifying whether or not AEM should be used
+ @param enableComplianceChecking A boolean specifying whether or not automatic compliance scans should be run and sent to the server on each heartbeat.
  @param fileName The name os the ASM settings schema file, defaults to SettingsSchema.json if not specified
  @param error An NSError object where errors will be reported
  

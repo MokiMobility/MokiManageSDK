@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+#define REPORT_COMPLETE_NOTIFICATION @"ReportCompleteNotification"
+
 @interface ComplianceReport : NSObject
 
 @property(nonatomic, strong) NSString *id;
@@ -70,8 +72,19 @@
  
  Each automatic report is run on this singleton so it will contain the most recent report at any given time.  By calling run on this singleton manually, the same will hold true.
  */
-
 + (id)sharedInstance;
+
+/** A method to manually trigger a report
+ 
+ Calling run will run a compliance report and report the results to the server tied to the enrolled user.
+ */
 - (void)run;
+
+/** A method to manually trigger a report with a callback
+ 
+ Calling run will run a compliance report and report the results to the server tied to the enrolled user and then triggers the callback block to allow the developer to implement additional logic based on the results.
+ */
+- (void)runWithCompletionBlock:(void (^)(BOOL succeeded))block;
+- (NSDictionary *)encode;
 
 @end
