@@ -92,8 +92,8 @@
     and add the MokiManage protocol to your delegate:
     <pre><code>@interface AppDelegate : UIResponder &lt;UIApplicationDelegate, MokiManageDelegate&gt;</code></pre>
     Second, in your <code>AppDelegate.m</code> file, add a declaration for your API key and tenant ID:
-<pre><code>#define API_KEY @"whatever-your-apik-eyis-useitherenow"
-    #define Tenant_ID @"whatever-your-tena-anti-disuseitnow1"
+<pre><code>#define API_KEY @"whatever-your-app-key-is-useitherenow"
+    #define Tenant_ID @"whatever-your-tenaant-id-is-useitnow"
 </code></pre>
     Third, initiate the session with the MokiManage SDK from your app delegate’s
     <code>didFinishLaunchingWithOptions:</code> method, calling the <code>initializeWithApiKey:</code> method.
