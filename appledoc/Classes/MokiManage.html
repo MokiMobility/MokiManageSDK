@@ -94,6 +94,8 @@
 	
 	<option value="//api/name/identifierForSupport">&nbsp;&nbsp;&nbsp;&nbsp;- identifierForSupport</option>
 	
+	<option value="//api/name/initializeWithApiKey:launchingOptions:enableASM:enableAEM:asmSettingsFileName:error:">&nbsp;&nbsp;&nbsp;&nbsp;- initializeWithApiKey:launchingOptions:enableASM:enableAEM:asmSettingsFileName:error:</option>
+	
 	<option value="//api/name/initializeWithApiKey:launchingOptions:enableASM:enableAEM:enableComplianceChecking:asmSettingsFileName:error:">&nbsp;&nbsp;&nbsp;&nbsp;- initializeWithApiKey:launchingOptions:enableASM:enableAEM:enableComplianceChecking:asmSettingsFileName:error:</option>
 	
 	<option value="//api/name/installedApps:">&nbsp;&nbsp;&nbsp;&nbsp;- installedApps:</option>
@@ -244,6 +246,8 @@
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/identifierForSupport">identifierForSupport</a></span></li>
 	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/initializeWithApiKey:launchingOptions:enableASM:enableAEM:asmSettingsFileName:error:">initializeWithApiKey:launchingOptions:enableASM:enableAEM:asmSettingsFileName:error:</a></span></li>
+	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/initializeWithApiKey:launchingOptions:enableASM:enableAEM:enableComplianceChecking:asmSettingsFileName:error:">initializeWithApiKey:launchingOptions:enableASM:enableAEM:enableComplianceChecking:asmSettingsFileName:error:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/installedApps:">installedApps:</a></span></li>
@@ -391,6 +395,13 @@ application did receive memory warning <a href="#//api/name/delegate">delegate</
 	<span class="tooltip">
 		<code><a href="#//api/name/sharedManager">+&nbsp;sharedManager</a></code>
 		<span class="tooltip"><p>Returns The MokiManage shared instance</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/initializeWithApiKey:launchingOptions:enableASM:enableAEM:asmSettingsFileName:error:">&ndash;&nbsp;initializeWithApiKey:launchingOptions:enableASM:enableAEM:asmSettingsFileName:error:</a></code>
+		<span class="tooltip"><p>Initializes the mokimanage instance</p></span>
 	</span>
 	
 	
@@ -1933,8 +1944,8 @@ enroll a device into a tenant silently if not already enrolled and then should s
 </div>
 						
 						<div class="section-method">
-	<a name="//api/name/initializeWithApiKey:launchingOptions:enableASM:enableAEM:enableComplianceChecking:asmSettingsFileName:error:" title="initializeWithApiKey:launchingOptions:enableASM:enableAEM:enableComplianceChecking:asmSettingsFileName:error:"></a>
-	<h3 class="subsubtitle method-title">initializeWithApiKey:launchingOptions:enableASM:enableAEM:enableComplianceChecking:asmSettingsFileName:error:</h3>
+	<a name="//api/name/initializeWithApiKey:launchingOptions:enableASM:enableAEM:asmSettingsFileName:error:" title="initializeWithApiKey:launchingOptions:enableASM:enableAEM:asmSettingsFileName:error:"></a>
+	<h3 class="subsubtitle method-title">initializeWithApiKey:launchingOptions:enableASM:enableAEM:asmSettingsFileName:error:</h3>
 	
 	
 	
@@ -1944,7 +1955,7 @@ enroll a device into a tenant silently if not already enrolled and then should s
 	
     
 
-	<div class="method-subsection method-declaration"><code>- (void)initializeWithApiKey:(NSString *)<em>key</em> launchingOptions:(NSDictionary *)<em>options</em> enableASM:(BOOL)<em>enableASM</em> enableAEM:(BOOL)<em>enableAEM</em> enableComplianceChecking:(BOOL)<em>enableComplianceChecking</em> asmSettingsFileName:(NSString *)<em>fileName</em> error:(NSError **)<em>error</em></code></div>
+	<div class="method-subsection method-declaration"><code>- (void)initializeWithApiKey:(NSString *)<em>key</em> launchingOptions:(NSDictionary *)<em>options</em> enableASM:(BOOL)<em>enableASM</em> enableAEM:(BOOL)<em>enableAEM</em> asmSettingsFileName:(NSString *)<em>fileName</em> error:(NSError **)<em>error</em></code></div>
 
     
 	
@@ -2001,6 +2012,97 @@ enroll a device into a tenant silently if not already enrolled and then should s
 <p><strong>Usage</strong></p>
 
 <pre><code>[[MokiManage sharedManager] initializeWithApiKey:appKey launchingOptions:launchOptions enableASM:YES enableAEM:YES asmSettingsFileName:nil error:&amp;error];
+</code></pre>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MokiManage.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/initializeWithApiKey:launchingOptions:enableASM:enableAEM:enableComplianceChecking:asmSettingsFileName:error:" title="initializeWithApiKey:launchingOptions:enableASM:enableAEM:enableComplianceChecking:asmSettingsFileName:error:"></a>
+	<h3 class="subsubtitle method-title">initializeWithApiKey:launchingOptions:enableASM:enableAEM:enableComplianceChecking:asmSettingsFileName:error:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Initializes the mokimanage instance</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)initializeWithApiKey:(NSString *)<em>key</em> launchingOptions:(NSDictionary *)<em>options</em> enableASM:(BOOL)<em>enableASM</em> enableAEM:(BOOL)<em>enableAEM</em> enableComplianceChecking:(BOOL)<em>enableComplianceChecking</em> asmSettingsFileName:(NSString *)<em>fileName</em> error:(NSError **)<em>error</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>key</em></dt>
+			<dd><p>The unique identifier of your app within the MokiManage platform</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>options</em></dt>
+			<dd><p>The options passed to the app on launch</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>enableASM</em></dt>
+			<dd><p>A boolean specifying whether or not ASM should be used</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>enableAEM</em></dt>
+			<dd><p>A boolean specifying whether or not AEM should be used</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>enableComplianceChecking</em></dt>
+			<dd><p>A boolean specifying whether or not automatic compliance scans should be run and sent to the server on each heartbeat.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>fileName</em></dt>
+			<dd><p>The name os the ASM <a href="#//api/name/settings">settings</a> <a href="#//api/name/schema">schema</a> file, defaults to SettingsSchema.json if not specified</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>error</em></dt>
+			<dd><p>An NSError object where errors will be reported</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>Returns The MokiManage shared instance</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Initializes the mokimanage instance.</p>
+
+<p><strong>Usage</strong></p>
+
+<pre><code>[[MokiManage sharedManager] initializeWithApiKey:appKey launchingOptions:launchOptions enableASM:YES enableAEM:YES enableComplianceChecking:YES asmSettingsFileName:nil error:&amp;error];
 </code></pre>
 	</div>
 	
@@ -3471,7 +3573,7 @@ application didRegisterForRemoteNotifications in the App Delegate.</p>
 				<div id="footer">
 					<hr />
 					<div class="footer-copyright">
-						<p><span class="copyright">&copy; 2013 MokiMobility. All rights reserved. (Last updated: 2013-09-03)</span><br />
+						<p><span class="copyright">&copy; 2013 MokiMobility. All rights reserved. (Last updated: 2013-09-10)</span><br />
 						
 						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.1 (build 858)</a>.</span></p>
 						
