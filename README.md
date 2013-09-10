@@ -1,5 +1,15 @@
 # MokiManageSDK
 
+## 1.1.1
+
+### iOS
+[Download](https://github.com/MokiMobility/MokiManageSDK/tree/1.1.1)
+ * fixed a big that prevented compliance reports from persisting through closing the app
+ * fixed bug that caused the app to stop sending compliance reports on weak networks
+ * fixed bug that caused the user interface to lock up and lag on weak network connections
+ * fixed bug that prevented the developer from being notified that the compliance report ran successfully
+
+
 ## 1.1.0
 
 ### Android
@@ -16,6 +26,7 @@
  * surfaced support identifier in the enrollment tab of the ASM settings views
  * removed dependency on NXJson
  * fixed bug that forced users to enable ASM
+
 
 ## 1.0.0
 
