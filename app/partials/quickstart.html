@@ -52,14 +52,15 @@
     If your project utilizes <a href="http://cocoapods.org" target="_blank">CocoaPods</a>, then add this dependency line
     to your <code class="http">Podfile</code><br/><br/>
 
-    <code>pod 'MokiManageSDK', :git =&gt; 'https://github.com/MokiMobility/MokiManageSDK.git', :branch =&gt;
-        'ios'</code><br/><br/>
+    <code>pod 'MokiManageSDK', :git =&gt; 'https://github.com/MokiMobility/MokiManageSDK.git', :tag =&gt;
+        '1.1.1'</code><br/><br/>
 
     If you want to utilize CocoaPods, but do not already have an existing <code class="http">Podfile</code>, please see
     the <a href="https://github.com/MokiMobility/MokiManageSDK/tree/ios">iOS SDK readme</a> for an example
     file.<br/><br/>
 
-    If you choose to manually add the SDK to your project, you will need to add the following:<br/><br/>
+    <div class="well">
+    We highly encourage the use of CocoaPods. It will ease your configuration, help you get updates to our SDK and help ensure that you have all the required dependencies. If you do choose to manually add the SDK to your project there is some more work to do. You will need to add the following to your project:<br/><br/>
 
     <b>Dependencies</b>:<br/>
     <ul>
@@ -75,6 +76,14 @@
         <li>Foundation</li>
         <li>CoreGraphics</li>
     </ul>
+    <br/>
+    
+    Due to our use of the network reachability APIs you will also need to add two <code>#import</code>s to your precompilied headers file, <code>Prefix.pch</code>.
+    <pre><code>#import &lt;SystemConfiguration/SystemConfiguration.h&gt;
+#import &lt;MobileCoreServices/MobileCoreServices.h&gt;</code></pre>
+        see <a href="https://github.com/AFNetworking/AFNetworking/wiki/AFNetworking-FAQ">AFNetworking FAQ</a> for additional details
+        </div>
+    
     <br/>
 
     Add an dictionary entry to your target's <code>Info.plist</code> named <code>certType</code>, with 3 boolean items.
