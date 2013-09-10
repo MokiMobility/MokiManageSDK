@@ -8,6 +8,7 @@
  * fixed bug that caused the app to stop sending compliance reports on weak networks
  * fixed bug that caused the user interface to lock up and lag on weak network connections
  * fixed bug that prevented the developer from being notified that the compliance report ran successfully
+ * replaced a method that was erroneously removed in 1.1.0 
 
 
 ## 1.1.0
