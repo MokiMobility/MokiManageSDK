@@ -1,12 +1,19 @@
 # MokiManageSDK
 
+## 1.1.2
+
+### iOS
+[Download](https://github.com/MokiMobility/MokiManageSDK/tree/1.1.2)
+
+ * fixed a bug that cause the devices to heartbeat too frequently
+
 ## 1.1.1
 
 ### iOS
 [Download](https://github.com/MokiMobility/MokiManageSDK/tree/1.1.1)
 
 *NOTE* please update your `Podfile` declarations to match the examples in the [README](https://github.com/MokiMobility/MokiManageSDK/tree/1.1.1). It shows how to use the `tag` option to ensure you get the correct version. If you are having difficulties obtaining the latest version due to CocoaPods cacheing then remove the cache directoy `${HOME}/Library/Caches/CocoaPods` and run a `pod update` to repopulate it
- * fixed a big that prevented compliance reports from persisting through closing the app
+ * fixed a bug that prevented compliance reports from persisting through closing the app
  * fixed bug that caused the app to stop sending compliance reports on weak networks
  * fixed bug that caused the user interface to lock up and lag on weak network connections
  * fixed bug that prevented the developer from being notified that the compliance report ran successfully
