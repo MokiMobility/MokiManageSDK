@@ -67,3 +67,5 @@ Manual Usage
 If you need to manually manage your build process and dependencies you can download our SDK jar directly: [MokiManageSDK-1.0.0](https://raw.github.com/MokiMobility/MokiManageSDK/android/com/mokimobility/MokiManageSDK/1.0.0/MokiManageSDK-1.0.0.jar)
 You will also need to include a dependency:
 * [gson-2.2.2](http://repo1.maven.org/maven2/com/google/code/gson/gson/2.2.2/gson-2.2.2.jar)
+
+If you plan on leveraging our pre built settings views you can [download res.zip](https://raw.github.com/MokiMobility/MokiManageSDK/android/com/mokimobility/MokiManageSDK/1.0.0/res.zip) and copy the contents into your `res` directory
