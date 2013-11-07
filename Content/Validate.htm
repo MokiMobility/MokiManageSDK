@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-us" xml:lang="en-us" data-mc-search-type="Stem" data-mc-help-system-file-name="index.xml" data-mc-path-to-help-system="../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-toc-path="Getting Started with MokiManage on Android|ASM Programming Guide">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>SettingSchema Validator</title>
+        <link href="../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" />
+        <link href="../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" />
+        <link href="Resources/mm.css" rel="stylesheet" />
+        <script src="../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../index.htm#Validate.htm">Open topic with navigation</a>
+        </p>
+        <div class="main">
+            <h1>SettingSchema Validator</h1><textarea id="schemaInput" style="width:100%;height:300px">{"Version":1,"Groups":[{"Title":"General","Settings":[]},{"Title":"Home Screen","Settings":[]},{"Title":"Screensaver","Settings":[]}]}</textarea>
+            <button onClick="SCHEMA_VALIDATE()">Validate</button>
+            <div id="schemaOutput">
+            </div>
+            <script src="app/js/tv4.min.js">
+            </script>
+            <script src="app/js/settings.schema.pad.js">
+            </script>
+            <script>/* <![CDATA[ */ 
+
+			tv4.addSchema("moki", MOKI_SCHEMA);
+			
+			function SCHEMA_VALIDATE() {
+				var json = document.getElementById('schemaInput').value
+				var output = document.getElementById('schemaOutput')
+				output.innerHTML = ''
+				var validation = tv4.validateMultiple(JSON.parse(json), tv4.getSchema("moki"));
+	
+				var x = 'Valid: ';
+				if(validation.valid) {
+					x+='<span class="valid">TRUE</span>';
+				} else {
+					x+='<span class="invalid">FALSE</span>';
+				
+					for(var i in validation.errors){
+						x += TMPLT_ERR(validation.errors[i]);
+					}
+					
+				}
+			
+				output.innerHTML=x;
+			
+			}
+			
+			
+			
+			function TMPLT_ERR(err) {
+        
+				if(!err){return '';}
+				if(err.code===undefined){return '';}
+	        
+				var subErrs = '';
+	        
+				if(err.subErrors) {
+				subErrs += '<div>Sub Errors: <div class="indent">';
+						for(var i in err.subErrors){
+						subErrs += TMPLT_ERR(err.subErrors[i]);
+						}
+				subErrs += '</div></div>'
+	            
+				}
+	        
+				var html = '<div><br /><b>Err-'+err.code+'</b> <i>'+err.message+'</i></div><div>Data Path: '+err.dataPath+'</div><div>Schema Path: '+err.schemaPath+'</div>'+subErrs
+	        
+				return html;
+     
+			}
+			
+			
+			
+			SCHEMA_VALIDATE() 
+			
+			
+			// TODO: 
+			// styles: valid, invalid, indent
+
+		/* ]]> */</script>
+            <hr style="color: #c0c0c0;" width="100%" size="0" align="center" />
+            <p><span style="color: #808080;">© 2013 by MokiMobility, Inc.</span>
+            </p>
+        </div>
+    </body>
+</html>

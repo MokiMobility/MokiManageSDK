@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-us" xml:lang="en-us" data-mc-search-type="Stem" data-mc-help-system-file-name="index.xml" data-mc-path-to-help-system="../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-toc-path="Getting Started with MokiManage on Android|ASM Programming Guide">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Additional ASM&#160;Examples</title>
+        <link href="../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" />
+        <link href="../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" />
+        <link href="Resources/mm.css" rel="stylesheet" />
+        <script src="../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../index.htm#android_asm_6Examples.htm">Open topic with navigation</a>
+        </p>
+        <div class="main">
+            <h1>Additional ASM&#160;Examples</h1>
+            <p>When your settings schema works, and your app is working with MokiManage.com, you’re ready to start working with settings.</p>
+            <p>The following <span class="VariablesMokiManage">MokiManage</span> object methods allow your app to initiate getting and changing settings:</p><pre xml:space="preserve"><span class="dark_purple">public</span> JSONObject getSettings()
+<span class="dark_purple">public void</span> saveSettings()
+<span class="dark_purple">public void</span> saveSettings(JSONObject settings)</pre>
+            <p>The following Broadcasts are sent to notify you when settings are successfully saved to and updated from the web:</p><pre xml:space="preserve">MokiManage.<span class="annotation">SETTINGS_PUSH_COMPLETED_NOTIFICATION</span>   
+	MokiManage.<span class="annotation">SETTINGS_PULL_COMPLETED_NOTIFICATION</span></pre>
+            <p>You can get and change settings for your app. You can retrieve all of your settings from the <span class="VariablesMokiManage">MokiManage</span> object with the method:</p><pre xml:space="preserve"><span class="dark_purple">public</span> JSONObject getSettings()</pre>
+            <p>This method simply returns the entire settings dictionary from the <span class="VariablesMokiManage">MokiManage</span> object. You could assign a pointer to these settings, as follows:</p><pre xml:space="preserve">JSONObject settingsJson = MokiManage.<span class="annotation">sharedInstance</span>().<span class="annotation">getSettings</span>();</pre>
+            <p>Assuming the <span class="VariablesMokiManage">MokiManage</span> object has already pulled settings, settings returns a dictionary representing your settings. You could assign a pointer to these settings, as follows:</p><pre xml:space="preserve">JSONObject settingsJson = MokiManage.<span class="annotation">sharedInstance</span>().<span class="annotation">getSettings</span>();</pre>
+            <p>This dictionary has two keys. The Version key returns the version of your schema. You can use this to see if <span class="VariablesMokiManage">MokiManage</span> is using the latest changes in your <span class="attribute">SettingsSchema.json</span> file. The Values key returns the set of values, so getting to your settings would look like this:</p><pre xml:space="preserve">JSONObject valuesJson = settingsJson.<span class="annotation">optJSONObject</span>(MokiManage.<span class="annotation">ASM_KEY_VALUES</span>);</pre>
+            <p>The key-value pairs in this dictionary will match the keys in your schema. For example, the dictionary tied to our Control Examples <span class="attribute">SettingsSchema.json</span> file would have the keys: <span class="attribute">adminPassword</span>, <span class="attribute">ProgressIndicator</span>, <span class="attribute">duration</span>, <span class="attribute">cache_key</span>, <span class="attribute">screensaverPlaylist</span>, and <span class="attribute">content</span>. Use the key you defined in your SettingsSchema file to access individual settings. Arrays in the JSON settings file are represented as arrays in Objective C as well, so getting the list of announcements would be done with the following line of code:</p><pre xml:space="preserve">JSONArray announcements = valuesJson.<span class="annotation">optJSONArray</span>(<span class="string">"announcements"</span>);</pre>
+            <p>This is a JSONArray of JSONObjects, with each object representing the settings declared in the list's ItemTemplate array. The key for each entry is the same as the key for each setting declared.</p>
+            <p>What you do with these settings depends on your app’s functionality.</p>
+            <p>You can skip the previous steps and retrieve individual values with these <span class="attribute">typeForKey</span> methods:</p><pre xml:space="preserve"><span class="light_purple">public boolean</span> boolForKey(String key)
+<span class="light_purple">public float</span> numberForKey(String key)
+<span class="light_purple">public</span> String stringForKey(String key)
+<span class="light_purple">public</span> JSONArray arrayForKey(String key)</pre>
+            <p>Click to see a full list of <a href="http://mokimobility.github.io/MokiManageSDK/javadoc/com/moki/manage/api/MokiManage.html" target="_blank">Object Methods</a>.</p>
+            <hr style="color: #c0c0c0;" width="100%" size="0" align="center" />
+            <p><span style="color: #808080;">© 2013 by MokiMobility, Inc.</span>
+            </p>
+        </div>
+    </body>
+</html>

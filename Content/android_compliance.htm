@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-us" xml:lang="en-us" data-mc-search-type="Stem" data-mc-help-system-file-name="index.xml" data-mc-path-to-help-system="../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-toc-path="Getting Started with MokiManage on Android">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Compliance Programming Guide</title>
+        <link href="../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" />
+        <link href="../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" />
+        <link href="Resources/mm.css" rel="stylesheet" />
+        <script src="../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../index.htm#android_compliance.htm">Open topic with navigation</a>
+        </p>
+        <div class="main">
+            <h1>Compliance Programming Guide</h1>
+            <p>The Compliance module of the MokiManage SDK provides a way to quickly have your app report on a number of compliance checks that cover both the app and the device the app is running on. By reporting items like if the device is rooted/jailbroken or if it is running on an old version of the OS, you can make functionality decisions in your app based on the current compliance status.</p>
+            <p>A Compliance Report is a collection of compliance checks performed on the device to give a snapshot of security. The structure of this report in iOS is comprised of a ComplianceReport class with information about the overall check and an array of ComplianceCheck class objects. Documentation for these classes can be found in the <MadCap:conditionalText data-mc-conditions="Default.AndroidOnly"><a href="http://mokimobility.github.io/MokiManageSDK/javadoc/com/moki/manage/api/MokiManage.html" target="_blank">SDK Java Docs</a></MadCap:conditionalText>.</p>
+            <p>There are <MadCap:conditionalText data-mc-conditions="Default.AndroidOnly">2</MadCap:conditionalText> ways to use compliance reports in your application. The first is to initialize compliance checking when you initialize the <span class="attribute">MokiManage sharedManager</span> in the <MadCap:conditionalText data-mc-conditions="Default.AndroidOnly">CustomApplication.java</MadCap:conditionalText> file.</p><pre xml:space="preserve" data-mc-conditions="Default.AndroidOnly"><span class="light_purple">public <span class="dark_purple">class</span> CustomApplication <span class="dark_purple">extends</span> Application <span class="dark_purple">implements</span> <span class="dark_purple">Application.ActivityLifecycleCallbacks</span></span> {
+    <span class="dark_purple">private static</span> MokiManageApplication instance;
+    <span class="dark_purple">private</span> MokiManage mmanage;
+    <span class="dark_purple">private int</span> activeActivityCount = 0;  
+    <span class="dark_purple">private final boolean</span> enableASM = false;
+    <span class="dark_purple">private final boolean</span> enableAEM = true;
+    <span class="dark_purple">private final boolean</span> enableCompliance = true;
+    private final String appKey = "";
+    private final String appID = "";
+
+	<span class="annotation">@Override</span>
+	<span class="dark_purple">public void</span> onCreate() { 
+	   <span class="dark_purple">super</span>.onCreate();
+ 	   Context context = <span class="dark_purple">this</span>;
+	   mmanage = MokiManage.sharedInstance(appKey, appID, context, enableASM, enableAEM, enableCompliance);
+	   registerActivityLifecycleCallbacks(<span class="dark_purple">this</span>);
+	   instance = <span class="dark_purple">this</span>;
+	}</pre>
+            <p>When this option is enabled a Compliance Report will be run on every heartbeat. By default this happens every hour. If the heartbeat timer is customized, the compliance report frequency will change accordingly. This method provides a simple, continually updated view to the compliance status of the app and device on the mokimanage.com console or, optionally, within the app itself.</p>
+            <p data-mc-conditions="Default.AndroidOnly">The second method is to utilize the <span class="attribute">IComplianceReportCallback</span> interface. This will allow you to manually get the latest compliance information and utilize it in your application logic.</p><pre xml:space="preserve" data-mc-conditions="Default.AndroidOnly">mokiManage.getComplianceReport(<span class="dark_purple">new</span> IComplianceReportCallback() {
+<span class="annotation">@Override</span>
+<span class="dark_purple">public void</span> reportReceived(ComplianceReport report) {
+    <span class="dark_purple">if</span> (report != <span class="dark_purple">null</span>) {
+        <span class="green">//ui work here</span>
+    } <span class="dark_purple">else</span> {
+        <span class="green">//error out or retry here</span>
+    }
+  }
+});</pre>
+            <p data-mc-conditions="Default.AndroidOnly">There is the rare possibility that the return value could be null. This can happen when a compliance report is requested before it is on the server. Just be aware to check for that case in your implementation.</p>
+            <hr style="color: #c0c0c0;" width="100%" size="0" align="center" />
+            <p><span style="color: #808080;">© 2013 by MokiMobility, Inc.</span>
+            </p>
+        </div>
+    </body>
+</html>

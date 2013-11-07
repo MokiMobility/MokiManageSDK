@@ -1,0 +1,1 @@
+$('head').append('<link rel="stylesheet" href="Content/Resources/skin.css" type="text/css" />');

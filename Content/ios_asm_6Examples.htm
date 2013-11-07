@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-us" xml:lang="en-us" data-mc-search-type="Stem" data-mc-help-system-file-name="index.xml" data-mc-path-to-help-system="../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-toc-path="Getting Started with MokiMobility on iOS|ASM&#160;Programming Guide">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Additional ASM&#160;Examples</title>
+        <link href="../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" />
+        <link href="../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" />
+        <link href="Resources/mm.css" rel="stylesheet" />
+        <script src="../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../index.htm#ios_asm_6Examples.htm">Open topic with navigation</a>
+        </p>
+        <div class="main">
+            <h1>Additional ASM&#160;Examples</h1>
+            <p>When your settings schema works, and your app delegate is working with MokiManage.com, you’re ready to start working with settings. Any view controllers that need to access the MokiManage object can do so by accessing the object in the app delegate.</p>
+            <p>The following MokiManage object methods allow your app to initiate getting and changing settings:</p><pre xml:space="preserve">— settings
+— pullSettings
+— saveSettings:</pre>
+            <p>The following MokiManageDelegate methods notifies you when the action has completed:</p><pre xml:space="preserve">— finishedPullingSettings:
+— finishedPushingSettings:</pre>
+            <p>There’s also a call to notify the app delegate when the user has finished editing settings:</p><pre xml:space="preserve">- finishedEditingSettings:</pre>
+            <p>By combining the object and delegate methods, you can get and change settings for your app. You can retrieve all of your settings from the MokiManage object with the method:</p><pre xml:space="preserve">- (NSDictionary *)settings;</pre>
+            <p>This method simply returns the entire settings dictionary from the MokiManage object. To get settings from the server, you need to initiate a pull with the <span class="attribute">pullSettings</span> method, and then monitor the delegate methods.</p>
+            <p>Assuming the MokiManage object has already pulled settings, settings returns a dictionary representing your settings. You could assign a pointer to these settings, as follows:</p><pre xml:space="preserve"><span class="light_purple">self</span>.<span class="teal">settingsD</span> = [[MokiManage sharedManager] settings];</pre>
+            <p>This dictionary has two keys. The Version key returns the version of your schema. You can use this to see if MokiManage is using the latest changes in your <span class="attribute">SettingsSchema.json</span> file. The Values key returns the set of values, so getting to your settings would look like this:</p><pre xml:space="preserve"><span class="dark_purple">NSDictionary</span> *valsD = [<span class="light_purple">self</span>.<span class="teal">settingsD</span> valueForKey:@<span class="string">"Values"</span>];</pre>
+            <p>The key-value pairs in this dictionary will match the keys in your schema. For example, the dictionary tied to our Control Examples <span class="attribute">SettingsSchema.json</span> file would have the keys: <span class="attribute">adminPassword</span>, <span class="attribute">ProgressIndicator</span>, <span class="attribute">duration</span>, <span class="attribute">cache_key</span>, <span class="attribute">mmasm_playlist_screensaver</span>, and <span class="attribute">content</span>. Use the key you defined in your SettingsSchema file to access individual settings. Arrays in the JSON settings file are represented as arrays in Objective C as well, so getting the list of announcements would be done with the following line of code:</p><pre xml:space="preserve"><span class="dark_purple">NSArray</span> *announcmentsA = [valsD valueForKey:@<span class="string">"announcements"</span>];</pre>
+            <p>This is an array of dictionaries, with each dictionary representing the settings declared in the list’s ItemTemplate array. The key for each entry is the same as the key for each setting declared.</p>
+            <p>What you do with these settings depends on your app’s functionality.</p>
+            <p>You can skip the previous steps and retrieve individual values with these <span class="attribute">_type_ForKey</span> methods:</p><pre xml:space="preserve">- arrayForKey:
+- boolForKey:
+- dataForKey:
+- doubleForKey:
+- dictionaryForKey:
+- floatForKey:
+- integerForKey:
+- objectForKey:
+- stringForKey:
+- URLForKey:</pre>
+            <p>Handling Settings Updates</p>
+            <p>The following delegate method will notify you that settings have been updated.</p><pre xml:space="preserve">- (<span class="light_purple">void</span>)finishedPullingSettings:(<span class="dark_purple">NSDictionary</span> *)settings WithError:(<span class="dark_purple">NSError</span> *)error;</pre>
+            <p>To notify any view controllers of the settings update, you can post a notification when this method is called. Your view controllers can call add themselves as observers, and have the related methods call the settings method to retrieve the new settings.</p>
+            <p>Click to see a full list of <a href="http://mokimobility.github.io/MokiManageSDK/appledoc/Classes/MokiManage.html#//api/name/delegate" target="_blank">Object Methods</a>.</p>
+            <hr style="color: #c0c0c0;" width="100%" size="0" align="center" />
+            <p><span style="color: #808080;">© 2013 by MokiMobility, Inc.</span>
+            </p>
+        </div>
+    </body>
+</html>

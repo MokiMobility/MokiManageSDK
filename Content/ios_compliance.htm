@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-us" xml:lang="en-us" data-mc-search-type="Stem" data-mc-help-system-file-name="index.xml" data-mc-path-to-help-system="../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-toc-path="Getting Started with MokiMobility on iOS">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Compliance Programming Guide for iOS</title>
+        <link href="../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" />
+        <link href="../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" />
+        <link href="Resources/mm.css" rel="stylesheet" />
+        <script src="../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../index.htm#ios_compliance.htm">Open topic with navigation</a>
+        </p>
+        <div class="main">
+            <h1>Compliance Programming Guide for iOS</h1>
+            <p>The Compliance module of the MokiManage SDK provides a way to quickly have your app report on a number of compliance checks that cover both the app and the device the app is running on. By reporting items like if the device is rooted/jailbroken or if it is running on an old version of the OS, you can make functionality decisions in your app based on the current compliance status.</p>
+            <p>A Compliance Report is a collection of compliance checks performed on the device to give a snapshot of security. The structure of this report in iOS is comprised of a ComplianceReport class with information about the overall check and an array of ComplianceCheck class objects. Documentation for these classes can be found in the <MadCap:conditionalText data-mc-conditions="Default.iOSOnly"><a href="http://mokimobility.github.io/MokiManageSDK/appledoc/Classes/MokiManage.html#//api/name/complianceReport" target="_blank">SDK Apple Docs</a></MadCap:conditionalText>.</p>
+            <p>There are <MadCap:conditionalText data-mc-conditions="Default.iOSOnly">3</MadCap:conditionalText> ways to use compliance reports in your application. The first is to initialize compliance checking when you initialize the <span class="attribute">MokiManage sharedManager</span> in the <MadCap:conditionalText data-mc-conditions="Default.iOSOnly">AppDelegate.m</MadCap:conditionalText> file.</p><pre xml:space="preserve" data-mc-conditions="Default.iOSOnly"><span class="green">[[MokiManage sharedManager]</span> initializeWithApiKey:appKey
+    launchingOptions:<span class="green">[appDelegate launchingOptions]</span>
+    enableASM:YES
+    enableAEM:YES
+    enableComplianceChecking:YES
+    asmSettingsFileName:nil
+    error:&amp;error];</pre>
+            <p>When this option is enabled a Compliance Report will be run on every heartbeat. By default this happens every hour. If the heartbeat timer is customized, the compliance report frequency will change accordingly. This method provides a simple, continually updated view to the compliance status of the app and device on the mokimanage.com console or, optionally, within the app itself.</p>
+            <p data-mc-conditions="Default.iOSOnly">The second method is to look at last run compliance report as part of the compliance singleton. When a check is triggered manually on the singleton or by the automatic heartbeat, the results of the check are available by asking for the singleton and inspecting its properties. You can implement application logic around whether the device is in compliance or not.</p><pre xml:space="preserve" data-mc-conditions="Default.iOSOnly">ComplianceReport *report = [[MokiManage sharedManager] complianceReport];</pre>
+            <p data-mc-conditions="Default.iOSOnly">The third method is to run a compliance report manually. Triggering a check will run a compliance check locally and then push those results to mokimanage.com. After this is complete the you will be able to implement application logic around whether the device is in compliance or not as was mentioned before. Triggering a check manually will not effect the scheduled run time on a heartbeat, if it is turned on.</p><pre xml:space="preserve" data-mc-conditions="Default.iOSOnly"><span class="green">[[[MokiManage sharedManager]</span> complianceReport] run];</pre>
+            <hr style="color: #c0c0c0;" width="100%" size="0" align="center" />
+            <p><span style="color: #808080;">© 2013 by MokiMobility, Inc.</span>
+            </p>
+        </div>
+    </body>
+</html>
