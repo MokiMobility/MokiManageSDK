@@ -3,7 +3,9 @@
 body
 {
 	font-size: 10pt;
-	font-family: Arimo;
+	font-family: "proxima-nova", sans-serif !important
+    font-style: normal
+    font-weight: 400
 }
 
 h1
