@@ -1,46 +1,79 @@
 ﻿/*<meta />*/
 
-body
-{
-	font-size: 10pt;
-	font-family: Arimo;
+body {
+  background-color: #FFF;
+  font: 100 11px/14px "proxima-nova", "helvetica neue", sans-serif;
+    color:#333333;
 }
 
-h1
-{
-	font-weight: bold;
-	font-size: 24.0pt;
+emph, .emph {
+    font-weight:600;
+    font-size:11px;
+    line-height:14px;
+    color:#333333;
 }
 
-h2
-{
-	font-weight: bold;
-	font-size: 18.0pt;
+.code {
+    font: 400 9px/12px "Menlo", "Courier New", monospace;
+    color:#333333;
 }
 
-h3
-{
-	font-weight: bold;
-	font-size: 14.0pt;
+
+h1,h2,h3,h4,h5,h6 {
+   font-family:"proxima-nova", "helvetica neue", sans-serif;
 }
 
-h4
-{
-	font-weight: bold;
-	font-size: 12.0pt;
+h1 {
+   font-weight: 700;
+    font-size:24px;
+    line-height:30px;
+    color: #0089c9;
 }
 
-h5
-{
-	font-weight: bold;
-	font-size: 10.0pt;
+h2 {
+   font-weight: 700;
+    font-size:16px;
+    line-height:18px;
+    color: #0089c9;
 }
 
-h6
-{
-	font-weight: bold;
-	font-size: 8.0pt;
+h3 {
+   font-weight: 200;
+    font-size:14px;
+    line-height:18px;
+    color: #0089c9;
 }
+
+/* same as above */
+.nav-list {
+   font-weight: 200;
+    font-size:14px;
+    line-height:18px;
+    color: #0089c9;
+}
+
+h4 {
+   font-size: 700;
+    font-size:11px;
+    line-height:14px;
+    color: #0089c9;
+}
+
+h5 {
+   font-size: 700;
+    font-size:11px;
+    line-height:14px;
+    color: #999999;
+}
+
+h6 {
+    font-style:italic;
+   font-weight: 700;
+    font-size:11px;
+    line-height:14px;
+    color: #333333;
+}
+
 
 p
 {
