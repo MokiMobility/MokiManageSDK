@@ -39,6 +39,7 @@ html.DEBUG #DEBUG_Log
 	overflow: auto;
 }
 
+
 .MCDebugLogEntry
 {
 	border-bottom: solid 1px #AAAAAA;
