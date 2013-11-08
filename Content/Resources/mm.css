@@ -3,7 +3,7 @@
 body
 {
 	font-size: 10pt;
-	font-family: "proxima-nova", sans-serif !important
+	font-family: "museo-slab", sans-serif !important
     font-style: normal
     font-weight: 400
 }
@@ -106,7 +106,7 @@ p.example
 	-moz-border-radius: 5px;
 	border-radius: 5px;
 	font-size: 10pt;
-	font-family: "proxima-nova";
+	font-family: "museo-slab";
 }
 
 pre
@@ -118,7 +118,7 @@ pre
 	-webkit-border-radius: 5px;
 	-moz-border-radius: 5px;
 	border-radius: 5px;
-	font-family: "proxima-nova";
+	font-family: "museo-slab";
 }
 
 span.green
@@ -162,7 +162,7 @@ span.attribute
 {
 	background-color: #f9f2f4;
 	color: #c7254e;
-	font-family: "proxima-nova";
+	font-family: "museo-slab";
 }
 
 ul
