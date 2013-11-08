@@ -33,7 +33,7 @@ html.DEBUG #DEBUG_Log
 .MCDebugLogBody
 {
 	background-color: #FFFFFF;
-	font-family: Monospace;
+	font-family: "proxima-nova";
 	font-size: 11px;
 	height: 200px;
 	overflow: auto;
@@ -72,7 +72,7 @@ html
 
 body
 {
-	font-family: Arial;
+	font-family: "proxima-nova";
 	font-size: 12px;
 	margin: 0;
 	padding: 0;
@@ -1307,7 +1307,7 @@ iframe.content
 #resultList,
 #communityResultList
 {
-	font-family: Arial;
+	font-family: "proxima-nova";
 	margin: 0;
 	padding: 0;
 	list-style-image: none;
