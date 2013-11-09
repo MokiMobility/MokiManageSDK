@@ -35,8 +35,7 @@
             <p data-mc-conditions="Default.iOSOnly">The second method is to look at last run compliance report as part of the compliance singleton. When a check is triggered manually on the singleton or by the automatic heartbeat, the results of the check are available by asking for the singleton and inspecting its properties. You can implement application logic around whether the device is in compliance or not.</p><pre xml:space="preserve" data-mc-conditions="Default.iOSOnly">ComplianceReport *report = [[MokiManage sharedManager] complianceReport];</pre>
             <p data-mc-conditions="Default.iOSOnly">The third method is to run a compliance report manually. Triggering a check will run a compliance check locally and then push those results to mokimanage.com. After this is complete the you will be able to implement application logic around whether the device is in compliance or not as was mentioned before. Triggering a check manually will not effect the scheduled run time on a heartbeat, if it is turned on.</p><pre xml:space="preserve" data-mc-conditions="Default.iOSOnly"><span class="green">[[[MokiManage sharedManager]</span> complianceReport] run];</pre>
             <hr style="color: #c0c0c0;" width="100%" size="0" align="center" />
-            <p><span style="color: #808080;">© 2013 by MokiMobility, Inc.</span>
-            </p>
+
         </div>
     </body>
 </html>
