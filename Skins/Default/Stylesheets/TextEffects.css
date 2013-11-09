@@ -706,7 +706,7 @@
 	margin-right: 10px;
 	display: none;
 	color: #749ab6;
-	font-family: "museo-slab";
+	font-family: "adelle-sans";
 	font-weight: bold;
 	font-style: italic;
 }
@@ -720,7 +720,7 @@ html.feedback-anonymous-enabled .comments .username
 {
 	font-weight: normal;
 	color: #888888;
-	font-family: "museo-slab";
+	font-family: "adelle-sans";
 	font-size: 11px;
 	font-style: italic;
 }
