@@ -1,142 +1,358 @@
 <!DOCTYPE html>
-<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-us" xml:lang="en-us" data-mc-search-type="Stem" data-mc-help-system-file-name="index.xml" data-mc-path-to-help-system="../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-toc-path="Getting Started with MokiMobility on iOS">
-    <head>
-        <meta charset="utf-8" />
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>QuickStart: AEM for iOS</title>
-        <link href="../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" />
-        <link href="../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" />
-        <link href="Resources/mm.css" rel="stylesheet" />
-        <script src="../Resources/Scripts/jquery.min.js">
-        </script>
-        <script src="../Resources/Scripts/plugins.min.js">
-        </script>
-        <script src="../Resources/Scripts/require.min.js">
-        </script>
-        <script src="../Resources/Scripts/require.config.js">
-        </script>
-        <script src="../Resources/Scripts/MadCapAll.js">
-        </script>
-    </head>
-    <body>
-        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../index.htm#ios_aem.htm">Open topic with navigation</a>
-        </p>
-        <div class="main">
-            <h1><i>QuickStart</i>: AEM for iOS</h1>
-            <div class="prereq">
-                <p>Before you start, you should already have an account on <a href="http://mokimanage.com/" target="_blank"><span class="VariablesMokiManage">MokiManage</span>.com</a>, and have an app key and tenant ID. If you don't have your app key or tenant ID, email <a href="mailto:sales@mokimobility.com?subject=Request for app key or tenant ID.">sales@mokimobility.com</a>.</p>
-            </div>
-            <p>To set up your iOS app to use the AEM&#160;component of the <span class="VariablesMokiManage">MokiManage</span> SDK, you will need to take the following steps:</p>
-            <ul class="no_bullet">
-                <li value="1"><a href="#Step" class="Intro MCXref xref  xref Intro">Step 1: Set up Apple Push Notification service (APNs) for your app</a>
-                </li>
-                <li value="2"><a href="#Step2" class="Intro MCXref xref  xref Intro">Step 2: Add the MokiManage SDK&#160;to your project</a>
-                </li>
-                <li value="3"><a href="#Step3" class="Intro MCXref xref  xref Intro">Step 3: Set up your Info.plist and app delegate</a>
-                </li>
-                <li value="4"><a href="#Step4" class="Intro MCXref xref  xref Intro">Step 4: Register with MokiManage</a>
-                </li>
-                <li value="5"><a href="#Step5" class="Intro MCXref xref  xref Intro">Step 5: Check the MokiManage Console</a>
-                </li>
-            </ul>
-            <h2><a name="Step"></a>Step 1: Set up Apple Push Notification service (APNs) for your app</h2>
-            <p>The <span class="VariablesMokiManage">MokiManage</span> platform uses Apple Push Notification Service (APNs) to communicate with your application. In order to send messages to devices on your behalf, you will need to provide the appropriate certificates that you get from Apple. </p>
-            <p>For more detail on setting up your app for APNs, click the APNs Setup Guide below.</p>
-            <div class="MCDropDown MCDropDown_Open dropDown "><span class="MCDropDownHead dropDownHead  dropDownHead Level2"><span class="MCDropDownHotSpot dropDownHotspot  MCDropDownHotSpot_" title="Drop Down">APNs Setup Guide</span></span>
-                <div class="MCDropDownBody dropDownBody ">
-                    <p>Before you can integrate your application with <span class="VariablesMokiManage">MokiManage</span>, you need to go through the process of configuring it to receive push notifications from Apple (APNs). You must have an active <a href="https://developer.apple.com/programs/ios/" target="_blank">iOS Developer Program</a> membership in order to complete these steps.</p>
-                    <p>The end result of this process are private SSL certificates that are stored securely for you on MokiManage.com. These certificates allow <span class="VariablesMokiManage">MokiManage</span> to send APNs messages to your application through the <span class="VariablesMokiManage">MokiManage</span> platform on your behalf.</p>
-                    <h2>Configure your Application</h2>
-                    <p>Inside of the Apple Developer Members Center, select Identifiers under the iOS Apps section and select your application from the list. <p><img src="Images/APNs/select_app_id.png" /></p><p>If you have not previously created your application identifier, click the + button and complete the form. Make sure the Push Notifications checkbox is selected.</p><p><img src="Images/APNs/app_creation.png" /></p></p>
-                    <p>After you have selected your application identifier, you will see that there are two settings for push notifications that display yellow or green status icons.<p><img src="Images/APNs/push_notification_status.png" /></p><p>Click the Edit button. If you are not able to select the Edit button, then you may not be the Team Agent or Account Admin. You have to be a Team Agent or Admin in order to configure APNs.</p></p>
-                    <p>In order to enable Development or Production APNs messaging in your application, you need to create the appropriate certificate. Click the Create Certificate button under the Development SSL section to begin that process.<p><img src="Images/APNs/configure_certs.png" /></p></p>
-                    <p>You have to create a Certificate Signing Request (CSR) in order to create the APNs certificate. You create this CSR using Keychain Access on your Mac. Follow the instructions provided in the Developer Portal to create the CSR and click Continue.</p>
-                    <p>
-                        <img src="Images/APNs/create_csr.png" />
-                    </p>
-                    <p>Upload the CSR to the Developer Portal and click Generate</p>
-                    <p>
-                        <img src="Images/APNs/upload_csr.png" />
-                    </p>
-                    <p>Download the certificate that is created and double click it to open in Keychain Access.</p>
-                    <p>
-                        <img src="Images/APNs/download_cert.png" />
-                    </p>
-                    <p>In Keychain Access, the certificate will be displayed in the My Certificates section with a label of Apple Development IOS Push Services: &lt;app-identifier&gt; (it will be labeled Apple Production IOS Push Services for production certs).</p>
-                    <p>
-                        <img src="Images/APNs/keychain.png" />
-                    </p>
-                    <p>Once the certificate is installed, you need to export both the cert and the associated private key to a .p12 file. Expand the cert so that the private key is displayed and select both items. Right click and select "Export 2 items...". Save the .p12 file and provide a password when prompted.</p>
-                    <p>
-                        <img src="Images/APNs/export_cert.png" />
-                    </p>
-                    <p>
-                        <img src="Images/APNs/password_box.png" />
-                    </p>
-                    <p>In order for the MokiManage platform to utilize your APNs cert you have just created, it needs to be in .pem format. Open a Terminal window and navigate to the directory where you saved your .p12 file.</p>
-                    <p>Convert your .p12 to a .pem using the following OpenSSL command (replace your_cert.p12 with the name of the your .p12 file and your_cert.pem with whatever you want to name your .pem file) and enter the password you selected when you exported the .p12:</p>
-                    <p class="example">openssl pkcs12 -in your_cert.p12 -out your_cert.pem -nodes -clcerts</p>
-                    <p>Upload the .pem file to the Developer APNS Cert item inside of the Developer Tools section of MokiManage.com</p>
-                    <p>
-                        <img src="Images/APNs/cert_upload.png" />
-                    </p>
-                    <p>Repeat this same process for the production SSL cert and upload it to the Store APNS Cert item.</p>
-                </div>
-            </div>
-            <h2><a name="Step2"></a>Step 2: Add the <span class="VariablesMokiManage">MokiManage</span> SDK&#160;to your project</h2>
-            <p>You can add the <span class="VariablesMokiManage">MokiManage</span> SDK&#160;to your project either by using CocoaPods or by downloading and installing the SDK. </p>
-            <p class="note" data-mc-autonum="&lt;b&gt;Note: &lt;/b&gt; "><span class="autonumber"><span><b>Note: </b> <![CDATA[ ]]></span></span>We strongly encourage using CocoaPods. It will ease your configuration, help you get updates to our SDK, and help ensure that you have all the required dependencies. If you do choose to manually add the SDK to your project there is some more work to do. </p>
-            <div class="MCDropDown MCDropDown_Open dropDown "><span class="MCDropDownHead dropDownHead  dropDownHead Level2"><span class="MCDropDownHotSpot dropDownHotspot  MCDropDownHotSpot_" title="Drop Down">Using CocoaPods</span></span>
-                <div class="MCDropDownBody dropDownBody ">
-                    <p>If your project uses CocoaPods, add this dependency line to your <span class="attribute">Podfile</span>:</p>
-                    <p><span class="attribute">pod 'MokiManageSDK', :git =&gt; 'https://github.com/MokiMobility/MokiManageSDK.git', :tag =&gt; '1.1.2'</span>
-                    </p>
-                    <p>If you want to use CocoaPods, but do not already have an existing Podfile, see the <a href="https://github.com/MokiMobility/MokiManageSDK/tree/ios" target="_blank">iOS SDK readme</a> for an example file.</p>
-                </div>
-            </div>
-            <div class="MCDropDown MCDropDown_Open dropDown "><span class="MCDropDownHead dropDownHead  dropDownHead Level2"><span class="MCDropDownHotSpot dropDownHotspot  MCDropDownHotSpot_" title="Drop Down">Downloading and Installing the SDK</span></span>
-                <div class="MCDropDownBody dropDownBody ">
-                    <ol>
-                        <li value="1">Download the <span class="VariablesMokiManage">MokiManage</span> SDK&#160;from <a href="https://github.com/MokiMobility/MokiManageSDK/tree/ios" target="_blank">https://github.com/MokiMobility/MokiManageSDK/tree/ios</a>. </li>
-                        <li value="2">The <span class="VariablesMokiManage">MokiManage</span> SDK has a dependency on AFNetworking. Download AFNetworking from <a href="https://github.com/AFNetworking/AFNetworking" target="_blank">https://github.com/AFNetworking/AFNetworking</a>.</li>
-                        <p>Link the following AFNetworks frameworks to your xcode project:</p>
-                        <ul>
-                            <li value="1">MobileCoreServices</li>
-                            <li value="2">SenTestingKit</li>
-                            <li value="3">Security</li>
-                            <li value="4">ExternalAccessory</li>
-                            <li value="5">CoreTelephony</li>
-                            <li value="6">CoreLocation</li>
-                            <li value="7">SystemConfiguration</li>
-                            <li value="8">Foundation</li>
-                            <li value="9">CoreGraphics</li>
-                        </ul>
-                        <li value="3">Because <span class="VariablesMokiManage">MokiManage</span> uses network reachability APIs, you need to add two <span class="attribute">#imports</span> to your precompilied headers file, <span class="attribute">Prefix.pch</span>.</li>
-                        <p class="example">#import <span class="blue">&lt;SystemConfiguration/</span><span class="purple">SystemConfiguration.h&gt;</span><br />#import <span class="blue">&lt;MobileCoreServices/</span><span class="purple">MobileCoreServices.h&gt;</span></p>
-                    </ol>
-                    <p>See <a href="https://github.com/AFNetworking/AFNetworking/wiki/AFNetworking-FAQ" target="_blank">AFNetworking FAQ</a> for additional details</p>
-                </div>
-            </div>
-            <h2><a name="Step3"></a>Step 3: Set up your Info.plist and app delegate</h2>
-            <ol>
-                <li value="1">Add a dictionary entry to your target's <span class="attribute">Info.plist</span> named <span class="attribute">certType</span> with 3 boolean items. The items are: <span class="attribute">store</span>, <span class="attribute">enterprise</span>, and <span class="attribute">sandbox</span>. <p><img src="Images/info.plist_442x82.png" style="width: 442;height: 82;" /></p><p>This entry tells the SDK which APNs cert the platform should use to communicate with the app. These entries map to the same cert entries you uploaded in <span class="VariablesMokiManage">MokiManage</span> when you set up your APNs certs in <a href="#Step">Step 1</a>. During development, mark <b>YES</b> for sandbox, and <b>NO</b> for the other entries.</p></li>
-                <li value="2">Update your app delegate to work with <span class="VariablesMokiManage">MokiManage</span> and APNs.<ol><li value="1">Add the <b>MokiManage.h</b> header to your app delegate header file:<p class="example">#import "MokiManage.h"</p></li><li value="2">Add the MokiManage protocol to your delegate:<p class="example">@interface AppDelegate : UIResponder &lt;UIApplicationDelegate, MokiManageDelegate&gt;</p></li><li value="3">In your <b>AppDelegate.m</b> file, add a declaration for your app key and tenant ID:<p class="example">#define APP_KEY @"whatever-your-app-key-is-useitherenow"<br />#define Tenant_ID @"whatever-your-tenaant-id-is-useitnow"</p></li><li value="4">Initiate the session with the <span class="VariablesMokiManage">MokiManage</span> SDK from your app delegate’s <span class="attribute">didFinishLaunchingWithOptions:</span> method, calling the <span class="attribute">initializeWithApiKey:</span> method.<p class="example">NSError *error;<br /><br /><span class="green">[[MokiManage sharedManager]</span> initializeWithApiKey:API_KEY<br />launchingOptions:launchOptions<br />enableASM:NO<br />enableAEM:YES<br />enableComplianceChecking:NO<br />asmSettingsFileName:nil<br />error:&amp;error];<br /><br /><span class="green">[[MokiManage sharedManager]</span> setDelegate:self];</p></li><li value="5">Add the delegate methods for APNs. From the <span class="attribute">didRegisterForRemoteNotificationsWithDeviceToken:</span> method, call <span class="VariablesMokiManage">MokiManage</span> to pass on the device token. Now <span class="VariablesMokiManage">MokiManage</span> has the device's APNs token and will use that to send APNs messages.<p class="note" data-mc-autonum="&lt;b&gt;Note: &lt;/b&gt; "><span class="autonumber"><span><b>Note: </b> <![CDATA[ ]]></span></span> The iOS Simulator does not correctly register for an APNs token, which is required in order to register a device with MokiManage. In order to test the entire device registration lifecycle, you have to use a physical device.</p></li><li value="6">Add the appropriate logic to  the <span class="attribute">didFailToRegisterForRemoteNotificationsWithError:</span> and <span class="attribute">didReceiveRemoteNotification:</span>methods. <p class="example">- (<span class="light_purple">void</span>)application:(<span class="dark_purple">UIApplication</span>*)application<br />didRegisterForRemoteNotificationsWithDeviceToken:(NSData*)deviceToken {<br />[[MokiManage sharedManager] setApnsToken:deviceToken];<br />}<br /><br />- (<span class="light_purple">void</span>)application:(<span class="dark_purple">UIApplication</span>*)application didFailToRegisterForRemoteNotificationsWithError:(<span class="dark_purple">NSError</span>*)error {<br /><span class="light_purple">if</span>(error) {<br /><span class="green">// Add error processing here.</span><br /><span class="dark_purple">NSLog</span>(@<span class="red">"error registering for push notifications %@"</span>,error);<br />}<br />}<br /><br />- (<span class="light_purple">void</span>)application:(<span class="dark_purple">UIApplication</span> *)application didReceiveRemoteNotification:(<span class="dark_purple">NSDictionary</span> *)userInfo {<br />[[MokiManage sharedManager] didReceiveRemoteNotification:userInfo];<br />}</p></li><li value="7">Add the <span class="attribute">MokiManageDelegate</span> methods to your delegate. To get up and running, you don’t need to have any logic in these delegate methods.<p class="example"><span class="brown">#pragma mark -</span><br style="mc-tag-and-class: span;" /><span class="brown">&#160;&#160;&#160;&#160;#pragma mark MokiManageDelegate Methods</span><br /><br />&#160;&#160;&#160;&#160;&#160;-(<span class="light_purple">void</span>)finishedRegistrationWithError:(<span class="dark_purple">NSError</span> *)error{<br /> <span class="light_purple">if</span>(error){<br /> <span class="green">// Proces the error</span><br />&#160;&#160;&#160;&#160;&#160;}<br /> <span class="green">// Let other objects in your app know that registration is complete.</span><br />&#160;&#160;&#160;&#160;&#160;}<br /><br />&#160;&#160;&#160;&#160;&#160;-(<span class="light_purple">void</span>)finishedUnRegistrationWithError:(<span class="dark_purple">NSError</span> *)error{<br /> <span class="dark_purple">NSLog</span>(@<span class="red">"MokiManage finishedUnRegistrationWithError %@"</span>, error.<span class="teal">localizedDescription</span>);<br /><br />&#160;&#160;&#160;&#160;&#160;}<br /><br />&#160;&#160;&#160;&#160;&#160;-(<span class="light_purple">void</span>)finishedRegisteringToANewTenantWithError:(<span class="dark_purple">NSError</span> *)error{<br /> <span class="dark_purple">NSLog</span>(@<span class="red">"MokiManage finishedRegisteringToANewTenantWithError"</span>);<br /><br />&#160;&#160;&#160;&#160;&#160;}<br /><br />&#160;&#160;&#160;&#160;&#160;-(<span class="light_purple">void</span>)finishedPullingSettings:(<span class="dark_purple">NSDictionary</span> *)settings WithError:(<span class="dark_purple">NSError</span> *)error {<br /> <span class="dark_purple">NSLog</span>(@<span class="red">"MokiManage finishedPullingSettings"</span>);<br /><br />&#160;&#160;&#160;&#160;&#160;}<br /><br />&#160;&#160;&#160;&#160;&#160;-(<span class="light_purple">void</span>)finishedPushingSettings:(<span class="dark_purple">NSDictionary</span> *)settings WithError:(<span class="dark_purple">NSError</span> *)error {<br /> <span class="dark_purple">NSLog</span>(@<span class="red">"MokiManage finishedPushingSettings with error: %@"</span>, error);<br /><br />&#160;&#160;&#160;&#160;&#160;}<br /><br />&#160;&#160;&#160;&#160;&#160;-(<span class="light_purple">void</span>)finishedEditingSettings{<br /><br />&#160;&#160;&#160;&#160;&#160;}</p></li></ol></li>
-            </ol>
-            <h2><a name="Step4"></a>Step 4: Register with <span class="VariablesMokiManage">MokiManage</span></h2>
-            <p>The next step is to add the code that enrolls the device with <span class="VariablesMokiManage">MokiManage</span>. This is done by adding a call to the <span class="attribute">silentlyRegisterDevice</span> method. This can be placed at any point in your app's workflow.In this example, it is added inside of the delegate method <span class="attribute">didRegisterForRemoteNotificationsWithDeviceToken</span>: </p>
-            <p class="example">- (<span class="light_purple">void</span>)application:(<span class="dark_purple">UIApplication</span>*)application<br />&#160;&#160;&#160;didRegisterForRemoteNotificationsWithDeviceToken:(NSData*)deviceToken {<br />&#160;&#160;&#160;[[MokiManage sharedManager] setApnsToken:deviceToken];<br />&#160;&#160;&#160;[[MokiManage sharedManager] silentlyRegisterDevice:Tenant_ID ];<br />}</p>
-            <h2><a name="Step5"></a>Step 5: Check the <span class="VariablesMokiManage">MokiManage</span> Console</h2>
-            <p>You can now verify that your integration is working. </p>
-            <ol>
-                <li value="1"> Load the app on your device. </li>
-                <li value="2">Sign in to <a href="https://www.mokimanage.com/" target="_blank">MokiManage.com</a>, </li>
-                <li value="3">Click the <b>Change App</b> drop-down at the top left. You should see your application in the drop-down list. (Click picture to see screenshot)<p><a class="MCPopupThumbnailLink MCPopupThumbnailPopup" href="Images/change_app_screen.png"><img class="MCPopupThumbnail img " data-mc-width="1143" data-mc-height="658" src="Images/change_app_screen_thumb_0_48.png" style="mc-thumbnail: popup;" /></a></p> <p class="note" data-mc-autonum="&lt;b&gt;Note: &lt;/b&gt; "><span class="autonumber"><span><b>Note: </b> <![CDATA[ ]]></span></span>If you do not see your app on the list, contact MokiMobility support at 888-997-5505 or <a href="http://support.mokimobility.com/" target="_blank">support.mokimobility.com</a>.</p></li>
-                <li value="4">Select your app, and your device should be displayed in the list.</li>
-                <li value="5">Select your device.</li>
-            </ol>
-            <p>On the right you should see a tabbed panel showing information about the device you selected. The <b>Dashboard</b> tab shows a graphical representation of the logs the AEM module collects. If you select the <b>Details</b> tab, you’ll see information about your device, such as battery status, network information, and so on.</p>
-            <p>All of the device actions represented in the <b>Actions</b> drop-down menu are available without any additional configuration.</p>
-            <hr style="color: #c0c0c0;" width="100%" size="0" align="center" />
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-us" xml:lang="en-us"
+      data-mc-search-type="Stem" data-mc-help-system-file-name="index.xml" data-mc-path-to-help-system="../"
+      data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false"
+      data-mc-in-preview-mode="false" data-mc-toc-path="Getting Started with MokiMobility on iOS">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>QuickStart: AEM for iOS</title>
+    <link href="../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet"/>
+    <link href="../Skins/Default/Stylesheets/Topic.css" rel="stylesheet"/>
+    <link href="Resources/mm.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="Resources/update.css"/>
+    <script src="../Resources/Scripts/jquery.min.js">
+    </script>
+    <script src="../Resources/Scripts/plugins.min.js">
+    </script>
+    <script src="../Resources/Scripts/require.min.js">
+    </script>
+    <script src="../Resources/Scripts/require.config.js">
+    </script>
+    <script src="../Resources/Scripts/MadCapAll.js">
+    </script>
+</head>
+<body>
+<p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../index.htm#ios_aem.htm">Open topic with
+    navigation</a>
+</p>
 
+<div class="main">
+<h1><i>QuickStart</i>: AEM for iOS</h1>
+
+<div class="prereq">
+    <p>Before you start, you should already have an account on <a href="http://mokimanage.com/"
+                                                                  target="_blank"><span class="VariablesMokiManage">MokiManage</span>.com</a>,
+        and have an app key and tenant ID. If you don't have your app key or tenant ID, email <a
+                href="mailto:sales@mokimobility.com?subject=Request for app key or tenant ID.">sales@mokimobility.com</a>.
+    </p>
+</div>
+<p>To set up your iOS app to use the AEM&#160;component of the <span class="VariablesMokiManage">MokiManage</span>
+    SDK, you will need to take the following steps:</p>
+<ul class="no_bullet">
+    <li value="1"><a href="#Step" class="Intro MCXref xref  xref Intro">Step 1: Set up Apple Push Notification
+        service (APNs) for your app</a>
+    </li>
+    <li value="2"><a href="#Step2" class="Intro MCXref xref  xref Intro">Step 2: Add the MokiManage SDK&#160;to your
+        project</a>
+    </li>
+    <li value="3"><a href="#Step3" class="Intro MCXref xref  xref Intro">Step 3: Set up your Info.plist and app
+        delegate</a>
+    </li>
+    <li value="4"><a href="#Step4" class="Intro MCXref xref  xref Intro">Step 4: Register with MokiManage</a>
+    </li>
+    <li value="5"><a href="#Step5" class="Intro MCXref xref  xref Intro">Step 5: Check the MokiManage Console</a>
+    </li>
+</ul>
+<h2><a name="Step"></a>Step 1: Set up Apple Push Notification service (APNs) for your app</h2>
+
+<p>The <span class="VariablesMokiManage">MokiManage</span> platform uses Apple Push Notification Service (APNs) to
+    communicate with your application. In order to send messages to devices on your behalf, you will need to provide
+    the appropriate certificates that you get from Apple. </p>
+
+<p>For more detail on setting up your app for APNs, click the APNs Setup Guide below.</p>
+
+<div class="MCDropDown MCDropDown_Open dropDown "><span
+        class="MCDropDownHead dropDownHead  dropDownHead Level2"><span
+        class="MCDropDownHotSpot dropDownHotspot  MCDropDownHotSpot_"
+        title="Drop Down">APNs Setup Guide</span></span>
+
+    <div class="MCDropDownBody dropDownBody ">
+        <p>Before you can integrate your application with <span class="VariablesMokiManage">MokiManage</span>, you
+            need to go through the process of configuring it to receive push notifications from Apple (APNs). You
+            must have an active <a href="https://developer.apple.com/programs/ios/" target="_blank">iOS Developer
+                Program</a> membership in order to complete these steps.</p>
+
+        <p>The end result of this process are private SSL certificates that are stored securely for you on
+            MokiManage.com. These certificates allow <span class="VariablesMokiManage">MokiManage</span> to send
+            APNs messages to your application through the <span class="VariablesMokiManage">MokiManage</span>
+            platform on your behalf.</p>
+
+        <h2>Configure your Application</h2>
+
+        <p>Inside of the Apple Developer Members Center, select Identifiers under the iOS Apps section and select
+            your application from the list.
+
+        <p><img src="Images/APNs/select_app_id.png"/></p>
+
+        <p>If you have not previously created your application identifier, click the + button and complete the form.
+            Make sure the Push Notifications checkbox is selected.</p>
+
+        <p><img src="Images/APNs/app_creation.png"/></p></p>
+        <p>After you have selected your application identifier, you will see that there are two settings for push
+            notifications that display yellow or green status icons.
+
+        <p><img src="Images/APNs/push_notification_status.png"/></p>
+
+        <p>Click the Edit button. If you are not able to select the Edit button, then you may not be the Team Agent
+            or Account Admin. You have to be a Team Agent or Admin in order to configure APNs.</p></p>
+        <p>In order to enable Development or Production APNs messaging in your application, you need to create the
+            appropriate certificate. Click the Create Certificate button under the Development SSL section to begin
+            that process.
+
+        <p><img src="Images/APNs/configure_certs.png"/></p></p>
+        <p>You have to create a Certificate Signing Request (CSR) in order to create the APNs certificate. You
+            create this CSR using Keychain Access on your Mac. Follow the instructions provided in the Developer
+            Portal to create the CSR and click Continue.</p>
+
+        <p>
+            <img src="Images/APNs/create_csr.png"/>
+        </p>
+
+        <p>Upload the CSR to the Developer Portal and click Generate</p>
+
+        <p>
+            <img src="Images/APNs/upload_csr.png"/>
+        </p>
+
+        <p>Download the certificate that is created and double click it to open in Keychain Access.</p>
+
+        <p>
+            <img src="Images/APNs/download_cert.png"/>
+        </p>
+
+        <p>In Keychain Access, the certificate will be displayed in the My Certificates section with a label of
+            Apple Development IOS Push Services: &lt;app-identifier&gt; (it will be labeled Apple Production IOS
+            Push Services for production certs).</p>
+
+        <p>
+            <img src="Images/APNs/keychain.png"/>
+        </p>
+
+        <p>Once the certificate is installed, you need to export both the cert and the associated private key to a
+            .p12 file. Expand the cert so that the private key is displayed and select both items. Right click and
+            select "Export 2 items...". Save the .p12 file and provide a password when prompted.</p>
+
+        <p>
+            <img src="Images/APNs/export_cert.png"/>
+        </p>
+
+        <p>
+            <img src="Images/APNs/password_box.png"/>
+        </p>
+
+        <p>In order for the MokiManage platform to utilize your APNs cert you have just created, it needs to be in
+            .pem format. Open a Terminal window and navigate to the directory where you saved your .p12 file.</p>
+
+        <p>Convert your .p12 to a .pem using the following OpenSSL command (replace your_cert.p12 with the name of
+            the your .p12 file and your_cert.pem with whatever you want to name your .pem file) and enter the
+            password you selected when you exported the .p12:</p>
+
+        <p class="example">openssl pkcs12 -in your_cert.p12 -out your_cert.pem -nodes -clcerts</p>
+
+        <p>Upload the .pem file to the Developer APNS Cert item inside of the Developer Tools section of
+            MokiManage.com</p>
+
+        <p>
+            <img src="Images/APNs/cert_upload.png"/>
+        </p>
+
+        <p>Repeat this same process for the production SSL cert and upload it to the Store APNS Cert item.</p>
+    </div>
+</div>
+<h2><a name="Step2"></a>Step 2: Add the <span class="VariablesMokiManage">MokiManage</span> SDK&#160;to your project
+</h2>
+
+<p>You can add the <span class="VariablesMokiManage">MokiManage</span> SDK&#160;to your project either by using
+    CocoaPods or by downloading and installing the SDK. </p>
+
+<div class="prereq">
+    <p data-mc-autonum="&lt;b&gt;Note: &lt;/b&gt; "><span
+            class="autonumber"><span><b>Note: </b> <![CDATA[ ]]></span></span>We strongly encourage using CocoaPods.
+        It will ease your configuration, help you get updates to our SDK, and help ensure that you have all the
+        required dependencies. If you do choose to manually add the SDK to your project there is some more work to
+        do. </p>
+</div>
+<div class="MCDropDown MCDropDown_Open dropDown "><span
+        class="MCDropDownHead dropDownHead  dropDownHead Level2"><span
+        class="MCDropDownHotSpot dropDownHotspot  MCDropDownHotSpot_"
+        title="Drop Down">Using CocoaPods</span></span>
+
+    <div class="MCDropDownBody dropDownBody ">
+        <p>If your project uses CocoaPods, add this dependency line to your <span class="attribute">Podfile</span>:
+        </p>
+
+        <p><span class="attribute">pod 'MokiManageSDK', :git =&gt; 'https://github.com/MokiMobility/MokiManageSDK.git', :tag =&gt; '1.1.2'</span>
+        </p>
+
+        <p>If you want to use CocoaPods, but do not already have an existing Podfile, see the <a
+                href="https://github.com/MokiMobility/MokiManageSDK/tree/ios" target="_blank">iOS SDK readme</a> for
+            an example file.</p>
+    </div>
+</div>
+<div class="MCDropDown MCDropDown_Open dropDown "><span
+        class="MCDropDownHead dropDownHead  dropDownHead Level2"><span
+        class="MCDropDownHotSpot dropDownHotspot  MCDropDownHotSpot_" title="Drop Down">Downloading and Installing the SDK</span></span>
+
+    <div class="MCDropDownBody dropDownBody ">
+        <ol>
+            <li value="1">Download the <span class="VariablesMokiManage">MokiManage</span> SDK&#160;from <a
+                    href="https://github.com/MokiMobility/MokiManageSDK/tree/ios" target="_blank">https://github.com/MokiMobility/MokiManageSDK/tree/ios</a>.
+            </li>
+            <li value="2">The <span class="VariablesMokiManage">MokiManage</span> SDK has a dependency on
+                AFNetworking. Download AFNetworking from <a href="https://github.com/AFNetworking/AFNetworking"
+                                                            target="_blank">https://github.com/AFNetworking/AFNetworking</a>.
+            </li>
+            <p>Link the following AFNetworks frameworks to your xcode project:</p>
+            <ul>
+                <li value="1">MobileCoreServices</li>
+                <li value="2">SenTestingKit</li>
+                <li value="3">Security</li>
+                <li value="4">ExternalAccessory</li>
+                <li value="5">CoreTelephony</li>
+                <li value="6">CoreLocation</li>
+                <li value="7">SystemConfiguration</li>
+                <li value="8">Foundation</li>
+                <li value="9">CoreGraphics</li>
+            </ul>
+            <li value="3">Because <span class="VariablesMokiManage">MokiManage</span> uses network reachability
+                APIs, you need to add two <span class="attribute">#imports</span> to your precompilied headers file,
+                <span class="attribute">Prefix.pch</span>.
+            </li>
+            <p class="example">#import <span class="blue">&lt;SystemConfiguration/</span><span class="purple">SystemConfiguration.h&gt;</span><br/>#import
+                <span class="blue">&lt;MobileCoreServices/</span><span
+                        class="purple">MobileCoreServices.h&gt;</span></p>
+        </ol>
+        <p>See <a href="https://github.com/AFNetworking/AFNetworking/wiki/AFNetworking-FAQ" target="_blank">AFNetworking
+            FAQ</a> for additional details</p>
+    </div>
+</div>
+<h2><a name="Step3"></a>Step 3: Set up your Info.plist and app delegate</h2>
+<ol>
+    <li value="1">Add a dictionary entry to your target's <span class="attribute">Info.plist</span> named <span
+            class="attribute">certType</span> with 3 boolean items. The items are: <span
+            class="attribute">store</span>, <span class="attribute">enterprise</span>, and <span class="attribute">sandbox</span>.
+        <p><img src="Images/info.plist_442x82.png" style="width: 442;height: 82;"/></p>
+
+        <p>This entry tells the SDK which APNs cert the platform should use to communicate with the app. These
+            entries map to the same cert entries you uploaded in <span class="VariablesMokiManage">MokiManage</span>
+            when you set up your APNs certs in <a href="#Step">Step 1</a>. During development, mark <b>YES</b> for
+            sandbox, and <b>NO</b> for the other entries.</p></li>
+    <li value="2">Update your app delegate to work with <span class="VariablesMokiManage">MokiManage</span> and
+        APNs.
+        <ol>
+            <li value="1">Add the <b>MokiManage.h</b> header to your app delegate header file:<p class="example">
+                #import "MokiManage.h"</p></li>
+            <li value="2">Add the MokiManage protocol to your delegate:<p class="example">@interface AppDelegate :
+                UIResponder &lt;UIApplicationDelegate, MokiManageDelegate&gt;</p></li>
+            <li value="3">In your <b>AppDelegate.m</b> file, add a declaration for your app key and tenant ID:<p
+                    class="example">#define APP_KEY @"whatever-your-app-key-is-useitherenow"<br/>#define Tenant_ID
+                @"whatever-your-tenaant-id-is-useitnow"</p></li>
+            <li value="4">Initiate the session with the <span class="VariablesMokiManage">MokiManage</span> SDK from
+                your app delegate’s <span class="attribute">didFinishLaunchingWithOptions:</span> method, calling
+                the <span class="attribute">initializeWithApiKey:</span> method.<p class="example">NSError
+                    *error;<br/><br/><span class="green">[[MokiManage sharedManager]</span>
+                    initializeWithApiKey:API_KEY<br/>launchingOptions:launchOptions<br/>enableASM:NO<br/>enableAEM:YES<br/>enableComplianceChecking:NO<br/>asmSettingsFileName:nil<br/>error:&amp;error];<br/><br/><span
+                            class="green">[[MokiManage sharedManager]</span> setDelegate:self];</p></li>
+            <li value="5">Add the delegate methods for APNs. From the <span class="attribute">didRegisterForRemoteNotificationsWithDeviceToken:</span>
+                method, call <span class="VariablesMokiManage">MokiManage</span> to pass on the device token. Now
+                <span class="VariablesMokiManage">MokiManage</span> has the device's APNs token and will use that to
+                send APNs messages.
+
+                <div class="prereqs">
+
+                    <p data-mc-autonum="&lt;b&gt;Note: &lt;/b&gt; "><span class="autonumber">
+
+                    <span><b>Note: </b> <![CDATA[ ]]></span></span> The iOS Simulator does not correctly register for an
+                        APNs token, which is required in order to register a device with MokiManage. In order to test
+                        the entire device registration lifecycle, you have to use a physical device.</p>
+                </div>
+
+            </li>
+
+
+            <li value="6">Add the appropriate logic to the <span class="attribute">didFailToRegisterForRemoteNotificationsWithError:</span>
+                and <span class="attribute">didReceiveRemoteNotification:</span>methods. <p class="example">- (<span
+                        class="light_purple">void</span>)application:(<span class="dark_purple">UIApplication</span>*)application<br/>didRegisterForRemoteNotificationsWithDeviceToken:(NSData*)deviceToken
+                    {<br/>[[MokiManage sharedManager] setApnsToken:deviceToken];<br/>}<br/><br/>- (<span
+                            class="light_purple">void</span>)application:(<span
+                            class="dark_purple">UIApplication</span>*)application
+                    didFailToRegisterForRemoteNotificationsWithError:(<span class="dark_purple">NSError</span>*)error
+                    {<br/><span class="light_purple">if</span>(error) {<br/><span class="green">// Add error processing here.</span><br/><span
+                            class="dark_purple">NSLog</span>(@<span class="red">"error registering for push notifications %@"</span>,error);<br/>}<br/>}<br/><br/>-
+                    (<span class="light_purple">void</span>)application:(<span
+                            class="dark_purple">UIApplication</span> *)application
+                    didReceiveRemoteNotification:(<span class="dark_purple">NSDictionary</span> *)userInfo {<br/>[[MokiManage
+                    sharedManager] didReceiveRemoteNotification:userInfo];<br/>}</p></li>
+            <li value="7">Add the <span class="attribute">MokiManageDelegate</span> methods to your delegate. To get
+                up and running, you don’t need to have any logic in these delegate methods.<p class="example"><span
+                        class="brown">#pragma mark -</span><br style="mc-tag-and-class: span;"/><span class="brown">&#160;&#160;&#160;&#160;#pragma mark MokiManageDelegate Methods</span><br/><br/>&#160;&#160;&#160;&#160;&#160;-(<span
+                        class="light_purple">void</span>)finishedRegistrationWithError:(<span class="dark_purple">NSError</span>
+                    *)error{<br/> <span class="light_purple">if</span>(error){<br/> <span class="green">// Proces the error</span><br/>&#160;&#160;&#160;&#160;&#160;}<br/>
+                    <span class="green">// Let other objects in your app know that registration is complete.</span><br/>&#160;&#160;&#160;&#160;&#160;}<br/><br/>&#160;&#160;&#160;&#160;&#160;-(<span
+                            class="light_purple">void</span>)finishedUnRegistrationWithError:(<span
+                            class="dark_purple">NSError</span> *)error{<br/> <span
+                            class="dark_purple">NSLog</span>(@<span
+                            class="red">"MokiManage finishedUnRegistrationWithError %@"</span>, error.<span
+                            class="teal">localizedDescription</span>);<br/><br/>&#160;&#160;&#160;&#160;&#160;}<br/><br/>&#160;&#160;&#160;&#160;&#160;-(<span
+                            class="light_purple">void</span>)finishedRegisteringToANewTenantWithError:(<span
+                            class="dark_purple">NSError</span> *)error{<br/> <span
+                            class="dark_purple">NSLog</span>(@<span
+                            class="red">"MokiManage finishedRegisteringToANewTenantWithError"</span>);<br/><br/>&#160;&#160;&#160;&#160;&#160;}<br/><br/>&#160;&#160;&#160;&#160;&#160;-(<span
+                            class="light_purple">void</span>)finishedPullingSettings:(<span class="dark_purple">NSDictionary</span>
+                    *)settings WithError:(<span class="dark_purple">NSError</span> *)error {<br/> <span
+                            class="dark_purple">NSLog</span>(@<span
+                            class="red">"MokiManage finishedPullingSettings"</span>);<br/><br/>&#160;&#160;&#160;&#160;&#160;}<br/><br/>&#160;&#160;&#160;&#160;&#160;-(<span
+                            class="light_purple">void</span>)finishedPushingSettings:(<span class="dark_purple">NSDictionary</span>
+                    *)settings WithError:(<span class="dark_purple">NSError</span> *)error {<br/> <span
+                            class="dark_purple">NSLog</span>(@<span class="red">"MokiManage finishedPushingSettings with error: %@"</span>,
+                    error);<br/><br/>&#160;&#160;&#160;&#160;&#160;}<br/><br/>&#160;&#160;&#160;&#160;&#160;-(<span
+                            class="light_purple">void</span>)finishedEditingSettings{<br/><br/>&#160;&#160;&#160;&#160;&#160;}
+                </p></li>
+        </ol>
+    </li>
+</ol>
+<h2><a name="Step4"></a>Step 4: Register with <span class="VariablesMokiManage">MokiManage</span></h2>
+
+<p>The next step is to add the code that enrolls the device with <span class="VariablesMokiManage">MokiManage</span>.
+    This is done by adding a call to the <span class="attribute">silentlyRegisterDevice</span> method. This can be
+    placed at any point in your app's workflow.In this example, it is added inside of the delegate method <span
+            class="attribute">didRegisterForRemoteNotificationsWithDeviceToken</span>: </p>
+
+<p class="example">- (<span class="light_purple">void</span>)application:(<span
+        class="dark_purple">UIApplication</span>*)application<br/>&#160;&#160;&#160;didRegisterForRemoteNotificationsWithDeviceToken:(NSData*)deviceToken
+    {<br/>&#160;&#160;&#160;[[MokiManage sharedManager] setApnsToken:deviceToken];<br/>&#160;&#160;&#160;[[MokiManage
+    sharedManager] silentlyRegisterDevice:Tenant_ID ];<br/>}</p>
+
+<h2><a name="Step5"></a>Step 5: Check the <span class="VariablesMokiManage">MokiManage</span> Console</h2>
+
+<p>You can now verify that your integration is working. </p>
+<ol>
+    <li value="1"> Load the app on your device.</li>
+    <li value="2">Sign in to <a href="https://www.mokimanage.com/" target="_blank">MokiManage.com</a>,</li>
+    <li value="3">Click the <b>Change App</b> drop-down at the top left. You should see your application in the
+        drop-down list. (Click picture to see screenshot)<p><a class="MCPopupThumbnailLink MCPopupThumbnailPopup"
+                                                               href="Images/change_app_screen.png"><img
+                class="MCPopupThumbnail img " data-mc-width="1143" data-mc-height="658"
+                src="Images/change_app_screen_thumb_0_48.png" style="mc-thumbnail: popup;"/></a></p>
+
+        <div class="prereqs">
+            <p data-mc-autonum="&lt;b&gt;Note: &lt;/b&gt; "><span class="autonumber"><span><b>Note: </b> <![CDATA[ ]]></span></span>If
+                you do not see your app on the list, contact MokiMobility support at 888-997-5505 or
+                <a href="http://support.mokimobility.com/" target="_blank">support.mokimobility.com</a>.</p>
         </div>
-    </body>
+    </li>
+    <li value="4">Select your app, and your device should be displayed in the list.</li>
+    <li value="5">Select your device.</li>
+</ol>
+<p>On the right you should see a tabbed panel showing information about the device you selected. The
+    <b>Dashboard</b> tab shows a graphical representation of the logs the AEM module collects. If you select the <b>Details</b>
+    tab, you’ll see information about your device, such as battery status, network information, and so on.</p>
+
+<p>All of the device actions represented in the <b>Actions</b> drop-down menu are available without any additional
+    configuration.</p>
+<hr style="color: #c0c0c0;" width="100%" size="0" align="center"/>
+
+</div>
+</body>
 </html>
