@@ -1679,3 +1679,38 @@ a.activityText
 	background-color: #4a4a4a;
 }
 
+.prereqs
+{
+	background-color: #D9EDF7;
+	border-radius: 5px;
+	margin-bottom: 20px;
+	padding: 10px;
+    color: #3a87ad;
+}
+
+.prereqs p
+{
+    margin-bottom: 0;
+}
+
+.font-update
+{
+    font-size: 14px !important;
+}
+
+.MCMiniTocBox_0.font-update
+{
+    font-size: 14pt !important;
+}
+
+.MiniTOC1_0.update-margin
+{
+    margin-bottom: 35px !important;
+}
+
+tree-node.tree-node-leaf.lt-margin
+{
+    margin-bottom: 5px;
+}
+
+
