@@ -1,5 +1,12 @@
 # MokiManageSDK
 
+## 1.1.3
+
+### iOS
+[Download](https://github.com/MokiMobility/MokiManageSDK/tree/1.1.3)
+
+ * fixed bugs around compliance detection and reporting
+
 ## 1.1.2
 
 ### iOS
