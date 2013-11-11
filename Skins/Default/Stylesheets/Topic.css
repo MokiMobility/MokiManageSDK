@@ -139,13 +139,13 @@ a.MCHelpControl
 	padding: 5px 0 5px 5px;
 	color: #FFFFFF;
 	font-size: 15px;
-	font-family: "proxima-nova";
+	font-family: sans-serif;
 }
 
 .MCDialogClose
 {
 	color: #FFFFFF;
-	font-family: "proxima-nova", sans-serif;
+	font-family: sans-serif;
 	font-weight: bold;
 	font-size: 16px;
 	line-height: 12px;

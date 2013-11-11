@@ -706,7 +706,7 @@
 	margin-right: 10px;
 	display: none;
 	color: #749ab6;
-	font-family: "adelle-sans";
+	font-family: sans-serif;
 	font-weight: bold;
 	font-style: italic;
 }
@@ -720,7 +720,7 @@ html.feedback-anonymous-enabled .comments .username
 {
 	font-weight: normal;
 	color: #888888;
-	font-family: "adelle-sans";
+	font-family: sans-serif;
 	font-size: 11px;
 	font-style: italic;
 }
@@ -764,7 +764,7 @@ html.feedback-anonymous-enabled .comment-form-wrapper .username-field
 
 .comment-form-wrapper .body-field
 {
-	font-family: Arial;
+	font-family: sans-serif;
 	width: 406px;
 	height: 60px;
 	padding: 10px;

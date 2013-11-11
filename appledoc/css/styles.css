@@ -1,16 +1,16 @@
 body {
-	font-family: 'Lucida Grande',Geneva,Helvetica,Arial,sans-serif;
+	font-family: sans-serif;
 	font-size: 13px;
 }
 
 code {
-	font-family: Courier, Consolas, monospace;
+	font-family: sans-serif;
 	font-size: 13px;
 	color: #666;
 }
 
 pre {
-	font-family: Courier, Consolas, monospace;
+	font-family: sans-serif;
 	font-size: 13px;
 	line-height: 18px;
 	tab-interval: 0.5em;
