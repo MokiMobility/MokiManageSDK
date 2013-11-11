@@ -207,7 +207,7 @@ MadCap|dropDown
 
 div.main
 {
-	margin-left: 20px;
+	margin-left: 0;
 	max-width: 800px;
 	min-width: 500px;
 }
