@@ -190,6 +190,9 @@ div.MCMiniTocBox_0
 	padding-top: 10px;
 	margin-top: 10px;
 	padding-left: 20px;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: black;
 }
 
 p.MiniTOC1_0
@@ -271,9 +274,9 @@ a.MiniTOC1:link
 .dropDown
 {
 	border: 1px solid #ECECEC;
-	-webkit-border-radius: 10px;
-	-moz-border-radius: 10px;
-	border-radius: 10px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
 	margin-bottom: 10px;
 }
 
@@ -318,18 +321,18 @@ a.MiniTOC1:link
 {
 	background-color: #ececec;
 	padding: 10px;
-	-webkit-border-radius: 10px;
-	-moz-border-radius: 10px;
-	border-radius: 10px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
 	text-decoration: none;
 }
 
 .dropDownHead.Level2
 {
 	padding: 10px;
-	-webkit-border-radius: 10px;
-	-moz-border-radius: 10px;
-	border-radius: 10px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
 	background-color: #ececec;
 	padding-bottom: 5px;
 	padding-right: 5px;

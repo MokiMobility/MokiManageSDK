@@ -10,9 +10,9 @@
 	top: 50px;
 	right: 25px;
 	position: fixed;
-	-webkit-border-radius: 10px;
-	-moz-border-radius: 10px;
-	border-radius: 10px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
 	z-index: 99999;
 	display: none;
 }
@@ -810,7 +810,7 @@ ul.tree
 
 .tree-node div .label
 {
-	margin-left: 3px;
+	margin-left: -5px;
 }
 
 .tree-node .new-indicator
@@ -856,6 +856,7 @@ ul.tree
 .tree-node.tree-node-selected > div:hover
 {
 	background-color: #cce0f0;
+    margin-bottom: 5px;
 }
 
 .tree-node > div:hover
@@ -1017,7 +1018,7 @@ html.left-layout #contentBody
 	-webkit-border-radius: 4px 0 0 0;
 	-moz-border-radius: 4px 0 0 0;
 	border-radius: 4px 0 0 0;
-	left: 305px;
+	left: 365px;
 	right: 0;
 }
 
@@ -1055,7 +1056,7 @@ html.right-layout #contentBody.no-buttons
 	position: absolute;
 	right: 9px;
 	bottom: 0;
-	left: 9px;
+	left: 0px;
 	overflow: auto;
 	-webkit-overflow-scrolling: touch;
 	top: 38px;

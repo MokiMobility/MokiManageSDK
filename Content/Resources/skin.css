@@ -16,6 +16,7 @@
 	border-top: none;
 	border-right: none;
 	border-left: none;
+    width: 344px;
 }
 
 #contentBody
@@ -74,7 +75,7 @@
 
 .tree-node.tree-node-selected > div
 {
-	border-left: 1px solid #5c5d5d;
+	border-left: 0 solid #5c5d5d;
 }
 
 

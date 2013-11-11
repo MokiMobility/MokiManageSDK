@@ -2,7 +2,7 @@
 
 body
 {
-	font-size: 10pt;
+	font-size: 12pt;
 	font-family: "adelle-sans";
     font-style: normal;
     font-weight: 400;
@@ -94,7 +94,7 @@ MadCap|dropDownHotspot
 li
 {
 	line-height: 17pt;
-	margin-bottom: 2pt;
+	margin-bottom: 5pt;
 }
 
 p.example
@@ -167,7 +167,7 @@ span.attribute
 
 ul
 {
-	font-size: 10pt;
+	font-size: 12pt;
 }
 
 object
@@ -183,7 +183,7 @@ span.light_purple
 div.prereq
 {
 	background-color: #D9EDF7;
-	border-radius: 10px 10px 10px 10px;
+	border-radius: 5px;
 	margin-bottom: 20px;
 	padding: 10px;
 }
@@ -199,15 +199,15 @@ MadCap|dropDown
 	mc-open-image: url('../Images/minus.png');
 	mc-closed-image: url('../Images/plus.png');
 	border: 1px solid #ECECEC;
-	-webkit-border-radius: 10px;
-	-moz-border-radius: 10px;
-	border-radius: 10px;
-	margin-bottom: 10px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	margin-bottom: 5px;
 }
 
 div.main
 {
-	margin-left: 30px;
+	margin-left: 20px;
 	max-width: 800px;
 	min-width: 500px;
 }
@@ -216,9 +216,9 @@ MadCap|dropDownHead
 {
 	background-color: #ececec;
 	padding: 10px;
-	-webkit-border-radius: 10px;
-	-moz-border-radius: 10px;
-	border-radius: 10px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
 }
 
 MadCap|dropDownHead:hover
@@ -260,9 +260,9 @@ span.question
 MadCap|dropDownHead.Level2
 {
 	padding: 10px;
-	-webkit-border-radius: 10px;
-	-moz-border-radius: 10px;
-	border-radius: 10px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
 	background-color: #ececec;
 	padding-bottom: 5px;
 	padding-right: 5px;
@@ -337,3 +337,42 @@ div.indent
 {
 	padding-left:10px;
 }
+
+/*updates*/
+
+.prereqs
+{
+	background-color: #D9EDF7;
+	border-radius: 5px;
+	margin-bottom: 20px;
+	padding: 10px;
+    color: #3a87ad;
+}
+
+.prereqs p
+{
+    margin-bottom: 0;
+}
+
+.font-update
+{
+    font-size: 14px !important;
+}
+
+.MCMiniTocBox_0.font-update
+{
+    font-size: 14pt !important;
+}
+
+.MiniTOC1_0.update-margin
+{
+    margin-bottom: 35px !important;
+}
+
+tree-node.tree-node-leaf.lt-margin
+{
+    margin-bottom: 5px;
+}
+
+
+
