@@ -374,5 +374,11 @@ tree-node.tree-node-leaf.lt-margin
     margin-bottom: 5px;
 }
 
+iframe.iframe
+{
+    width: 800px;
+    height: 500px;
+}
+
 
 

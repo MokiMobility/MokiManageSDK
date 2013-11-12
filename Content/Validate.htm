@@ -29,78 +29,13 @@
 
 <div class="main">
     <h1>Validating the Settings Schema file</h1>
+
     <h3>SettingsSchema Validator</h3>
+
     <div class="test">
-        <textarea  id="schemaInput" style="width:100%;height:300px; border-radius:5px">{"Version":1,"Groups":[{"Title":"General","Settings":[]},{"Title":"Home Screen","Settings":[]},{"Title":"Screensaver","Settings":[]}]}</textarea>
+        <iframe class="iframe" src="https://jenkins-dev1-dot-mokimdm.appspot.com/docs/index.html"></iframe>
     </div>
-    <button onClick="SCHEMA_VALIDATE()">Validate</button>
-    <div id="schemaOutput">
-    </div>
-    <script src="app/js/tv4.min.js">
-    </script>
-    <script src="app/js/settings.schema.pad.js">
-    </script>
-    <script>/* <![CDATA[ */
-
-    tv4.addSchema("moki", MOKI_SCHEMA);
-
-    function SCHEMA_VALIDATE() {
-        var json = document.getElementById('schemaInput').value
-        var output = document.getElementById('schemaOutput')
-        output.innerHTML = ''
-        var validation = tv4.validateMultiple(JSON.parse(json), tv4.getSchema("moki"));
-
-        var x = 'Valid: ';
-        if (validation.valid) {
-            x += '<span class="valid">TRUE</span>';
-        } else {
-            x += '<span class="invalid">FALSE</span>';
-
-            for (var i in validation.errors) {
-                x += TMPLT_ERR(validation.errors[i]);
-            }
-
-        }
-
-        output.innerHTML = x;
-
-    }
-
-
-    function TMPLT_ERR(err) {
-
-        if (!err) {
-            return '';
-        }
-        if (err.code === undefined) {
-            return '';
-        }
-
-        var subErrs = '';
-
-        if (err.subErrors) {
-            subErrs += '<div>Sub Errors: <div class="indent">';
-            for (var i in err.subErrors) {
-                subErrs += TMPLT_ERR(err.subErrors[i]);
-            }
-            subErrs += '</div></div>'
-
-        }
-
-        var html = '<div><br /><b>Err-' + err.code + '</b> <i>' + err.message + '</i></div><div>Data Path: ' + err.dataPath + '</div><div>Schema Path: ' + err.schemaPath + '</div>' + subErrs
-
-        return html;
-
-    }
-
-
-    SCHEMA_VALIDATE()
-
-
-    // TODO:
-    // styles: valid, invalid, indent
-
-    /* ]]> */</script>
+    
     <hr style="color: #c0c0c0;" width="100%" size="0" align="center"/>
 
 </div>
