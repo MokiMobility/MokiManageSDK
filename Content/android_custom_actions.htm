@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-us" xml:lang="en-us"
+      data-mc-search-type="Stem" data-mc-help-system-file-name="index.xml" data-mc-path-to-help-system="../"
+      data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false"
+      data-mc-in-preview-mode="false" data-mc-toc-path="Getting Started with MokiManage on Android">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>Custom Actions Programming Guide</title>
+    <link href="../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet"/>
+    <link href="../Skins/Default/Stylesheets/Topic.css" rel="stylesheet"/>
+    <link href="Resources/mm.css" rel="stylesheet"/>
+    <script src="../Resources/Scripts/jquery.min.js">
+    </script>
+    <script src="../Resources/Scripts/plugins.min.js">
+    </script>
+    <script src="../Resources/Scripts/require.min.js">
+    </script>
+    <script src="../Resources/Scripts/require.config.js">
+    </script>
+    <script src="../Resources/Scripts/MadCapAll.js">
+    </script>
+</head>
+<body>
+<p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../index.htm#android_custom_actions.htm">Open topic
+    with navigation</a>
+</p>
+
+<div class="main">
+    <h1>Custom Actions Programming Guide</h1>
+
+    <p>Custom Actions allow developers to create their own action references that can be triggered on 
+        the device. MokiManage provides a set of pre-defined actions such as taking screenshots, getting 
+        logs, getting device location, sending messages, and checking compliance. Developers have 
+        the flexibility add their own action references that are specific to the needs of their app and its 
+        users. Custom actions will be included alongside the MokiManage pre-defined actions on the 
+        MokiManage dashboard.</p>
+
+    <p>When a custom action is received, the MokiManage SDK will rebroadcast that action with the
+        intent action <span class="attribute">MokiManage.CUSTOM_ACTION_INTENT</span> and with the category equal to the app’s 
+        package name. The message of the action will be stored on the intent as a string extra with the 
+        key <span class="attribute">MokiManage.CUSTOM_ACTION_MESSAGE</span>. For more information on BroadcastReceiver and 
+        Intents, <a href="http://developer.android.com/reference/android/content/BroadcastReceiver.html">see the Android documentation.</a></p>
+
+    <p>Note: Messaging service is required for custom actions. Make sure that GCM is configured.</p>
+
+    <h2>Adding Custom Actions to the Actions List on the Dashboard</h2>
+
+    <ol>
+        <li value="1">Log on to MokiManage.com
+        </li>
+        <li value="2">From the
+            <bold>Change App</bold>
+            drop-down list in the top-left corner, select your app
+        </li>
+        <li value="3">Click the
+            <bold>Actions Tab</bold>
+        </li>
+        <li value="4">Click
+            <bold>Custom Actions</bold>
+        </li>
+        <li value="5">In the
+            <bold>Custom Actions Name</bold>
+            field, give your new action a name
+        </li>
+        <li value="6">Click
+            <bold>Add</bold>
+            , the click
+            <bold>Done</bold>
+        </li>
+    </ol>
+
+    <p>Your custom action will now appear in the Action drop-down list on the Devices page of the
+        dashboard.</p>
+
+    <h2>Running a Custom Action from the dashboard</h2>
+
+    <ol>
+        <li value="1">Log on to MokiManage.com
+        </li>
+        <li value="2">From the
+            <bold>Change App</bold>
+            drop-down list in the top-left corner, select your app
+        </li>
+        <li value="3">Click the Devices tab.
+        </li>
+        <li value="4">Select the device or devices on which you want to run the custom action.
+        </li>
+        <li value="5">5.From the 
+            <bold>Actions</bold>
+             drop-down menu, select the custom action that you want to run.
+        </li>
+
+    </ol>
+
+    <hr style="color: #c0c0c0;" width="100%" size="0" align="center"/>
+</div>
+</body>
+</html>
