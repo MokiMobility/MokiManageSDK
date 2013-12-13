@@ -112,36 +112,29 @@
     <h2>Scenarios / Examples</h2>
 
      <pre xml:space="preserve">
-     //
-     // AppDelegate.m
-     //
+      //
+      //  AppDelegate.m
+      //
 
-     @implementation AppDelegate
+      @implementation AppDelegate
 
-     - (BOOL)application:(UIApplication *)application
-     didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+      - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+      {
 
-      //............
-
-      [[NSNotificationCenter defaultCenter]
-            addObserverForName:MMApplicationDidRecieveCustomActionNotification
-      object:nil queue:nil usingBlock:^(NSNotification *note){
-                if ([note.userInfo objectForKey:@"Show Current Time"]) {
-                [self showCurrentTime];
-            }
-            }];
-
-      return YES;
-
+	      //............
+		
+            [[NSNotificationCenter defaultCenter] addObserverForName:MMApplicationDidRecieveCustomActionNotification object:nil queue:nil usingBlock:^(NSNotification *note) {
+		      if ([note.userInfo objectForKey:@"Show Current Time"]) {
+		  	      [self showCurrentTime];
+			}
+		}];
+            return YES;
       }
-
       - (void)showCurrentTime{
-      NSDate *date = [NSDate dateWithTimeIntervalSinceNow:0];
-      [[[UIAlertView alloc] initWithTitle:@"Current Time" message:[NSString
-      stringWithFormat:@"Time: %@", date] delegate:nil cancelButtonTitle:@"Cool"
-      otherButtonTitles: nil] show]; }
-     </pre>
-
+            NSDate *date = [NSDate dateWithTimeIntervalSinceNow:0];
+            [[[UIAlertView alloc] initWithTitle:@"Current Time" message:[NSString stringWithFormat:@"Time: %@", date] delegate:nil cancelButtonTitle:@"Cool" otherButtonTitles: nil] show];
+      }
+      </pre>
     <hr style="color: #c0c0c0;" width="100%" size="0" align="center"/>
 </div>
 </body>
