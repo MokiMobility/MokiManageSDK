@@ -8,6 +8,7 @@
 
 
 #define ASM_TextField @"TextField"
+#define ASM_ListHeader @"ListHeader"
 #define ASM_ToggleSwitch @"ToggleSwitch"
 #define ASM_ComboBox @"ComboBox"
 #define ASM_TabPane @"TabPane"
@@ -18,10 +19,12 @@
 #define ASM_ReadOnly @"ReadOnly"
 
 #define ASM_KEY_Type @"Type"
+#define ASM_KEY_PARENT_Type @"ParentType"
 #define ASM_KEY_Title @"Title"
 #define ASM_KEY_Subtitle @"Subtitle"
 #define ASM_KEY_Value @"Value"
 #define ASM_KEY_Key @"Key"
+#define ASM_KEY_PARENT_Key @"ParentKey"
 #define ASM_KEY_Class @"Class"
 #define ASM_KEY_Options @"Options"
 #define ASM_KEY_SelectedTab @"SelectedTab"

@@ -16,6 +16,7 @@
  
  
 #import "ComplianceReport.h"
+#import "MMNetworkReport.h"
 
 // Find the apple docs documentation here: http://gentlebytes.com/appledoc-docs-comments/
 
@@ -94,6 +95,17 @@
  */
 - (void)finishedEditingSettings;
 
+/** Called when the library has finished fetching in the background
+ 
+ This method is called after background fetching is complete so the app can call the completion handler 
+ when the host app is done as well. If the host app does not implement this delegate the sdk will call
+ the completion handler. If it is called the sdk will not call the completion handler so it is crucial 
+ that the host app calls the handler whether it is using background fetching or not.
+ 
+ @param error The error that occurred during the pull from the server.  Will be nil if no error occurred.
+ @return
+ */
+- (void)mokiManageDidFinishBackgroundFetching:(UIBackgroundFetchResult)background;
 
 @end
 
@@ -155,7 +167,12 @@
  @return MokiManage shared instance
  */
 + (MokiManage *)sharedManager;
+
 - (void)destroy;
+- (void)retainBackgroundFetchProcess;
+- (void)releaseBackgroundFetchProcess;
+- (void)didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler;
+
 - (void)initializeWithApiKey:(NSString *)key launchingOptions:(NSDictionary *)options error :(NSError **)error;
 
 /** Initializes the mokimanage instance
@@ -478,6 +495,19 @@
  */
 -(void)displaySettingsView:(id<UIApplicationDelegate> )delegate;
 
+
+/** Displays the Network Check views
+ 
+ Displays the last run network report with the ability to run an advanced network report
+ 
+ **Usage**
+ 
+ [[MokiManage sharedManager] displayNetworkCheckView];
+ 
+ */
+-(void)displayNetworkCheckView;
+
+
 /** Returns an array associated with the given key in the ASM settings values hash
  
  Returns the array value for the key param in the values hash.
@@ -790,5 +820,21 @@
 
  
  
+
+
+#pragma mark - Network
+///---------------------------------------------------------------------------------------
+/// @name Network
+///---------------------------------------------------------------------------------------
+
+/** Gets the last run network report
+ */
+- (MMNetworkReport *)latestNetworkReport;
+
+/** Returns a list of network reports
+ 
+ Returns an array of previously run network reports.  Each report is saved as a dictionary with the latest being first in the list.
+ */
+- (NSArray *)networkReportHistory;
 
 @end

@@ -20,8 +20,10 @@
 @property (weak, nonatomic) IBOutlet UILabel *statusLabel;
 @property (weak, nonatomic) IBOutlet UILabel *partnerLabel;
 @property (weak, nonatomic) IBOutlet UILabel *supportLabel;
+@property (weak, nonatomic) IBOutlet UILabel *versionLabel;
 @property (unsafe_unretained, nonatomic) IBOutlet UIButton *submitButton;
 @property (unsafe_unretained, nonatomic) IBOutlet UITableViewCell *submitCell;
+@property (weak, nonatomic) IBOutlet UITableViewCell *supportNumberCell;
 
 - (IBAction)submit:(id)sender;
 @end

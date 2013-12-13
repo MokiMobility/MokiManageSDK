@@ -15,12 +15,14 @@
 
 @property (strong, nonatomic) id detailItem;
 
-@property (strong, nonatomic) NSArray * preferences;
+@property (strong, nonatomic) NSMutableArray * preferences;
+@property (strong, nonatomic) NSDictionary * settingsObject;
 @property (strong, nonatomic) NSDictionary * currentComboBoxSettings;
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UILabel *detailDescriptionLabel;
 
 - (IBAction)done:(id)sender;
+-(void) resetPreferences;
 
 @end
