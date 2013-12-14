@@ -64,5 +64,9 @@ And then in your `ivy.xml` file add our SDK as a dependency
 Manual Usage
 ------------
 If you need to manually manage your build process and dependencies you can download our SDK jar directly: [MokiManageSDK-1.2.0](https://raw.github.com/MokiMobility/MokiManageSDK/android/com/mokimobility/MokiManageSDK/1.2.0/MokiManageSDK-1.2.0.jar)
-You will also need to include a dependency:
-* [gson-2.2.2](http://repo1.maven.org/maven2/com/google/code/gson/gson/2.2.2/gson-2.2.2.jar)
+You will also need to include some dependencies:
+* [gson-2.2.4](http://repo1.maven.org/maven2/com/google/code/gson/gson/2.2.4/gson-2.2.4.jar)
+* [commons-io-2.4](http://repo1.maven.org/maven2/commons-io/commons-io/2.4/commons-io-2.4.jar)
+* [mimecraft-1.1.0](http://repo1.maven.org/maven2/com/squareup/mimecraft/mimecraft/1.1.0/mimecraft-1.1.0.jar)
+* [ormlite-core-4.47](http://repo1.maven.org/maven2/com/j256/ormlite/ormlite-core/4.47/ormlite-core-4.47.jar)
+* [ormlite-android-4.47](http://repo1.maven.org/maven2/com/j256/ormlite/ormlite-android/4.47/ormlite-android-4.47.jar)
