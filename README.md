@@ -1,18 +1,30 @@
 # MokiManageSDK
 
+
+## 1.2.0
+
+### iOS
+[Download](https://github.com/MokiMobility/MokiManageSDK/tree/1.2.0)
+ * _TODO_ add changelog here
+
+### Android
+[Download](https://github.com/MokiMobility/MokiManageSDK/tree/android/com/mokimobility/MokiManageSDK/1.2.0)
+ * _TODO_ add changelog here
+
+
 ## 1.1.3
 
 ### iOS
 [Download](https://github.com/MokiMobility/MokiManageSDK/tree/1.1.3)
-
  * fixed bugs around compliance detection and reporting
+
 
 ## 1.1.2
 
 ### iOS
 [Download](https://github.com/MokiMobility/MokiManageSDK/tree/1.1.2)
-
  * fixed a bug that cause the devices to heartbeat too frequently
+
 
 ## 1.1.1
 
