@@ -5,7 +5,10 @@
 
 ### iOS
 [Download](https://github.com/MokiMobility/MokiManageSDK/tree/1.2.0)
- * _TODO_ add changelog here
+ * added Follow Me
+ * added Network Check
+ * added Network Endpoint Monitoring
+ * added Custom Actions
 
 ### Android
 [Download](https://github.com/MokiMobility/MokiManageSDK/tree/android/com/mokimobility/MokiManageSDK/1.2.0)
