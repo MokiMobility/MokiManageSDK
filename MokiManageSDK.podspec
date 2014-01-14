@@ -1,7 +1,6 @@
-
 Pod::Spec.new do |s|
   s.name         = "MokiManageSDK"
-  s.version      = "1.1.1"
+  s.version      = "1.2.0"
   s.summary      = "Integrate your application with MokiManage."
   s.description  = <<-DESC
                     Using this SDK your application can integrate with [MokiManage](http://MokiManage.com/).
