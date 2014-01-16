@@ -132,6 +132,16 @@
  
  These Security methods give the developer an easy way to check for specific security vulnerablities and respond accordingly in the application.
  
+ ## Follow Me ##
+ 
+ Follow Me Support enables support teams to more effectively troubleshoot problems by giving them the ability to follow the screens and taps that a user makes on a mobile device. This is enabled automatically.
+ 
+ @warning Do not use version 1.2+ of the sdk, which includes Follow Me, if you do not always use secure text field types on things like passwords and creditcards.
+ 
+ ## Network Check ##
+ 
+ The Network Check component of the MokiManage SDK adds network connectivity and performance diagnostics to an app. This is enabled automatically.
+ 
  */
 
 
@@ -827,7 +837,9 @@
 /// @name Network
 ///---------------------------------------------------------------------------------------
 
-/** Gets the last run network report
+/** Returns the lastest Network Report object
+ 
+ Network Reports are run every heartbeat and can also be run manually. This method will return the last one run, regardless of which method triggered it.
  */
 - (MMNetworkReport *)latestNetworkReport;
 
