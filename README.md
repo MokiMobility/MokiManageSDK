@@ -15,7 +15,7 @@ In your `pom.xml` file be sure to add our repository as well as our SDK as a dep
   <dependency>
     <groupId>com.mokimobility</groupId>
     <artifactId>MokiManageSDK</artifactId>
-    <version>1.2.0</version>
+    <version>1.2.1</version>
   </dependency>
 ...
 ```
@@ -33,7 +33,7 @@ repositories {
 }
 ...
 dependencies {
-    compile "com.mokimobility:MokiManageSDK:1.2.0"
+    compile "com.mokimobility:MokiManageSDK:1.2.1"
 }
 ...
 ```
@@ -56,14 +56,14 @@ And then in your `ivy.xml` file add our SDK as a dependency
 ```
 ...
     <dependencies>
-        <dependency org="com.mokimobility" name="MokiManageSDK" rev="1.2.0"/>
+        <dependency org="com.mokimobility" name="MokiManageSDK" rev="1.2.1"/>
     </dependencies>
 ...
 ```
 
 Manual Usage
 ------------
-If you need to manually manage your build process and dependencies you can download our SDK jar directly: [MokiManageSDK-1.2.0](https://raw.github.com/MokiMobility/MokiManageSDK/android/com/mokimobility/MokiManageSDK/1.2.0/MokiManageSDK-1.2.0.jar)
+If you need to manually manage your build process and dependencies you can download our SDK jar directly: [MokiManageSDK-1.2.1](https://raw.github.com/MokiMobility/MokiManageSDK/android/com/mokimobility/MokiManageSDK/1.2.1/MokiManageSDK-1.2.1.jar)
 You will also need to include some dependencies:
 * [gson-2.2.4](http://repo1.maven.org/maven2/com/google/code/gson/gson/2.2.4/gson-2.2.4.jar)
 * [commons-io-2.4](http://repo1.maven.org/maven2/commons-io/commons-io/2.4/commons-io-2.4.jar)
