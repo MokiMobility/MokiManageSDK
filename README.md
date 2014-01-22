@@ -1,5 +1,11 @@
 # MokiManageSDK
 
+## 1.2.1
+
+### iOS
+[Download](https://github.com/MokiMobility/MokiManageSDK/tree/1.2.1)
+ * fixed network bug that caused crashing in some scenarios
+ * fixed compatibility with cocoapod spec
 
 ## 1.2.0
 
@@ -12,7 +18,9 @@
 
 ### Android
 [Download](https://github.com/MokiMobility/MokiManageSDK/tree/android/com/mokimobility/MokiManageSDK/1.2.0)
- * _TODO_ add changelog here
+ * added Follow Me
+ * added Network Check
+ * added Custom Actions
 
 
 ## 1.1.3
