@@ -177,7 +177,7 @@
             <p class="example">import com<span class="teal">.moki.manage.api.MokiManage</span>;</p></li>
         <li value="2">
             Create constants for your app key and tenant ID: <p class="example"><span class="light_purple">private static final</span>
-            String APP_KEY = <span class="red">"whatever-your-apik-eyis-useitherenow"</span>;<br/> <span
+            String APP_KEY = <span class="red">"whatever-your-appk-eyis-useitherenow"</span>;<br/> <span
                     class="light_purple">private static final</span> String TENANT_ID = <span class="red">"whatever-your-tennat-id-is-useitherenow"</span>;
         </p></li>
         <li value="3">
@@ -186,8 +186,7 @@
             file:<p class="example"><span class="light_purple">public class</span> <span
                 class="title">CustomApplication</span> <span class="light_purple">extends</span> <span class="title">Application</span>
             <span class="light_purple">implements</span> <span
-                    class="title">Application.ActivityLifecycleCallbacks</span> {<br/> <span class="light_purple">private static</span>
-            MokiManageApplication instance;<br/> <span class="light_purple">private</span> MokiManage mmanage;<br/>
+                    class="title">Application.ActivityLifecycleCallbacks</span> {<br/> <span class="light_purple">private</span> MokiManage mmanage;<br/>
             <span class="light_purple">private int</span> activeActivityCount = <span class="blue">0</span>;<br/> <span
                     class="light_purple">private final boolean</span> enableASM = <span
                     class="light_purple">false</span>;<br/> <span class="light_purple">private final boolean</span>
@@ -223,13 +222,13 @@
             Include the new class name in your <span class="attribute">AndroidManifest.xml</span> file:<p>
 
             <p class="example">&lt;<span class="title">application</span><br/> <span
-                    class="light_purple">android:name</span>=<span class="green">".ApplicationContext"</span><br/> <span
+                    class="light_purple">android:name</span>=<span class="green">".CustomApplication"</span><br/> <span
                     class="light_purple">android:icon</span>=<span class="green">"@drawable/icon"</span><br/> <span
                     class="light_purple">android:label</span>=<span class="green">"@string/app_name"</span><br/> <span
                     class="light_purple">android:theme</span>=<span class="green">"@android:style/Theme.NoTitleBar.Fullscreen"</span>&gt;
             </p></p></li>
     </ol>
-    <h2><a name="Android_Step4"></a>Step 4: Configure you app to receive <span
+    <h2><a name="Android_Step4"></a>Step 4: Configure your app to receive <span
             class="VariablesMokiManage">MokiManage</span> broadcasts</h2>
 
     <p>The <span class="VariablesMokiManage">MokiManage</span> SDK will broadcast notifications in five different
