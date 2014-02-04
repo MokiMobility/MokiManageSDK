@@ -27,3 +27,10 @@ pod 'MokiManageSDK', :git => 'https://github.com/MokiMobility/MokiManageSDK.git'
 ```
 
 *Notice* the declaration that iOS is at least verion `"5.0"`
+
+***Warning:*** *Cocoa Pods had a problem with its master pod repo on Jan 30th, 2014. You must run the following 2 commands to fix it*
+
+    pod repo remove master
+    pod setup
+
+For more information visit http://blog.cocoapods.org/Repairing-Our-Broken-Specs-Repository/
