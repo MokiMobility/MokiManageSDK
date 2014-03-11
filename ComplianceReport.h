@@ -66,7 +66,7 @@
  
  The report is comprised of multiple checks which are contained in this array in no particular order.
  */
-@property(nonatomic, strong) NSMutableArray *complianceChecks;
+@property(atomic, strong) NSMutableArray *complianceChecks;
 
 /** A singleton for the most recent ComplianceReport
  

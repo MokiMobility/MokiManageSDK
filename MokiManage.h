@@ -12,6 +12,8 @@
 #import "MasterViewController.h"
 #import "DetailViewController.h"
 #import "EnrollmentViewController.h"
+#import "NetworkCheckASMViewController.h"
+#import "MMNetworkReportViewController.h"
 
  
  
@@ -840,6 +842,7 @@
 /** Returns the lastest Network Report object
  
  Network Reports are run every heartbeat and can also be run manually. This method will return the last one run, regardless of which method triggered it.
+
  */
 - (MMNetworkReport *)latestNetworkReport;
 

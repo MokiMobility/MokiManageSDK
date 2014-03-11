@@ -147,7 +147,21 @@ typedef enum {
  This can be called if the app was deleted and lost the localy saved history. Downloading the history replaces the currently saved history on the device with the history retrieved from the server.
  
  */
-+(void) downloadAndReplaceReportHistory;
++(void) downloadAndReplaceReportHistory:(void (^)(BOOL succeeded))block;
+
+
+/** Returns the lastest Network Report object
+ 
+ Network Reports are run every heartbeat and can also be run manually. This method will return the last one run, regardless of which method triggered it.
+ 
+ */
++(MMNetworkReport *)latestNetworkReport;
+
+/** Returns a list of network reports
+ 
+ Returns an array of previously run network reports.  Each report is saved as a dictionary with the latest being first in the list.
+ */
++(NSArray *)networkReportHistory;
 
 - (NSDictionary *)encode;
 + (MMNetworkReport *)decode:(NSDictionary *)dictionary;

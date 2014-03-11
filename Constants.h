@@ -33,11 +33,7 @@
 #define kCellularTechnology @"CellularTechnology"
 #define kVendorID @"VendorID"
 #define kTimeStamp @"TimeStamp"
-#define kNetworkReportUserDefualtsKey @"MMNetworkReportHistory"
-#define kNetworkReportUnsentUserDefualtsKey @"MMNetworkReportsUnsent"
 #define kReachabilityStatus @"ReachabilityStatus"
-#define SDK_VERSION_VALUE @"1.2.1"
-#define IOS_PLATFORM @"iOS"
 
 #define TIMESTAMP_ADJUSTMENT 1000
 
