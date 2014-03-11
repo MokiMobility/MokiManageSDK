@@ -1,5 +1,11 @@
 # MokiManageSDK
 
+## 1.2.2
+
+### iOS
+[Download](https://github.com/MokiMobility/MokiManageSDK/tree/1.2.2)
+ * fixed issue where network check did not appear in the settings views
+ 
 ## 1.2.1
 
 ### iOS
