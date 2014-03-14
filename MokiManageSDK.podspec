@@ -32,7 +32,7 @@ Pod::Spec.new do |s|
   s.platform     = :ios, '5.0'
 
   s.source_files = '*.{h,m,mm,c,cpp}'
-  s.resources = "Buttons/*.png", "*.storyboard", "*.xib"
+  s.resources = "Images/*.png", "Buttons/*.png", "*.storyboard", "*.xib"
   s.preserve_paths = "libMokiManage.a"
   s.library = 'MokiManage'
   s.frameworks = 'ExternalAccessory', 'CoreTelephony', 'CoreLocation', 'SystemConfiguration', 'Foundation', 'CoreGraphics', 'Security', 'Accelerate', 'QuartzCore', 'MobileCoreServices'
