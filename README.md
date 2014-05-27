@@ -1,4 +1,9 @@
 # MokiManageSDK
+## 1.2.3
+
+### iOS
+[Download](https://github.com/MokiMobility/MokiManageSDK/tree/1.2.3)
+ * made compatible for 64 bit builds
 
 ## 1.2.2
 
