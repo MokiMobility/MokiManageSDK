@@ -7,17 +7,18 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "ASMControlValues.h"
+#import "MMASMControlValues.h"
 #import <UIKit/UIKit.h>
-#import "MasterViewController.h"
-#import "DetailViewController.h"
-#import "EnrollmentViewController.h"
-#import "NetworkCheckASMViewController.h"
+#import "MMMasterViewController.h"
+#import "MMDetailViewController.h"
+#import "MMEnrollmentViewController.h"
+#import "MMNetworkCheckASMViewController.h"
 #import "MMNetworkReportViewController.h"
+#import "UIView+MMViewSensitivity.h"
 
  
  
-#import "ComplianceReport.h"
+#import "MMComplianceReport.h"
 #import "MMNetworkReport.h"
 
 // Find the apple docs documentation here: http://gentlebytes.com/appledoc-docs-comments/
@@ -162,6 +163,7 @@
  */
 
 @property (weak, nonatomic) id<MokiManageDelegate> delegate;
+@property NSString *deviceId;
 
 ///---------------------------------------------------------------------------------------
 /// @name Shared Manager
@@ -256,10 +258,13 @@
 
 /** Handle background
  
- This method must be called from the application delegate whenever an app enters a background state.
+ Reports needed information back to server when app enters background.
+ 
+ @warning This no longer needs to be called manually, it is now called automatically by the SDK.
  
  */
-- (void)handleBackground;
+
+- (void)handleBackground __attribute__((deprecated));
 
 /** Returns a boolean to indicate is a connection is available
  
@@ -484,7 +489,7 @@
 /** Returns the Settings View Controller
  
  The displaySettingsView: will get and display the settings view, in the scenario that you would 
- like to manage its display manually, you can get the this way.
+ like to manage its display manually, you can get there this way.
  
  @return The Settings View Controller
  
@@ -687,7 +692,7 @@
 
 /** Clears a specific alert on the web interface
  
- When a alertable state is no longer alertable call clear on the alert and it will be cleared so attention isn't drawn to resolved issues.
+ When an alertable state is no longer alertable call clear on the alert and it will be cleared so attention isn't drawn to resolved issues.
  
  **Usage**
  
@@ -713,7 +718,7 @@
  */
 - (void)addTags:(NSArray *)tags;
 
-/** Returns a dictionary of the meta data for the device
+/** Returns a dictionary of the meta data for the device  (Deprecated in 2.0. Use the method customDataValueForKey: instead.)
  
  Returns the meta data that can then be used by the developer to identify the device is additional ways specific to your organization.
  The information can be updated and resaving to the device by calling setMetaData.
@@ -723,9 +728,9 @@
     NSDictionary *metaData = [[MokiManage sharedManager] metaData];
 
  */
-- (NSDictionary *)metaData;
+- (NSDictionary *)metaData __attribute__((deprecated));
 
-/** Sets meta data for the device on the device object
+/** Sets meta data for the device on the device object  (Deprecated in 2.0. Use the method setCustomDataValue:forKey: instead.)
  
  Sets meta data that can then be used by the developer to identify the device is additional ways specific to your organization.
  
@@ -734,7 +739,7 @@
     [[MokiManage sharedManager] setMetaData:@{@"userId":392}];
  
  */
-- (void)setMetaData:(NSDictionary *)metaData;
+- (void)setMetaData:(NSDictionary *)metaData __attribute__((deprecated));
 
 /** Returns a support identifier
  
@@ -766,7 +771,7 @@
     BOOL deviceIsSecurityCompliant = [[lastReport compliant] boolValue];
  
  */
-- (ComplianceReport *)complianceReport;
+- (MMComplianceReport *)complianceReport;
 
 /** Returns a boolean indicating the current sate of the jail broken status for the device
  
@@ -774,22 +779,6 @@
  */
 - (BOOL)isJailBroken;
 
-/** Determines if the current device is under device management
- 
- This method takes a block as a param where the results of the method are passed for processing.
- 
- **Usage**
- 
-    [[MokiManage sharedManager] isManaged:^(BOOL result) {
-        if(result) {
-            NSLog(@"Device is under MDM management");
-        } else {
-            NSLog(@"Device is not managed");
-        }
-    }
- 
- @param block A block callback where the application can make a determination on how it should respond to the check based on the value of result
- */
 - (void)isManaged:(void (^)(BOOL result))block;
 
 /** Determines if the current device is secure
@@ -833,7 +822,6 @@
  
  
 
-
 #pragma mark - Network
 ///---------------------------------------------------------------------------------------
 /// @name Network
@@ -852,4 +840,88 @@
  */
 - (NSArray *)networkReportHistory;
 
+/** Use advanced end point mointoring
+ 
+ Endpoint monitoring checks each network call going out of the app to ensure your app isn't hitting any unsecure endpoints.  
+ Normal endpoint monitoring summarizes information by listing each unique domain and how many times it was hit. This is the default.
+ Advanced endpoint monitoring will give the full url for every outgoing network request. This can be more information than most applications will need.
+ */
+- (void) useAdvancedEndPointMonitoring:(BOOL)useAdvanced;
+
+#pragma mark - Logging
+///---------------------------------------------------------------------------------------
+/// @name Logging
+///---------------------------------------------------------------------------------------
+/** Adds a new breadcrumb
+ 
+ Breadcrumbs are used to track the state of your application as it is being used. Especially useful when debugging your application.
+ 
+ **Usage**
+ 
+ [[MokiManage sharedManager] addBreadcrumb:@"View 1 displayed"];
+ 
+ @param breadcrumb A string indicating where the user is in the application.
+ */
+- (void)addBreadcrumb:(NSString*)breadcrumb;
+
+/** Adds, sets or deletes a custom log
+ 
+ Custom logs are information sent to the MokiManage server set by the developer.  Custom logs can be any type of information which the developer feels would be useful and is JSON serializable (e.g., NSString, NSDictionary, NSArray...).
+ 
+ **Usage**
+ 
+ [[MokiManage sharedManager] setCustomLog:@"1435412" forKey:@"userID"];
+ 
+ @param object Object which is JSON serializable (e.g., NSString, NSDictionary, NSArray...)
+ 
+ @param key NSString which relates to the object being stored
+ */
+- (void)setCustomDataValue:(NSObject*)object forKey:(NSString*)key;
+
+/** Returns custom data value for a given key
+ 
+ Use to check what value will be sent to the MokiManage server for a given key
+ 
+ **Usage**
+ 
+ [[MokiManage sharedManager] customDataValueForKey:@"userID"];
+ 
+ @param key NSString which relates to the object being retrieved
+ */
+- (id)customDataValueForKey:(NSString*)key;
+
+/** Adds an exception to logging data
+ 
+ When catching an NSException pass it into this method for it to be saved and viewed on the MokiManage server
+ 
+ **Usage**
+ 
+ @try {
+    NSArray *users = [self getUsers];
+ }
+ @catch (NSException *exception) {
+    [[MokiManage sharedManager] addException:exception];
+ }
+ 
+ @param exception A NSException object caught by the developer
+ */
+- (void)addException:(NSException*)exception;
+
+/** Adds an exception to logging data with message
+ 
+ When catching an NSException pass it into this method for it to be saved and viewed on the MokiManage server
+ 
+ **Usage**
+ 
+ @try {
+    NSArray *users = [self getUsers];
+ }
+ @catch (NSException *exception) {
+    [[MokiManage sharedManager] addException:exception withMessage:@"Error trying to retrieve users"];
+ }
+ 
+ @param exception A NSException object caught by the developer
+ @param message Description of the exception provided by developer
+ */
+- (void)addException:(NSException*)exception withMessage:(NSString*)message;
 @end

@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "MokiManageSDK"
-  s.version      = "1.2.3"
+  s.version      = "<version>"
   s.summary      = "Integrate your application with MokiManage."
   s.description  = <<-DESC
                     Using this SDK your application can integrate with [MokiManage](http://MokiManage.com/).
@@ -27,16 +27,20 @@ Pod::Spec.new do |s|
   }
 
   s.author       = { "MokiMobility" => "info@mokimobility.com" }
-  s.source       = { :git => "https://github.com/MokiMobility/MokiManageSDK.git", :branch => "ios", :tag => "1.2.3" }
+  s.source       = { :git => "git@github.com:MokiMobility/manage-sdk-ios-library.git", :branch => "master", :tag => "<version>" }
 
   s.platform     = :ios, '5.0'
 
   s.source_files = '*.{h,m,mm,c,cpp}'
-  s.resources = "Buttons/*.png", "*.storyboard", "*.xib"
+  s.resources = "Images/*.png", "*.storyboard", "*.xib"
   s.preserve_paths = "libMokiManage.a"
   s.library = 'MokiManage'
-  s.frameworks = 'ExternalAccessory', 'CoreTelephony', 'CoreLocation', 'SystemConfiguration', 'Foundation', 'CoreGraphics', 'Security', 'Accelerate', 'QuartzCore', 'MobileCoreServices'
+  s.frameworks = 'ExternalAccessory', 'CoreTelephony', 'CoreLocation', 'SystemConfiguration', 'Foundation', 'CoreGraphics', 'Security', 'Accelerate', 'QuartzCore', 'MobileCoreServices', 'AVFoundation'
   s.requires_arc = true
   s.xcconfig = { 'LIBRARY_SEARCH_PATHS' => '"$(PODS_ROOT)/MokiManageSDK"' }
 
+	s.dependency 'MBProgressHUD', '~> 0.8'
+	s.dependency 'Reachability', '~> 3.1.1'
+	s.dependency 'FXBlurView', '~> 1.5.3'
+	
 end
