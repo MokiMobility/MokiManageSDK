@@ -1,4 +1,12 @@
 # MokiManageSDK
+## 1.2.4
+
+### iOS
+[Download](https://github.com/MokiMobility/MokiManageSDK/tree/1.2.4)
+ * various bug fixes related to conflicts for simulator builds
+ * various bug fixes related to conflicts with AFNetworking 2+
+ 
+
 ## 1.2.3
 
 ### iOS
@@ -11,6 +19,7 @@
 [Download](https://github.com/MokiMobility/MokiManageSDK/tree/1.2.2)
  * fixed issue where network check did not appear in the settings views
  
+
 ## 1.2.1
 
 ### iOS
