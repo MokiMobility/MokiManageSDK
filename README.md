@@ -1,4 +1,11 @@
 # MokiManageSDK
+## 1.2.5
+
+### iOS
+[Download](https://github.com/MokiMobility/MokiManageSDK/tree/1.2.5)
+ * various bug fixes related to actions not responding
+ * various bug fixes related to logs snapshot being taken on a consistent 5 minute interval
+
 ## 1.2.4
 
 ### iOS
