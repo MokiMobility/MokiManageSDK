@@ -40,7 +40,7 @@ Pod::Spec.new do |s|
   s.xcconfig = { 'LIBRARY_SEARCH_PATHS' => '"$(PODS_ROOT)/MokiManageSDK"' }
 
 	s.dependency 'MBProgressHUD', '~> 0.8'
-	s.dependency 'Reachability', '~> 3.1'
-	s.dependency 'FXBlurView', '~> 1.5'
+	s.dependency 'Reachability', '~> 3.1.1'
+	s.dependency 'FXBlurView', '~> 1.5.3'
 	
 end
