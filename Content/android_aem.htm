@@ -1,318 +1,319 @@
 <!DOCTYPE html>
 <html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-us" xml:lang="en-us"
-      data-mc-search-type="Stem" data-mc-help-system-file-name="index.xml" data-mc-path-to-help-system="../"
-      data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false"
-      data-mc-in-preview-mode="false" data-mc-toc-path="Getting Started with MokiManage on Android">
-<head>
-    <meta charset="utf-8"/>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>QuickStart: AEM for Android</title>
-    <link href="../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet"/>
-    <link href="../Skins/Default/Stylesheets/Topic.css" rel="stylesheet"/>
-    <link href="Resources/mm.css" rel="stylesheet"/>
-    <script src="../Resources/Scripts/jquery.min.js">
-    </script>
-    <script src="../Resources/Scripts/plugins.min.js">
-    </script>
-    <script src="../Resources/Scripts/require.min.js">
-    </script>
-    <script src="../Resources/Scripts/require.config.js">
-    </script>
-    <script src="../Resources/Scripts/MadCapAll.js">
-    </script>
-</head>
-<body>
-<p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../index.htm#android_aem.htm">Open topic with
-    navigation</a>
-</p>
-
-<div class="main">
-    <h1>QuickStart: AEM for Android</h1>
-
-    <div class="prereq">
-        <p>Before you start, you should already have an account on <a href="https://mokimanage.com/" target="_blank">mokimanage.com</a>,
-            and have an app key and tenant ID. If you don't have your app key or tenant ID, email <a
-                    href="mailto:sales@mokimobility.com?subject=Request for app key or tenant ID.">sales@mokimobility.com</a>.
-        </p>
-    </div>
-    <p>To set up your Android app to use the AEM&#160;component of the <span
+   data-mc-search-type="Stem" data-mc-help-system-file-name="index.xml" data-mc-path-to-help-system="../"
+   data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false"
+   data-mc-in-preview-mode="false" data-mc-toc-path="Getting Started with MokiManage on Android">
+   <head>
+      <meta charset="utf-8"/>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+      <title>QuickStart: AEM for Android</title>
+      <link href="../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet"/>
+      <link href="../Skins/Default/Stylesheets/Topic.css" rel="stylesheet"/>
+      <link href="Resources/mm.css" rel="stylesheet"/>
+      <script src="../Resources/Scripts/jquery.min.js"></script>
+      <script src="../Resources/Scripts/plugins.min.js"></script>
+      <script src="../Resources/Scripts/require.min.js"></script>
+      <script src="../Resources/Scripts/require.config.js"></script>
+      <script src="../Resources/Scripts/MadCapAll.js"></script>
+   </head>
+   <body>
+      <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../index.htm#android_aem.htm">Open topic with
+         navigation</a>
+      </p>
+      <div class="main">
+         <h1>QuickStart: AEM for Android</h1>
+         <div class="prereq">
+            <p>Before you start, you should already have an account on <a href="https://mokimanage.com/" target="_blank">mokimanage.com</a>,
+               and have an app key and tenant ID. If you don't have your app key or tenant ID, email <a
+                  href="mailto:sales@mokimobility.com?subject=Request for app key or tenant ID.">sales@mokimobility.com</a>.
+            </p>
+         </div>
+         <p>To set up your Android app to use the AEM&#160;component of the <span
             class="VariablesMokiManage">MokiManage</span> SDK, you will need to take the following steps:</p>
-    <ul class="no_bullet">
-        <li value="1"><a href="#Android_Step1" class="Intro MCXref xref  xref Intro">Step 1: Add the MokiManage SDK&#160;to
-            Your Eclipse Project</a>
-        </li>
-        <li value="2"><a href="#Android_Step2" class="Intro MCXref xref  xref Intro">Step 2: Set up the
-            AndroidManifest.xml File</a>
-        </li>
-        <li value="3"><a href="#Android_Step3" class="Intro MCXref xref  xref Intro">Step 3: Extend the Application
-            Class</a>
-        </li>
-        <li value="4"><a href="#Android_Step4" class="Intro MCXref xref  xref Intro">Step 4: Configure your app to
-            receive MokiManage broadcasts</a>
-        </li>
-        <li value="5"><a href="#Android_Step5" class="Intro MCXref xref  xref Intro">Step 5: Registering with
-            MokiManage</a>
-        </li>
-        <li value="6"><a href="#Android_Step6" class="Intro MCXref xref  xref Intro">Step 6: Check the MokiManage
-            Console</a>
-        </li>
-    </ul>
-    <h2><a name="Android_Step1"></a>Step 1: Add the <span class="VariablesMokiManage">MokiManage</span> SDK&#160;to Your
-        Eclipse Project</h2>
-
-    <p>The <span class="VariablesMokiManage">MokiManage</span>SDK is hosted in a Maven-compatible repository on GitHub,
-        and as such, you should be able to easily integrate the SDK into your existing Maven, Gradle, Ant+Ivy, or other
-        build tools compatible with a maven2 layout repository. For more information please see the Android branch <a
-                href="https://github.com/MokiMobility/MokiManageSDK/tree/android/com/mokimobility/MokiManageSDK/1.2.0"1 target="_blank">README file</a>.</p>
-
-    <p>If you want to manually add the SDK to your project, it can be downloaded directly from GitHub here:
-        MokiManageSDK - <a
-                href="https://raw.github.com/MokiMobility/MokiManageSDK/android/com/mokimobility/MokiManageSDK/1.2.0/MokiManageSDK-1.2.0.jar"
-                target="_blank">MokiManageSDK-1.2.0.jar.</a></p>
-
-    <p>The <span class="VariablesMokiManage">MokiManage</span> SDK uses Google’s <span class="attribute">Gson</span>
-        library to parse JSON. Because many developers already use Gson in their apps, we have not included it in our
-        library. You need to download the Gson 2.x file and include it in your project.</p>
-
-    <p>Gson - <a href="https://code.google.com/p/google-gson/downloads/list" target="_blank">https://code.google.com/p/google-gson/downloads/list</a>
-    </p>
-
-    <h2><a name="Android_Step2"></a>Step 2: Set up the AndroidManifest.xml File</h2>
-
-    <p>You will need to include a number of permissions, receivers, and services in your application's <span
+         <ul class="no_bullet">
+            <li value="1"><a href="#Android_Step1" class="Intro MCXref xref xref Intro">Step 1: Add the MokiManage SDK&#160;to
+               Your Eclipse Project</a>
+            </li>
+            <li value="2"><a href="#Android_Step2" class="Intro MCXref xref xref Intro">Step 2: Set up the
+               AndroidManifest.xml File</a>
+            </li>
+            <li value="3"><a href="#Android_Step3" class="Intro MCXref xref xref Intro">Step 3: Extend the Application
+               Class</a>
+            </li>
+            <li value="4"><a href="#Android_Step4" class="Intro MCXref xref xref Intro">Step 4: Configure your app to
+               receive MokiManage broadcasts</a>
+            </li>
+            <li value="5"><a href="#Android_Step5" class="Intro MCXref xref xref Intro">Step 5: Registering with
+               MokiManage</a>
+            </li>
+            <li value="6"><a href="#Android_Step6" class="Intro MCXref xref xref Intro">Step 6: Check the MokiManage
+               Console</a>
+            </li>
+         </ul>
+         <h2><a name="Android_Step1"></a>Step 1: Add the <span class="VariablesMokiManage">MokiManage</span> SDK&#160;to Your
+            Eclipse Project
+         </h2>
+         <p>The <span class="VariablesMokiManage">MokiManage</span>SDK is hosted in a Maven-compatible repository on GitHub,
+            and as such, you should be able to easily integrate the SDK into your existing Maven, Gradle, Ant+Ivy, or other
+            build tools compatible with a maven2 layout repository. For more information please see the Android branch <a
+               href="https://github.com/MokiMobility/MokiManageSDK/tree/android/com/mokimobility/MokiManageSDK/1.2.0"1 target="_blank">README file</a>.
+         </p>
+         <p>If you want to manually add the SDK to your project, it can be downloaded directly from GitHub here:
+            MokiManageSDK - <a
+               href="https://raw.github.com/MokiMobility/MokiManageSDK/android/com/mokimobility/MokiManageSDK/1.2.0/MokiManageSDK-1.2.0.jar"
+               target="_blank">MokiManageSDK-1.2.0.jar.</a>
+         </p>
+         <p>The <span class="VariablesMokiManage">MokiManage</span> SDK uses Google’s <span class="attribute">Gson</span>
+            library to parse JSON. Because many developers already use Gson in their apps, we have not included it in our
+            library. You need to download the Gson 2.x file and include it in your project.
+         </p>
+         <p>Gson - <a href="https://code.google.com/p/google-gson/downloads/list" target="_blank">https://code.google.com/p/google-gson/downloads/list</a></p>
+         <h2><a name="Android_Step2"></a>Step 2: Set up the AndroidManifest.xml File</h2>
+         <p>You will need to include a number of permissions, receivers, and services in your application's <span
             class="attribute">AndroidManifest.xml</span> file. Please replace <b>your.package.name.here</b> with your
-        application's package name.</p>
-
-    <p class="example" style="color: #1c00cf;"><span class="green">&lt;!-- PERMISSIONS --&gt;</span>
-        <br/>
-        <br/>&#160;&#160;&#160;&#160;&lt;<span class="title">uses-permission</span> <span class="dark_purple">android:name</span>=<span
-                class="green">"android.permission.READ_PHONE_STATE"</span> /&gt;<br/>&#160;&#160;&#160;&#160;&lt;<span
-                class="title">uses-permission</span> <span class="dark_purple">android:name</span>=<span class="green">"android.permission.INTERNET"</span>
-        /&gt;<br/>&#160;&#160;&#160;&#160;&lt;<span class="title">uses-permission</span> <span class="dark_purple">android:name</span>=<span
-                class="green">"android.permission.READ_CONTACTS"</span> /&gt;<br/>&#160;&#160;&#160;&#160;&lt;<span
-                class="title">uses-permission</span> <span class="dark_purple">android:name</span>=<span class="green">"android.permission.ACCESS_COURSE_LOCATION"</span>
-        /&gt;<br/>&#160;&#160;&#160;&#160;&lt;<span class="title">uses-permission</span> <span class="dark_purple">android:name</span>=<span
-                class="green">"android.permission.ACCESS_FINE_LOCATION"</span>
-        /&gt;<br/>&#160;&#160;&#160;&#160;&lt;<span class="title">uses-permission</span> <span class="dark_purple">android:name</span>=<span
-                class="green">"android.permission.ACCESS_NETWORK_STATE"</span>
-        /&gt;<br/>&#160;&#160;&#160;&#160;&lt;<span class="title">uses-permission</span> <span class="dark_purple">android:name</span>=<span
-                class="green">"android.permission.ACCESS_SUPERUSER"</span> /&gt;<br/>&#160;&#160;&#160;&#160;&lt;<span
-                class="title">uses-permission</span> <span class="dark_purple">android:name</span>=<span class="green">"android.permission.WAKE_LOCK"</span>
-        /&gt;<br/>&#160;&#160;&#160;&#160;&lt;<span class="title">uses-permission</span> <span class="dark_purple">android:name</span>=<span
-                class="green">"android.permission.WRITE_EXTERNAL_STORAGE"</span>
-        /&gt;<br/>&#160;&#160;&#160;&#160;&lt;<span class="title">uses-permission</span> <span class="dark_purple">android:name</span>=<span
-                class="green">"android.permission.RECEIVE_BOOT_COMPLETED"</span>
-        /&gt;<br/>&#160;&#160;&#160;&#160;&lt;<span class="title">uses-permission</span> <span class="dark_purple">android:name</span>=<span
-                class="green">"android.permission.ACCESS_WIFI_STATE"</span> /&gt;<br/>&#160;&#160;&#160;&#160;&lt;<span
-                class="title">uses-permission</span> <span class="dark_purple">android:name</span>=<span class="green">"android.permission.BLUETOOTH"</span>
-        /&gt;<br/> <span
-                class="red">&lt;!-- REPLACE&#160;PACKAGE&#160;NAME&#160;IN&#160;FOLLOWING&#160;LINE --&gt;</span><br/>&#160;&#160;&#160;&#160;&lt;<span
-                class="title">permission</span> <span class="dark_purple">android:name</span>=<span class="green">"your.package.name.here.permission.C2D_MESSAGE"</span><br/>
-        <span class="dark_purple">android:protectionLevel</span>=<span class="green">"signature"</span> /&gt;<br/> <span
-                class="red">&lt;!-- REPLACE&#160;PACKAGE&#160;NAME&#160;IN&#160;FOLLOWING&#160;LINE --&gt;</span><br/>&#160;&#160;&#160;&#160;&lt;<span
-                class="title">uses-permission</span> <span class="dark_purple">android:name</span>=<span class="green">"your.package.name.here.permission.C2D_MESSAGE"</span>
-        /&gt;<br/>&#160;&#160;&#160;&#160;&lt;<span class="title">uses-permission</span> <span class="dark_purple">android:name</span>=<span
-                class="green">"com.google.android.c2dm.permission.RECEIVE"</span> /&gt;<br/> <span class="green">&lt;!-- RECEIVERS --&gt;</span><br/><br/>&#160;&#160;&#160;&#160;&lt;<span
-                class="title">receiver</span> <span class="dark_purple">android:name</span>=<span class="green">"com.moki.aem.receivers.BootReceiver"</span>
-        &gt;<br/><br/>&#160;&#160;&#160;&#160;&lt;<span class="title">intent-filter</span>&gt;<br/><br/>&#160;&#160;&#160;&#160;&lt;<span
-                class="title">action</span> <span class="dark_purple">android:name</span>=<span class="green">"android.intent.action.BOOT_COMPLETED"</span>
-        /&gt;<br/>&#160;&#160;&#160;&#160;&lt;/<span class="title">intent-filter</span>&gt;<br/><br/>&#160;&#160;&#160;&#160;&lt;/<span
-                class="title">receiver</span>&gt;<br/>&#160;&#160;&#160;&#160;&lt;<span
-                class="title">receiver</span><br/> <span class="dark_purple">android:name</span>=<span class="green">"com.moki.aem.receivers.LogAlarmReceiver"</span><br/>
-        <span class="dark_purple">android:exported</span>=<span class="green">"false"</span> /&gt;<br/>&#160;&#160;&#160;&#160;&lt;<span
-                class="title">receiver</span><br/> <span class="dark_purple">android:name</span>=<span class="green">"com.moki.aem.receivers.StatusAlarmReceiver"</span><br/>
-        <span class="dark_purple">android:exported</span>=<span class="green">"false"</span> /&gt;<br/>&#160;&#160;&#160;&#160;&lt;<span
-                class="title">receiver</span><br/> <span class="dark_purple">android:name</span>=<span class="green">"com.moki.aem.receivers.StoreLogsAlarmReceiver"</span><br/>
-        <span class="dark_purple">android:exported</span>=<span class="green">"false"</span> /&gt;<br/>&#160;&#160;&#160;&#160;&lt;<span
-                class="title">receiver</span><br/> <span class="dark_purple">android:name</span>=<span class="green">"com.moki.aem.receivers.HeartBeatAlarmReceiver"</span><br/>
-        <span class="dark_purple">android:exported</span>=<span class="green">"false"</span> /&gt;<br/>&#160;&#160;&#160;&#160;&lt;<span
-                class="title">receiver</span><br/> <span class="dark_purple">android:name</span>=<span class="green">"com.moki.appregistration.receiver.NotificationReceiver"</span><br/>
-        <span class="dark_purple">android:exported</span>=<span class="green">"false"</span> &gt;<br/><br/>&#160;&#160;&#160;&#160;&lt;<span
-                class="title">intent-filter</span>&gt;<br/><br/>&#160;&#160;&#160;&#160;&lt;<span
-                class="title">action</span> <span class="dark_purple">android:name</span>=<span class="green">"com.moki.manage.MokiManangeAction"</span>
-        /&gt;<br/>&#160;&#160;&#160;&#160;&lt;/<span class="title">intent-filter</span>&gt;<br/><br/>&#160;&#160;&#160;&#160;&lt;/<span
-                class="title">receiver</span>&gt;<br/>&#160;&#160;&#160;&#160;&lt;<span
-                class="title">receiver</span><br/> <span class="dark_purple">android:name</span>=<span class="green">"com.google.android.c2dm.C2DMBroadcastReceiver"</span><br/>
-        <span class="dark_purple">android:permission</span>=<span class="green">"com.google.android.c2dm.permission.SEND"</span>
-        &gt;<br/><br/>&#160;&#160;&#160;&#160;&lt;<span class="title">intent-filter</span>&gt;<br/><br/>&#160;&#160;&#160;&#160;&lt;<span
-                class="title">action</span> <span class="dark_purple">android:name</span>=<span class="green">"com.google.android.c2dm.intent.RECEIVE"</span>
-        /&gt;<br/> <span
-                class="red">&lt;!-- REPLACE&#160;PACKAGE&#160;NAME&#160;IN&#160;FOLLOWING&#160;LINE --&gt;</span><br/>&#160;&#160;&#160;&#160;&lt;<span
-                class="title">category</span> <span class="dark_purple">android:name</span>=<span class="green">"your.package.name.here"</span>
-        /&gt;<br/>&#160;&#160;&#160;&#160;&lt;/<span class="title">intent-filter</span>&gt;<br/><br/>&#160;&#160;&#160;&#160;&lt;<span
-                class="title">intent-filter</span>&gt;<br/><br/>&#160;&#160;&#160;&#160;&lt;<span
-                class="title">action</span> <span class="dark_purple">android:name</span>=<span class="green">"com.google.android.c2dm.intent.REGISTRATION"</span>
-        /&gt;<br/> <span
-                class="red">&lt;!-- REPLACE&#160;PACKAGE&#160;NAME&#160;IN&#160;FOLLOWING&#160;LINE --&gt;</span><br/>&#160;&#160;&#160;&#160;&lt;<span
-                class="title">category</span> <span class="dark_purple">android:name</span>=<span class="green">"your.package.name.here"</span>
-        /&gt;<br/>&#160;&#160;&#160;&#160;&lt;/<span class="title">intent-filter</span>&gt;<br/><br/>&#160;&#160;&#160;&#160;&lt;/<span
-                class="title">receiver</span>&gt;<br/>&#160;&#160;&#160;&#160;&lt;<span
-                class="title">receiver</span><br/> <span class="dark_purple">android:name</span>=<span class="green">"com.moki.aem.receivers.AEMCommandReceiver"</span><br/>
-        <span class="dark_purple">android:exported</span>=<span class="green">"false"</span> &gt;<br/><br/>&#160;&#160;&#160;&#160;&lt;<span
-                class="title">intent-filter</span>&gt;<br/><br/>&#160;&#160;&#160;&#160;&lt;<span
-                class="title">action</span> <span class="dark_purple">android:name</span>=<span class="green">"com.moki.aem.aemCommandIntent"</span>
-        /&gt;<br/>&#160;&#160;&#160;&#160;&lt;/<span class="title">intent-filter</span>&gt;<br/><br/>&#160;&#160;&#160;&#160;&lt;/<span
-                class="title">receiver</span>&gt;<br/>&#160;&#160;&#160;&#160;&lt;<span class="title">service</span>
-        <span class="dark_purple">android:name</span>=<span class="green">"com.moki.appregistration.C2DMReceiver"</span>
-        /&gt;<br/>&#160;&#160;&#160;&#160;&lt;<span class="title">service</span><br/> <span class="dark_purple">android:name</span>=<span
-                class="green">"com.moki.aem.utils.LoggingService"</span>
-        /&gt;<br/></p>
-
-    <h2><a name="Android_Step3"></a>Step 3: Extend the Application Class</h2>
-
-    <p>While you can do the following in an activity, we recommend that you create a custom Application class. This
-        class will help you maintain a global application state.</p>
-    <ol>
-        <li value="1">
-            Import the <span class="VariablesMokiManage">MokiManage</span> SDK in your <span class="attribute">CustomApplication.java</span>
-            file:
-            <p class="example">import com<span class="teal">.moki.manage.api.MokiManage</span>;</p></li>
-        <li value="2">
-            Create constants for your app key and tenant ID: <p class="example"><span class="light_purple">private static final</span>
-            String APP_KEY = <span class="red">"whatever-your-appk-eyis-useitherenow"</span>;<br/> <span
-                    class="light_purple">private static final</span> String TENANT_ID = <span class="red">"whatever-your-tennat-id-is-useitherenow"</span>;
-        </p></li>
-        <li value="3">
-            Initiate the session with the <span class="VariablesMokiManage">MokiManage</span> SDK from the <span
-                class="attribute">onCreate</span> function of your <span class="attribute">CustomApplication.java</span>
-            file:<p class="example"><span class="light_purple">public class</span> <span
-                class="title">CustomApplication</span> <span class="light_purple">extends</span> <span class="title">Application</span>
-            <span class="light_purple">implements</span> <span
-                    class="title">Application.ActivityLifecycleCallbacks</span> {<br/> <span class="light_purple">private</span> MokiManage mmanage;<br/>
-            <span class="light_purple">private int</span> activeActivityCount = <span class="blue">0</span>;<br/> <span
-                    class="light_purple">private final boolean</span> enableASM = <span
-                    class="light_purple">false</span>;<br/> <span class="light_purple">private final boolean</span>
-            enableAEM = <span class="light_purple">true</span>;<br/> <span
-                    class="light_purple">private final boolean</span> enableCompliance = <span class="light_purple">false</span>;<br/>
-            <span class="light_purple">private final</span> String appKey = <span class="red">"&lt;YOUR APP KEY HERE&gt;"</span>;<br/>
-            <span class="light_purple">private final</span> String appID = <span
-                    class="red">"&lt;YOUR APP ID HERE&gt;"</span>;<br/> 
-                    <span class="light_purple">private static final</span> Application instance;<br/><br/> 
-                    <span class="annotation">@Override</span><br/> 
-                    <span class="light_purple">public void</span> onCreate()
-            {<br/> <span class="light_purple">super</span>.onCreate();<br/>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Context
-            context = <span class="dark_purple">this</span>;<br/>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;mmanage
-            = MokiManage.sharedInstance(appKey, appID, context, enableASM, enableAEM, enableCompliance);<br/>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;registerActivityLifecycleCallbacks(<span
-                    class="dark_purple">this</span>);<br/>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;instance =
-            <span class="dark_purple">this</span>;<br/>&#160;&#160;&#160;&#160;}<br/><br/> <span class="light_purple">public static</span>
-            Application instance(){<br/> <span class="light_purple">return</span> instance;<br/>&#160;&#160;&#160;&#160;}<br/><br/>
-            <span class="light_purple">public</span> MokiManage mokiManage(){<br/> <span
-                    class="light_purple">return</span> mmanage;<br/>&#160;&#160;&#160;&#160;}<br/> <span
-                    class="annotation">@Override</span><br/> <span class="light_purple">public void</span>
-            onActivityStarted(Activity activity) {<br/>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;activeActivityCount++;<br/>
-            <span class="light_purple">if</span>(activeActivityCount == <span class="blue">1</span>){<br/>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;mmanage.resume();<br/>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;}<br/>&#160;&#160;&#160;&#160;}<br/><br/>&#160;&#160;&#160;&#160;@Override<br/>
-            <span class="light_purple">public void</span> onActivityStopped(Activity activity) {<br/>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;activeActivityCount--;<br/>
-            <span class="light_purple">if</span>(activeActivityCount == <span class="blue">0</span>){<br/>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;mmanage.pause();<br/>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;}<br/>&#160;&#160;&#160;&#160;}<br/>&#160;<br/>
-            <span class="annotation">@Override</span><br/> <span class="light_purple">public void</span>
-            onActivityCreated(Activity activity, Bundle savedInstanceState) {<br/>&#160;&#160;&#160;&#160;}<br/><br/>
-            <span class="annotation">@Override</span><br/> <span class="light_purple">public void</span>
-            onActivityDestroyed(Activity activity) {<br/>&#160;&#160;&#160;&#160;}<br/><br/> <span class="annotation">@Override</span><br/>
-            <span class="light_purple">public void</span> onActivityPaused(Activity activity) {<br/>&#160;&#160;&#160;&#160;}<br/><br/>
-            <span class="annotation">@Override</span><br/> <span class="light_purple">public void</span>
-            onActivityResumed(Activity activity) {<br/>&#160;&#160;&#160;&#160;}<br/><br/> <span class="annotation">@Override</span><br/>
-            <span class="light_purple">public void</span> onActivitySaveInstanceState(Activity activity, Bundle
-            outState) {<br/>&#160;&#160;&#160;&#160;}<br/>&#160;&#160;}</p></li>
-        <li value="4">
-            Include the new class name in your <span class="attribute">AndroidManifest.xml</span> file:<p>
-
-            <p class="example">&lt;<span class="title">application</span><br/> <span
-                    class="light_purple">android:name</span>=<span class="green">".CustomApplication"</span><br/> <span
-                    class="light_purple">android:icon</span>=<span class="green">"@drawable/icon"</span><br/> <span
-                    class="light_purple">android:label</span>=<span class="green">"@string/app_name"</span><br/> <span
-                    class="light_purple">android:theme</span>=<span class="green">"@android:style/Theme.NoTitleBar.Fullscreen"</span>&gt;
-            </p></p></li>
-    </ol>
-    <h2><a name="Android_Step4"></a>Step 4: Configure your app to receive <span
+            application's package name.
+         </p>
+         <p class="example" style="color: #1c00cf;"><span class="green">&lt;!-- PERMISSIONS --&gt;</span>
+            <br/>
+            <br/>&#160;&#160;&#160;&#160;&lt;<span class="title">uses-permission</span> <span class="dark_purple">android:name</span>=<span
+               class="green">"android.permission.READ_PHONE_STATE"</span> /&gt;<br/>&#160;&#160;&#160;&#160;&lt;<span
+               class="title">uses-permission</span> <span class="dark_purple">android:name</span>=<span class="green">"android.permission.INTERNET"</span>
+            /&gt;<br/>&#160;&#160;&#160;&#160;&lt;<span class="title">uses-permission</span> <span class="dark_purple">android:name</span>=<span
+               class="green">"android.permission.READ_CONTACTS"</span> /&gt;<br/>&#160;&#160;&#160;&#160;&lt;<span
+               class="title">uses-permission</span> <span class="dark_purple">android:name</span>=<span class="green">"android.permission.ACCESS_COURSE_LOCATION"</span>
+            /&gt;<br/>&#160;&#160;&#160;&#160;&lt;<span class="title">uses-permission</span> <span class="dark_purple">android:name</span>=<span
+               class="green">"android.permission.ACCESS_FINE_LOCATION"</span>
+            /&gt;<br/>&#160;&#160;&#160;&#160;&lt;<span class="title">uses-permission</span> <span class="dark_purple">android:name</span>=<span
+               class="green">"android.permission.ACCESS_NETWORK_STATE"</span>
+            /&gt;<br/>&#160;&#160;&#160;&#160;&lt;<span class="title">uses-permission</span> <span class="dark_purple">android:name</span>=<span
+               class="green">"android.permission.ACCESS_SUPERUSER"</span> /&gt;<br/>&#160;&#160;&#160;&#160;&lt;<span
+               class="title">uses-permission</span> <span class="dark_purple">android:name</span>=<span class="green">"android.permission.WAKE_LOCK"</span>
+            /&gt;<br/>&#160;&#160;&#160;&#160;&lt;<span class="title">uses-permission</span> <span class="dark_purple">android:name</span>=<span
+               class="green">"android.permission.WRITE_EXTERNAL_STORAGE"</span>
+            /&gt;<br/>&#160;&#160;&#160;&#160;&lt;<span class="title">uses-permission</span> <span class="dark_purple">android:name</span>=<span
+               class="green">"android.permission.RECEIVE_BOOT_COMPLETED"</span>
+            /&gt;<br/>&#160;&#160;&#160;&#160;&lt;<span class="title">uses-permission</span> <span class="dark_purple">android:name</span>=<span
+               class="green">"android.permission.ACCESS_WIFI_STATE"</span> /&gt;<br/>&#160;&#160;&#160;&#160;&lt;<span
+               class="title">uses-permission</span> <span class="dark_purple">android:name</span>=<span class="green">"android.permission.BLUETOOTH"</span>
+            /&gt;<br/> <span
+               class="red">&lt;!-- REPLACE&#160;PACKAGE&#160;NAME&#160;IN&#160;FOLLOWING&#160;LINE --&gt;</span><br/>&#160;&#160;&#160;&#160;&lt;<span
+               class="title">permission</span> <span class="dark_purple">android:name</span>=<span class="green">"your.package.name.here.permission.C2D_MESSAGE"</span><br/>
+            <span class="dark_purple">android:protectionLevel</span>=<span class="green">"signature"</span> /&gt;<br/> <span
+               class="red">&lt;!-- REPLACE&#160;PACKAGE&#160;NAME&#160;IN&#160;FOLLOWING&#160;LINE --&gt;</span><br/>&#160;&#160;&#160;&#160;&lt;<span
+               class="title">uses-permission</span> <span class="dark_purple">android:name</span>=<span class="green">"your.package.name.here.permission.C2D_MESSAGE"</span>
+            /&gt;<br/>&#160;&#160;&#160;&#160;&lt;<span class="title">uses-permission</span> <span class="dark_purple">android:name</span>=<span
+               class="green">"com.google.android.c2dm.permission.RECEIVE"</span> /&gt;<br/> <span class="green">&lt;!-- RECEIVERS --&gt;</span><br/><br/>&#160;&#160;&#160;&#160;&lt;<span
+               class="title">receiver</span> <span class="dark_purple">android:name</span>=<span class="green">"com.moki.aem.receivers.BootReceiver"</span>
+            &gt;<br/><br/>&#160;&#160;&#160;&#160;&lt;<span class="title">intent-filter</span>&gt;<br/><br/>&#160;&#160;&#160;&#160;&lt;<span
+               class="title">action</span> <span class="dark_purple">android:name</span>=<span class="green">"android.intent.action.BOOT_COMPLETED"</span>
+            /&gt;<br/>&#160;&#160;&#160;&#160;&lt;/<span class="title">intent-filter</span>&gt;<br/><br/>&#160;&#160;&#160;&#160;&lt;/<span
+               class="title">receiver</span>&gt;<br/>&#160;&#160;&#160;&#160;&lt;<span
+               class="title">receiver</span><br/> <span class="dark_purple">android:name</span>=<span class="green">"com.moki.aem.receivers.LogAlarmReceiver"</span><br/>
+            <span class="dark_purple">android:exported</span>=<span class="green">"false"</span> /&gt;<br/>&#160;&#160;&#160;&#160;&lt;<span
+               class="title">receiver</span><br/> <span class="dark_purple">android:name</span>=<span class="green">"com.moki.aem.receivers.StatusAlarmReceiver"</span><br/>
+            <span class="dark_purple">android:exported</span>=<span class="green">"false"</span> /&gt;<br/>&#160;&#160;&#160;&#160;&lt;<span
+               class="title">receiver</span><br/> <span class="dark_purple">android:name</span>=<span class="green">"com.moki.aem.receivers.StoreLogsAlarmReceiver"</span><br/>
+            <span class="dark_purple">android:exported</span>=<span class="green">"false"</span> /&gt;<br/>&#160;&#160;&#160;&#160;&lt;<span
+               class="title">receiver</span><br/> <span class="dark_purple">android:name</span>=<span class="green">"com.moki.aem.receivers.HeartBeatAlarmReceiver"</span><br/>
+            <span class="dark_purple">android:exported</span>=<span class="green">"false"</span> /&gt;<br/>&#160;&#160;&#160;&#160;&lt;<span
+               class="title">receiver</span><br/> <span class="dark_purple">android:name</span>=<span class="green">"com.moki.appregistration.receiver.NotificationReceiver"</span><br/>
+            <span class="dark_purple">android:exported</span>=<span class="green">"false"</span> &gt;<br/><br/>&#160;&#160;&#160;&#160;&lt;<span
+               class="title">intent-filter</span>&gt;<br/><br/>&#160;&#160;&#160;&#160;&lt;<span
+               class="title">action</span> <span class="dark_purple">android:name</span>=<span class="green">"com.moki.manage.MokiManangeAction"</span>
+            /&gt;<br/>&#160;&#160;&#160;&#160;&lt;/<span class="title">intent-filter</span>&gt;<br/><br/>&#160;&#160;&#160;&#160;&lt;/<span
+               class="title">receiver</span>&gt;<br/>&#160;&#160;&#160;&#160;&lt;<span
+               class="title">receiver</span><br/> <span class="dark_purple">android:name</span>=<span class="green">"com.google.android.c2dm.C2DMBroadcastReceiver"</span><br/>
+            <span class="dark_purple">android:permission</span>=<span class="green">"com.google.android.c2dm.permission.SEND"</span>
+            &gt;<br/><br/>&#160;&#160;&#160;&#160;&lt;<span class="title">intent-filter</span>&gt;<br/><br/>&#160;&#160;&#160;&#160;&lt;<span
+               class="title">action</span> <span class="dark_purple">android:name</span>=<span class="green">"com.google.android.c2dm.intent.RECEIVE"</span>
+            /&gt;<br/> <span
+               class="red">&lt;!-- REPLACE&#160;PACKAGE&#160;NAME&#160;IN&#160;FOLLOWING&#160;LINE --&gt;</span><br/>&#160;&#160;&#160;&#160;&lt;<span
+               class="title">category</span> <span class="dark_purple">android:name</span>=<span class="green">"your.package.name.here"</span>
+            /&gt;<br/>&#160;&#160;&#160;&#160;&lt;/<span class="title">intent-filter</span>&gt;<br/><br/>&#160;&#160;&#160;&#160;&lt;<span
+               class="title">intent-filter</span>&gt;<br/><br/>&#160;&#160;&#160;&#160;&lt;<span
+               class="title">action</span> <span class="dark_purple">android:name</span>=<span class="green">"com.google.android.c2dm.intent.REGISTRATION"</span>
+            /&gt;<br/> <span
+               class="red">&lt;!-- REPLACE&#160;PACKAGE&#160;NAME&#160;IN&#160;FOLLOWING&#160;LINE --&gt;</span><br/>&#160;&#160;&#160;&#160;&lt;<span
+               class="title">category</span> <span class="dark_purple">android:name</span>=<span class="green">"your.package.name.here"</span>
+            /&gt;<br/>&#160;&#160;&#160;&#160;&lt;/<span class="title">intent-filter</span>&gt;<br/><br/>&#160;&#160;&#160;&#160;&lt;/<span
+               class="title">receiver</span>&gt;<br/>&#160;&#160;&#160;&#160;&lt;<span
+               class="title">receiver</span><br/> <span class="dark_purple">android:name</span>=<span class="green">"com.moki.aem.receivers.AEMCommandReceiver"</span><br/>
+            <span class="dark_purple">android:exported</span>=<span class="green">"false"</span> &gt;<br/><br/>&#160;&#160;&#160;&#160;&lt;<span
+               class="title">intent-filter</span>&gt;<br/><br/>&#160;&#160;&#160;&#160;&lt;<span
+               class="title">action</span> <span class="dark_purple">android:name</span>=<span class="green">"com.moki.aem.aemCommandIntent"</span>
+            /&gt;<br/>&#160;&#160;&#160;&#160;&lt;/<span class="title">intent-filter</span>&gt;<br/><br/>&#160;&#160;&#160;&#160;&lt;/<span
+               class="title">receiver</span>&gt;<br/>&#160;&#160;&#160;&#160;&lt;<span class="title">service</span>
+            <span class="dark_purple">android:name</span>=<span class="green">"com.moki.appregistration.C2DMReceiver"</span>
+            /&gt;<br/>&#160;&#160;&#160;&#160;&lt;<span class="title">service</span><br/> <span class="dark_purple">android:name</span>=<span
+               class="green">"com.moki.aem.utils.LoggingService"</span>
+            /&gt;<br/>
+         </p>
+         <h2><a name="Android_Step3"></a>Step 3: Extend the Application Class</h2>
+         <p>While you can do the following in an activity, we recommend that you create a custom Application class. This
+            class will help you maintain a global application state.
+         </p>
+         <ol>
+            <li value="1">
+               Import the <span class="VariablesMokiManage">MokiManage</span> SDK in your <span class="attribute">CustomApplication.java</span>
+               file:
+               <p class="example">import com<span class="teal">.moki.manage.api.MokiManage</span>;</p>
+            </li>
+            <li value="2">
+               Create constants for your app key and tenant ID: 
+               <p class="example"><span class="light_purple">private static final</span>
+                  String APP_KEY = <span class="red">"whatever-your-appk-eyis-useitherenow"</span>;<br/> <span
+                     class="light_purple">private static final</span> String TENANT_ID = <span class="red">"whatever-your-tennat-id-is-useitherenow"</span>;
+               </p>
+            </li>
+            <li value="3">
+               Initiate the session with the <span class="VariablesMokiManage">MokiManage</span> SDK from the <span
+                  class="attribute">onCreate</span> function of your <span class="attribute">CustomApplication.java</span>
+               file:
+               <p class="example"><span class="light_purple">public class</span> <span
+                  class="title">CustomApplication</span> <span class="light_purple">extends</span> <span class="title">Application</span>
+                  <span class="light_purple">implements</span> <span
+                     class="title">Application.ActivityLifecycleCallbacks</span> {<br/> <span class="light_purple">private</span> MokiManage mmanage;<br/>
+                  <span class="light_purple">private int</span> activeActivityCount = <span class="blue">0</span>;<br/> <span
+                     class="light_purple">private final boolean</span> enableASM = <span
+                     class="light_purple">false</span>;<br/> <span class="light_purple">private final boolean</span>
+                  enableAEM = <span class="light_purple">true</span>;<br/> <span
+                     class="light_purple">private final boolean</span> enableCompliance = <span class="light_purple">false</span>;<br/>
+                  <span class="light_purple">private final</span> String appKey = <span class="red">"&lt;YOUR APP KEY HERE&gt;"</span>;<br/>
+                  <span class="light_purple">private final</span> String appID = <span
+                     class="red">"&lt;YOUR APP ID HERE&gt;"</span>;<br/>
+                  <span class="light_purple">private static final</span> Application instance;<br/><br/>
+                  <span class="annotation">@Override</span><br/>
+                  <span class="light_purple">public void</span> onCreate()
+                  {<br/> <span class="light_purple">super</span>.onCreate();<br/>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Context
+                  context = <span class="dark_purple">this</span>;<br/>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;mmanage
+                  = MokiManage.sharedInstance(appKey, appID, context, enableASM, enableAEM, enableCompliance);<br/>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;registerActivityLifecycleCallbacks(<span
+                     class="dark_purple">this</span>);<br/>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;instance =
+                  <span class="dark_purple">this</span>;<br/>&#160;&#160;&#160;&#160;}<br/><br/> <span class="light_purple">public static</span>
+                  Application instance(){<br/> <span class="light_purple">return</span> instance;<br/>&#160;&#160;&#160;&#160;}<br/><br/>
+                  <span class="light_purple">public</span> MokiManage mokiManage(){<br/> <span
+                     class="light_purple">return</span> mmanage;<br/>&#160;&#160;&#160;&#160;}<br/> <span
+                     class="annotation">@Override</span><br/> <span class="light_purple">public void</span>
+                  onActivityStarted(Activity activity) {<br/>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;activeActivityCount++;<br/>
+                  <span class="light_purple">if</span>(activeActivityCount == <span class="blue">1</span>){<br/>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;mmanage.resume();<br/>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;}<br/>&#160;&#160;&#160;&#160;}<br/><br/>&#160;&#160;&#160;&#160;@Override<br/>
+                  <span class="light_purple">public void</span> onActivityStopped(Activity activity) {<br/>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;activeActivityCount--;<br/>
+                  <span class="light_purple">if</span>(activeActivityCount == <span class="blue">0</span>){<br/>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;mmanage.pause();<br/>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;}<br/>&#160;&#160;&#160;&#160;}<br/>&#160;<br/>
+                  <span class="annotation">@Override</span><br/> <span class="light_purple">public void</span>
+                  onActivityCreated(Activity activity, Bundle savedInstanceState) {<br/>&#160;&#160;&#160;&#160;}<br/><br/>
+                  <span class="annotation">@Override</span><br/> <span class="light_purple">public void</span>
+                  onActivityDestroyed(Activity activity) {<br/>&#160;&#160;&#160;&#160;}<br/><br/> <span class="annotation">@Override</span><br/>
+                  <span class="light_purple">public void</span> onActivityPaused(Activity activity) {<br/>&#160;&#160;&#160;&#160;}<br/><br/>
+                  <span class="annotation">@Override</span><br/> <span class="light_purple">public void</span>
+                  onActivityResumed(Activity activity) {<br/>&#160;&#160;&#160;&#160;}<br/><br/> <span class="annotation">@Override</span><br/>
+                  <span class="light_purple">public void</span> onActivitySaveInstanceState(Activity activity, Bundle
+                  outState) {<br/>&#160;&#160;&#160;&#160;}<br/>&#160;&#160;}
+               </p>
+            </li>
+            <li value="4">
+               Include the new class name in your <span class="attribute">AndroidManifest.xml</span> file:
+               <p>
+               <p class="example">&lt;<span class="title">application</span><br/> <span
+                  class="light_purple">android:name</span>=<span class="green">".CustomApplication"</span><br/> <span
+                  class="light_purple">android:icon</span>=<span class="green">"@drawable/icon"</span><br/> <span
+                  class="light_purple">android:label</span>=<span class="green">"@string/app_name"</span><br/> <span
+                  class="light_purple">android:theme</span>=<span class="green">"@android:style/Theme.NoTitleBar.Fullscreen"</span>&gt;</p>
+               </p>
+            </li>
+         </ol>
+         <h2><a name="Android_Step4"></a>Step 4: Configure your app to receive <span
             class="VariablesMokiManage">MokiManage</span> broadcasts</h2>
-
-    <p>The <span class="VariablesMokiManage">MokiManage</span> SDK will broadcast notifications in five different
-        scenarios that your application will need to receive. Those scenarios are as follows:</p>
-    <ul>
-        <li value="1"><span class="attribute">SETTINGS_PUSH_COMPLETED_NOTIFICATION</span>
-        </li>
-        <li value="2"><span class="attribute">SETTINGS_PULL_COMPLETED_NOTIFICATION</span>
-        </li>
-        <li value="3"><span class="attribute">REGISTRATION_COMPLETED_NOTIFICATION</span> <![CDATA[ ]]></li>
-        <li value="4"><span class="attribute">UNREGISTRATION_COMPLETED_NOTIFICATION</span>
-        </li>
-        <li value="5"><span class="attribute">REGISTER_TO_A_NEW_TENANT_COMPLETED_NOTIFICATION</span> <![CDATA[ ]]></li>
-    </ul>
-    <p>You can handle these notifications by creating a new <span class="attribute">BroadcastReceiver</span>. Make sure
-        you declare the following constants for the broadcasts: </p>
-
-    <p class="example"><span class="light_purple">public static final</span> String SETTINGS_PUSH_COMPLETED_NOTIFICATION<br/>
-        <span class="light_purple">public static final</span> String SETTINGS_PULL_COMPLETED_NOTIFICATION<br/> <span
-                class="light_purple">public static final</span> String REGISTRATION_COMPLETED_NOTIFICATION<br/> <span
-                class="light_purple">public static final</span> String UNREGISTRATION_COMPLETED_NOTIFICATION<br/> <span
-                class="light_purple">public static final</span> String REGISTER_TO_A_NEW_TENANT_COMPLETED_NOTIFICATION
-    </p>
-
-    <p class="example">BroadcastReceiver mokiManageReciever = new BroadcastReceiver() {<br/><br/>&#160;&#160;&#160;&#160;@Override<br/>
-        <span class="light_purple">public void</span> onReceive(Context context, Intent intent) {<br/> <span
-                class="light_purple">if</span> (intent.<span class="teal">getAction</span>().<span
-                class="teal">equals</span>(MokiManage.<span class="teal">REGISTRATION_COMPLETED_NOTIFICATION</span>))
-        {<br/> <span class="green">//TODO: handle this as needed</span><br/>&#160;&#160;&#160;&#160;} <span
-                class="light_purple">else if</span> (intent.<span class="teal">getAction</span>().<span class="teal">equals</span>(MokiManage.<span
-                class="teal">UNREGISTRATION_COMPLETED_NOTIFICATION</span>)) {<br/> <span class="green">//TODO: handle this as needed</span><br/>&#160;&#160;&#160;&#160;}
-        <span class="light_purple">else if</span> (intent.<span class="teal">getAction</span>().<span class="teal">equals</span>(MokiManage.<span
-                class="teal">REGISTER_TO_A_NEW_TENANT_COMPLETED_NOTIFICATION</span>)) {<br/> <span class="green">//TODO: handle this as needed</span><br/>&#160;&#160;&#160;&#160;}
-        <span class="light_purple">else if</span> (intent.<span class="teal">getAction</span>().<span class="teal">equals</span>(MokiManage.<span
-                class="teal">SETTINGS_PULL_COMPLETED_NOTIFICATION</span>)) {<br/> <span class="green">//TODO: handle this as needed</span><br/>&#160;&#160;&#160;&#160;}
-        <span class="light_purple">else if</span> (intent.<span class="teal">getAction</span>().<span class="teal">equals</span>(MokiManage.<span
-                class="teal">SETTINGS_PUSH_COMPLETED_NOTIFICATION</span>)) {<br/> <span class="green">//TODO: handle this as needed</span><br/>&#160;&#160;&#160;&#160;}<br/>&#160;&#160;&#160;&#160;}<br/>&#160;&#160;&#160;&#160;};<br/>&#160;&#160;&#160;&#160;@Override<br/>
-        <span class="light_purple">public void</span> onCreate() {<br/> <span class="light_purple">super</span>.<span
-                class="teal">onCreate</span>();<br/><br/>&#160;&#160;&#160;&#160;mmanage = MokiManage.<span
-                class="teal">sharedInstance</span>(appKey, appID, context, enableASM, enableAEM, enableCompliance);<br/>&#160;&#160;&#160;&#160;registerActivityLifecycleCallbacks(<span
-                class="light_purple">this</span>);<br/>&#160;&#160;&#160;&#160;instance = <span class="light_purple">this</span>;<br/>&#160;&#160;&#160;&#160;registerReceiver(mokiManageReciever,
-        new IntentFilter(MokiManage.<span class="teal">REGISTRATION_COMPLETED_NOTIFICATION</span>));<br/>&#160;&#160;&#160;&#160;registerReceiver(mokiManageReciever,
-        new IntentFilter(MokiManage.<span class="teal">UNREGISTRATION_COMPLETED_NOTIFICATION</span>));<br/>&#160;&#160;&#160;&#160;registerReceiver(mokiManageReciever,
-        new IntentFilter(MokiManage.<span class="teal">REGISTER_TO_A_NEW_TENANT_COMPLETED_NOTIFICATION</span>));<br/>&#160;&#160;&#160;&#160;registerReceiver(mokiManageReciever,
-        new IntentFilter(MokiManage.<span class="teal">SETTINGS_PULL_COMPLETED_NOTIFICATION</span>));<br/>&#160;&#160;&#160;&#160;registerReceiver(mokiManageReciever,
-        new IntentFilter(MokiManage.<span class="teal">SETTINGS_PUSH_COMPLETED_NOTIFICATION</span>));<br/>&#160;&#160;&#160;&#160;}
-    </p>
-
-    <h2><a name="Android_Step5"></a>Step 5: Registering with <span class="VariablesMokiManage">MokiManage</span></h2>
-
-    <p>The next step of the integration process is to add the code that enrolls the device with <span
+         <p>The <span class="VariablesMokiManage">MokiManage</span> SDK will broadcast notifications in five different
+            scenarios that your application will need to receive. Those scenarios are as follows:
+         </p>
+         <ul>
+            <li value="1"><span class="attribute">SETTINGS_PUSH_COMPLETED_NOTIFICATION</span></li>
+            <li value="2"><span class="attribute">SETTINGS_PULL_COMPLETED_NOTIFICATION</span></li>
+            <li value="3">
+               <span class="attribute">REGISTRATION_COMPLETED_NOTIFICATION</span> <![CDATA[ ]]>
+            </li>
+            <li value="4"><span class="attribute">UNREGISTRATION_COMPLETED_NOTIFICATION</span></li>
+            <li value="5">
+               <span class="attribute">REGISTER_TO_A_NEW_TENANT_COMPLETED_NOTIFICATION</span> <![CDATA[ ]]>
+            </li>
+         </ul>
+         <p>You can handle these notifications by creating a new <span class="attribute">BroadcastReceiver</span>. Make sure
+            you declare the following constants for the broadcasts: 
+         </p>
+         <p class="example"><span class="light_purple">public static final</span> String SETTINGS_PUSH_COMPLETED_NOTIFICATION<br/>
+            <span class="light_purple">public static final</span> String SETTINGS_PULL_COMPLETED_NOTIFICATION<br/> <span
+               class="light_purple">public static final</span> String REGISTRATION_COMPLETED_NOTIFICATION<br/> <span
+               class="light_purple">public static final</span> String UNREGISTRATION_COMPLETED_NOTIFICATION<br/> <span
+               class="light_purple">public static final</span> String REGISTER_TO_A_NEW_TENANT_COMPLETED_NOTIFICATION
+         </p>
+         <p class="example">BroadcastReceiver mokiManageReciever = new BroadcastReceiver() {<br/><br/>&#160;&#160;&#160;&#160;@Override<br/>
+            <span class="light_purple">public void</span> onReceive(Context context, Intent intent) {<br/> <span
+               class="light_purple">if</span> (intent.<span class="teal">getAction</span>().<span
+               class="teal">equals</span>(MokiManage.<span class="teal">REGISTRATION_COMPLETED_NOTIFICATION</span>))
+            {<br/> <span class="green">//TODO: handle this as needed</span><br/>&#160;&#160;&#160;&#160;} <span
+               class="light_purple">else if</span> (intent.<span class="teal">getAction</span>().<span class="teal">equals</span>(MokiManage.<span
+               class="teal">UNREGISTRATION_COMPLETED_NOTIFICATION</span>)) {<br/> <span class="green">//TODO: handle this as needed</span><br/>&#160;&#160;&#160;&#160;}
+            <span class="light_purple">else if</span> (intent.<span class="teal">getAction</span>().<span class="teal">equals</span>(MokiManage.<span
+               class="teal">REGISTER_TO_A_NEW_TENANT_COMPLETED_NOTIFICATION</span>)) {<br/> <span class="green">//TODO: handle this as needed</span><br/>&#160;&#160;&#160;&#160;}
+            <span class="light_purple">else if</span> (intent.<span class="teal">getAction</span>().<span class="teal">equals</span>(MokiManage.<span
+               class="teal">SETTINGS_PULL_COMPLETED_NOTIFICATION</span>)) {<br/> <span class="green">//TODO: handle this as needed</span><br/>&#160;&#160;&#160;&#160;}
+            <span class="light_purple">else if</span> (intent.<span class="teal">getAction</span>().<span class="teal">equals</span>(MokiManage.<span
+               class="teal">SETTINGS_PUSH_COMPLETED_NOTIFICATION</span>)) {<br/> <span class="green">//TODO: handle this as needed</span><br/>&#160;&#160;&#160;&#160;}<br/>&#160;&#160;&#160;&#160;}<br/>&#160;&#160;&#160;&#160;};<br/>&#160;&#160;&#160;&#160;@Override<br/>
+            <span class="light_purple">public void</span> onCreate() {<br/> <span class="light_purple">super</span>.<span
+               class="teal">onCreate</span>();<br/><br/>&#160;&#160;&#160;&#160;mmanage = MokiManage.<span
+               class="teal">sharedInstance</span>(appKey, appID, context, enableASM, enableAEM, enableCompliance);<br/>&#160;&#160;&#160;&#160;registerActivityLifecycleCallbacks(<span
+               class="light_purple">this</span>);<br/>&#160;&#160;&#160;&#160;instance = <span class="light_purple">this</span>;<br/>&#160;&#160;&#160;&#160;registerReceiver(mokiManageReciever,
+            new IntentFilter(MokiManage.<span class="teal">REGISTRATION_COMPLETED_NOTIFICATION</span>));<br/>&#160;&#160;&#160;&#160;registerReceiver(mokiManageReciever,
+            new IntentFilter(MokiManage.<span class="teal">UNREGISTRATION_COMPLETED_NOTIFICATION</span>));<br/>&#160;&#160;&#160;&#160;registerReceiver(mokiManageReciever,
+            new IntentFilter(MokiManage.<span class="teal">REGISTER_TO_A_NEW_TENANT_COMPLETED_NOTIFICATION</span>));<br/>&#160;&#160;&#160;&#160;registerReceiver(mokiManageReciever,
+            new IntentFilter(MokiManage.<span class="teal">SETTINGS_PULL_COMPLETED_NOTIFICATION</span>));<br/>&#160;&#160;&#160;&#160;registerReceiver(mokiManageReciever,
+            new IntentFilter(MokiManage.<span class="teal">SETTINGS_PUSH_COMPLETED_NOTIFICATION</span>));<br/>&#160;&#160;&#160;&#160;}
+         </p>
+         <h2><a name="Android_Step5"></a>Step 5: Registering with <span class="VariablesMokiManage">MokiManage</span></h2>
+         <p>The next step of the integration process is to add the code that enrolls the device with <span
             class="VariablesMokiManage">MokiManage</span>. This is done by adding a call to the <span class="attribute">silentlyRegisterDevice</span>
-        method. </p>
-
-    <p class="example">@Override<br/> <span class="light_purple">public void</span> onCreate() {<br/>&#160;&#160;&#160;&#160;super.<span
+            method. 
+         </p>
+         <p class="example">@Override<br/> <span class="light_purple">public void</span> onCreate() {<br/>&#160;&#160;&#160;&#160;super.<span
             class="teal">onCreate</span>();<br/><br/>&#160;&#160;&#160;&#160;mmanage = MokiManage.sharedInstance(appKey,
-        appID, context, enableASM, enableAEM, enableCompliance);<br/>&#160;&#160;&#160;&#160;registerActivityLifecycleCallbacks(<span
-                class="light_purple">this</span>);<br/>&#160;&#160;&#160;&#160;instance = <span class="light_purple">this</span>;<br/><br/>
-        <span class="light_purple">if</span>(!mokiManage.<span class="teal">isRegistered</span>()){<br/>&#160;&#160;&#160;&#160;mokiManage.<span
-                class="teal">silentlyRegisterDevice</span>(TENANT_ID);<br/>&#160;&#160;&#160;&#160;}<br/>}</p>
-
-    <h2><a name="Android_Step6"></a>Step 6: Check the <span class="VariablesMokiManage">MokiManage</span> Console</h2>
-
-    <p>You can now verify that your integration is working. </p>
-    <ol>
-        <li value="1"> Load the app on your device.</li>
-        <li value="2">Sign in to <a href="https://www.mokimanage.com/" target="_blank">mokimanage.com</a>,</li>
-        <li value="3">Click the <b>Change App</b> drop-down at the top left. You should see your application in the
-            drop-down list. (Click picture to see screenshot)<p><a class="MCPopupThumbnailLink MCPopupThumbnailPopup"
-                                                                   href="Images/change_app_screen.png"><img
-                    class="MCPopupThumbnail img " data-mc-width="1143" data-mc-height="658"
-                    src="Images/change_app_screen_thumb_0_48.png" style="mc-thumbnail: popup;"/></a></p>
-
-            <div class="prereqs">
-                <p data-mc-autonum="&lt;b&gt;Note: &lt;/b&gt; "><span class="autonumber"><span><b>Note: </b> <![CDATA[ ]]></span></span>If
-                you do not see your app on the list, contact MokiManage support at 888-997-5505 or <a href="mailto:support@mokimobility.com">support@mokimobility.com</a>.</p>
-            </div>
-
-        </li>
-        <li value="4">Select your app, and your device should be displayed in the list.</li>
-        <li value="5">Select your device.</li>
-    </ol>
-    <p>On the right you should see a tabbed panel showing information about the device you selected. The
-        <b>Dashboard</b> tab shows a graphical representation of the logs the AEM module collects. If you select the <b>Details</b>
-        tab, you’ll see information about your device, such as battery status, network information, and so on.</p>
-
-    <p>All of the device actions represented in the <b>Actions</b> drop-down menu are available without any additional
-        configuration.</p>
-    <hr style="color: #c0c0c0;" width="100%" size="0" align="center"/>
-
-</div>
-</body>
+            appID, context, enableASM, enableAEM, enableCompliance);<br/>&#160;&#160;&#160;&#160;registerActivityLifecycleCallbacks(<span
+               class="light_purple">this</span>);<br/>&#160;&#160;&#160;&#160;instance = <span class="light_purple">this</span>;<br/><br/>
+            <span class="light_purple">if</span>(!mmanage.<span class="teal">isRegistered</span>()){<br/>&#160;&#160;&#160;&#160;mmanage.<span
+               class="teal">silentlyRegisterDevice</span>(TENANT_ID);<br/>&#160;&#160;&#160;&#160;}<br/>}
+         </p>
+         <h2><a name="Android_Step6"></a>Step 6: Check the <span class="VariablesMokiManage">MokiManage</span> Console</h2>
+         <p>You can now verify that your integration is working. </p>
+         <ol>
+            <li value="1"> Load the app on your device.</li>
+            <li value="2">Sign in to <a href="https://www.mokimanage.com/" target="_blank">mokimanage.com</a>,</li>
+            <li value="3">
+               Click the <b>Change App</b> drop-down at the top left. You should see your application in the
+               drop-down list. (Click picture to see screenshot)
+               <p><a class="MCPopupThumbnailLink MCPopupThumbnailPopup"
+                  href="Images/change_app_screen.png"><img
+                  class="MCPopupThumbnail img " data-mc-width="1143" data-mc-height="658"
+                  src="Images/change_app_screen_thumb_0_48.png" style="mc-thumbnail: popup;"/></a></p>
+               <div class="prereqs">
+                  <p data-mc-autonum="&lt;b&gt;Note: &lt;/b&gt; ">
+                     <span class="autonumber">
+                        <span>
+                           <b>Note: </b> <![CDATA[ ]]>
+                        </span>
+                     </span>
+                     If
+                     you do not see your app on the list, contact MokiManage support at 888-997-5505 or <a href="mailto:support@mokimobility.com">support@mokimobility.com</a>.
+                  </p>
+               </div>
+            </li>
+            <li value="4">Select your app, and your device should be displayed in the list.</li>
+            <li value="5">Select your device.</li>
+         </ol>
+         <p>On the right you should see a tabbed panel showing information about the device you selected. The
+            <b>Dashboard</b> tab shows a graphical representation of the logs the AEM module collects. If you select the <b>Details</b>
+            tab, you’ll see information about your device, such as battery status, network information, and so on.
+         </p>
+         <p>All of the device actions represented in the <b>Actions</b> drop-down menu are available without any additional
+            configuration.
+         </p>
+         <hr style="color: #c0c0c0;" width="100%" size="0" align="center"/>
+      </div>
+   </body>
 </html>
