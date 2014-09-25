@@ -195,7 +195,9 @@
             <span class="light_purple">private final</span> String appKey = <span class="red">"&lt;YOUR APP KEY HERE&gt;"</span>;<br/>
             <span class="light_purple">private final</span> String appID = <span
                     class="red">"&lt;YOUR APP ID HERE&gt;"</span>;<br/><br/> <span
-                    class="annotation">@Override</span><br/> <span class="light_purple">public void</span> onCreate()
+                    class="annotation">
+                    <span class="light_purple">private static final</span> Application instance;<br/><br/> <span class="annotation">
+                    @Override</span><br/> <span class="light_purple">public void</span> onCreate()
             {<br/> <span class="light_purple">super</span>.onCreate();<br/>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Context
             context = <span class="dark_purple">this</span>;<br/>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;mmanage
             = MokiManage.sharedInstance(appKey, appID, context, enableASM, enableAEM, enableCompliance);<br/>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;registerActivityLifecycleCallbacks(<span
