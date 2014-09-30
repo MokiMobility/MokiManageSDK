@@ -1,4 +1,13 @@
 # MokiManageSDK
+## 1.2.6
+
+### iOS
+[Download](https://github.com/MokiMobility/MokiManageSDK/tree/1.2.6)
+ * addressed ios 8 change in registering for push notifications
+ * addressed ios 8 change in view hierarchy that affected settings views
+ * bug fixes to screenshot that includes all views in the window, not just the view of the root view controller
+ * improved settings conflict resolution
+
 ## 1.2.5
 
 ### iOS
