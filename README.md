@@ -1,5 +1,5 @@
-Getting Started with the Android MokiManage SDK
-================================================
+Android MokiManage SDK Getting Started
+======================================
 
 ##Installation
 
