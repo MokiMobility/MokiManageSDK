@@ -120,7 +120,7 @@ The best place to do this is in your extended Application class.
 
 1. Access your api key, tenant id, and app id
 
-	These can be found on mokimanage.com and coorelate to your account.
+	These can be found on [mokimanage.com](https://www.mokimanage.com/app#settings/devSettings) and correlate to your account.
 	
 		public static final String API_KEY = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx";
 	    public static final String APP_ID = "xxxxxxxxxx";
