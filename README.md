@@ -19,13 +19,13 @@ Android MokiManage SDK Getting Started
 
 2. Include this dependency:
 
-		compile 'sdk-android:moki-sdk:1.2.2'
+		compile 'com.moki:manage-sdk:1.2.2'
 	
 	It may look something like this  
 	
      	dependencies {
         	compile fileTree(dir: 'libs', include: ['*.jar'])
-        	compile 'sdk-android:moki-sdk:1.2.2'
+        	compile 'com.moki:manage-sdk:1.2.2'
         }
  
 ###AndroidManifest.xml
