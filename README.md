@@ -1,4 +1,10 @@
 # MokiManageSDK
+## 1.2.7
+
+### iOS
+[Download](https://github.com/MokiMobility/MokiManageSDK/tree/1.2.7)
+ * bug fixed that allows clients to access custom action command in the userInfo
+ 
 ## 1.2.6
 
 ### iOS
