@@ -4,6 +4,7 @@
 ### iOS
 [Download](https://github.com/MokiMobility/MokiManageSDK/tree/1.2.7)
  * bug fixed that allows clients to access custom action command in the userInfo
+ * addressed ios 8 change in location services
  
 ## 1.2.6
 
