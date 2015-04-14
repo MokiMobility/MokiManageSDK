@@ -7,25 +7,25 @@ Android MokiManage SDK Getting Started
 
 1. Include this repository:
 
-		maven { url 'http://mvn.mokimobility.com:8081/nexus/content/repositories/releases/' }
+		maven { url 'https://raw.github.com/MokiMobility/MokiManageSDK-Android/master/' }
 
 	It may look something like this
 
 		repositories {
- 			maven { url 'http://mvn.mokimobility.com:8081/nexus/content/repositories/releases/' }
+ 			maven { url 'https://raw.github.com/MokiMobility/MokiManageSDK-Android/master/' }
 	    	mavenLocal()
 		   	mavenCentral()
 		}
 
 2. Include this dependency:
 
-		compile 'com.moki:manage-sdk:1.2.2'
+		compile 'com.moki:manage-sdk:1.2.4'
 	
 	It may look something like this  
 	
      	dependencies {
         	compile fileTree(dir: 'libs', include: ['*.jar'])
-        	compile 'com.moki:manage-sdk:1.2.2'
+        	compile 'com.moki:manage-sdk:1.2.4'
         }
  
 ###AndroidManifest.xml
