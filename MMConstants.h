@@ -56,11 +56,15 @@ extern NSString *const MMApplicationDidPushSettingsNotification;
 extern NSString *const MMApplicationDidFailToPullSettingsNotification;
 extern NSString *const MMApplicationDidFailToPushSettingsNotification;
 
+extern NSString *const MMApplicationDidUpdateTagsNotification;
+
 extern NSString *const MMApplicationDidChangeSettingsNotification;
 
 extern NSString *const MMApplicationDidRecieveCustomActionNotification;
 extern NSString *const MMApplicationDidReceiveActionNotification;
 extern NSString *const MMApplicationDidRecieveDisableApplicationNotification;
+
+extern NSString *const MMHeartbeatDidRunNotification;
 
 extern NSString *const MMNotificationErrorKey;
 extern NSString *const MMNotificationChangedValueKeysKey;

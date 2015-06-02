@@ -163,7 +163,7 @@
  */
 
 @property (weak, nonatomic) id<MokiManageDelegate> delegate;
-@property NSString *deviceId;
+@property (nonatomic) NSString *deviceId;
 
 ///---------------------------------------------------------------------------------------
 /// @name Shared Manager
@@ -717,6 +717,17 @@
  
  */
 - (void)addTags:(NSArray *)tags;
+
+/** Gets the array of strings from the device object
+ 
+ Gets the array of strings from the device object that have been added on the device or on the web.
+ 
+ **Usage**
+ 
+ NSArray *tags = [[MokiManage sharedManager] tags];
+ 
+ */
+- (NSArray *)tags;
 
 /** Returns a dictionary of the meta data for the device  (Deprecated in 2.0. Use the method customDataValueForKey: instead.)
  

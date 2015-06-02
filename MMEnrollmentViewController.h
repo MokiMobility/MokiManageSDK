@@ -24,5 +24,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *enrollButtonLabel;
 @property (unsafe_unretained, nonatomic) IBOutlet UITableViewCell *submitCell;
 @property (weak, nonatomic) IBOutlet UITableViewCell *supportNumberCell;
+@property (weak, nonatomic) IBOutlet UILabel *singleAppModeLabel;
 
 @end
