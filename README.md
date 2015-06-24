@@ -1,4 +1,19 @@
 # MokiManageSDK
+
+## 1.2.9
+
+### iOS
+[Download](https://github.com/MokiMobility/MokiManageSDK/tree/1.2.9)
+ * bug fixed that allows followme to work
+
+## 1.2.8
+
+### iOS
+[Download](https://github.com/MokiMobility/MokiManageSDK/tree/1.2.8)
+ * bug fixed
+ * optimizations to logs that build up
+ * updated to AFNetworking 2+
+
 ## 1.2.7
 
 ### iOS
