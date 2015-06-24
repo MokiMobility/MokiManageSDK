@@ -64,6 +64,8 @@ extern NSString *const MMApplicationDidRecieveCustomActionNotification;
 extern NSString *const MMApplicationDidReceiveActionNotification;
 extern NSString *const MMApplicationDidRecieveDisableApplicationNotification;
 
+extern NSString *const MMApplicationNetworkReachabilityDidChangeNotification;
+
 extern NSString *const MMHeartbeatDidRunNotification;
 
 extern NSString *const MMNotificationErrorKey;

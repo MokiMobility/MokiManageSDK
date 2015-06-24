@@ -42,7 +42,7 @@ Pod::Spec.new do |s|
 	s.dependency 'MBProgressHUD', '~> 0.8'
 	s.dependency 'Reachability', '~> 3.1.1'
 	s.dependency 'FXBlurView', '~> 1.5.3'
-	s.dependency 'GoogleAnalytics-iOS-SDK', '~> 3.0'
+	s.dependency 'GoogleAnalytics', '~> 3.0'
 	s.dependency 'CocoaAsyncSocket', '~> 7.4'
 	s.dependency 'AFNetworking', '~> 2.2'
 	
