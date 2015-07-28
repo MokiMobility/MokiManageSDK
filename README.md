@@ -4,7 +4,7 @@
 
 ### iOS
 [Download](https://github.com/MokiMobility/MokiManageSDK/tree/1.2.10)
- * bug fixed tahat causes crashes when app is running on iOS 9
+ * bug fixed that causes crashes when app is running on iOS 9
  
 ## 1.2.9
 
