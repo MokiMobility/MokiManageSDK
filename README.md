@@ -1,5 +1,11 @@
 # MokiManageSDK
 
+## 1.2.11
+
+### iOS
+[Download](https://github.com/MokiMobility/MokiManageSDK/tree/1.2.11)
+ * bug fixes for network reports, performance sessions, and enrollment
+
 ## 1.2.10
 
 ### iOS
