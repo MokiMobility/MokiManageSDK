@@ -108,20 +108,12 @@ typedef enum {
  */
 @property(nonatomic, strong) NSMutableArray *appDefinedURLs;
 
-/** A method to manually trigger a basic report with a callback
- 
- Calling run will run a network report and report the results to the server tied to the enrolled user and then triggers the callback block to allow the developer to implement additional logic based on the results.
- The report will be saved locally and sent to the MokiManage server
- */
-- (void)runBasicWithCompletionBlock:(void (^)(BOOL succeeded))block;
-
-
 /** A method to manually trigger an advanced report with a callback
  
  Calling run will run a network report and report the results to the server tied to the enrolled user and then triggers the callback block to allow the developer to implement additional logic based on the results.
  The report will be saved locally and sent to the MokiManage server
  */
-- (void)runAdvancedWithCompletionBlock:(void (^)(BOOL succeeded))block;
+- (void)runWithCompletionBlock:(void (^)(BOOL succeeded))block;
 
 /** Adds URL to list of URLs to check and report on
  
@@ -149,20 +141,4 @@ typedef enum {
  */
 +(void) downloadAndReplaceReportHistory:(void (^)(BOOL succeeded))block;
 
-
-/** Returns the lastest Network Report object
- 
- Network Reports are run every heartbeat and can also be run manually. This method will return the last one run, regardless of which method triggered it.
- 
- */
-+(MMNetworkReport *)latestNetworkReport;
-
-/** Returns a list of network reports
- 
- Returns an array of previously run network reports.  Each report is saved as a dictionary with the latest being first in the list.
- */
-+(NSArray *)networkReportHistory;
-
-- (NSDictionary *)encode;
-+ (MMNetworkReport *)decode:(NSDictionary *)dictionary;
 @end
