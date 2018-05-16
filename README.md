@@ -1,5 +1,11 @@
 # MokiManageSDK
 
+## 1.2.12
+
+### iOS
+[Download](https://github.com/MokiMobility/MokiManageSDK/tree/1.2.12)
+ * bug fixes to update jailbreak detection
+
 ## 1.2.11
 
 ### iOS
